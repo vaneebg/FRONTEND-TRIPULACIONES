@@ -7,6 +7,7 @@ import Home from './components/Home/Home';
 import Main from './components/Main/Main';
 // import PrivateZone from './guards/PrivateZone';
 import "antd/dist/antd.css";
+import Profile from './components/Main/Profile/Profile';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/main" element={<Main/>}/>
+        <Route path="/profile" element={<Profile/>}/>
 
         </Routes>
         <Footer/>
