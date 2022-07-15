@@ -1,13 +1,12 @@
-import Login from "./Login/Login"
-import Register from "./Register/Register"
+import Login from './Login/Login';
 
 const Home = () => {
-  return (<>
-    <div>Home</div>
-    <Login/>
-    <Register/>
+  return (
+    <>
+      <div>Home</div>
+      <Login />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
