@@ -7,7 +7,9 @@ const initialState = {
   user: user ? user : null,
   isError: false,
   isSuccess: false,
+  isSuccessLogout: false,
   message: '',
+  messageLogout: '',
 };
 
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
@@ -33,6 +35,26 @@ export const register = createAsyncThunk(
   }
 );
 
+export const myInfo = createAsyncThunk("auth/myInfo", async (thunkAPI) => {
+  try {
+    return await authService.myInfo(user);
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data.message;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
+export const logout = createAsyncThunk("auth/logout", async (thunkAPI) => {
+  try {
+    return await authService.logout();
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -41,6 +63,7 @@ export const authSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
       state.message = '';
+      state.isSuccessLogout = false;
     },
   },
   extraReducers: builder => {
@@ -52,7 +75,7 @@ export const authSlice = createSlice({
       })
       .addCase(login.rejected, (state, action) => {
         state.isError = true;
-        state.message = action.payload;
+        state.message = action.payload.message;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isSuccess = true;
@@ -61,7 +84,15 @@ export const authSlice = createSlice({
       .addCase(register.rejected, (state, action) => {
         state.isError = true;
         // state.message = action.payload;
-      });
+      })
+      .addCase(myInfo.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
+      .addCase(logout.fulfilled, (state, action) => {
+        console.log(action.payload)
+        state.user = null;
+        state.messageLogout = action.payload.message;
+      })
   },
 });
 
