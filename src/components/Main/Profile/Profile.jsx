@@ -34,7 +34,7 @@ console.log(user)
             color: 'white',
           }} /></Link>
         </Tooltip>
-        {user.imagepath ? <img src={URL + "/images/users/" + user.imagepath} alt='' /> : null}
+        {user.imagepath ? <img src={URL + "/users/" + user.imagepath} alt='' /> : null}
         {user.name} <br />
         {user.genre}
         <Link to="/" onClick={onLogout}><PoweroffOutlined /></Link>
