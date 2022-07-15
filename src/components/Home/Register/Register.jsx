@@ -32,6 +32,9 @@ const Register = () => {
   useEffect(() => {
     if (isSuccess) {
       notification.success({ message: 'Éxito register', description: message });
+      setTimeout(() => {
+        navigate('/')
+      }, 1000);
     }
     if (isError) {
       notification.error({ message: 'Error register', description: message });
@@ -60,10 +63,7 @@ const Register = () => {
       formData.set('password', e.target.password.value);
       dispatch(register(formData));
       setFormData(initialState);
-      setTimeout(() => {
-        navigate('/')
-
-      }, 1000);
+     
     }
   };
   return (

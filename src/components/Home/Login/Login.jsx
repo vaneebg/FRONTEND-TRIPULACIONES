@@ -32,6 +32,9 @@ const navigate=useNavigate()
     }
     if (isSuccess) {
       notification.success({ message: 'Éxito', description: message });
+      setTimeout(() => {
+        navigate('/main')
+      }, 3000);
     }
     dispatch(reset());
   }, [isError, isSuccess, message, messageLogout, messageDelete]);
@@ -45,9 +48,7 @@ const navigate=useNavigate()
   const onSubmit = e => {
     e.preventDefault();
     dispatch(login(formData));
-    setTimeout(() => {
-      navigate('/main')
-    }, 3000);
+   
   };
 
   return (

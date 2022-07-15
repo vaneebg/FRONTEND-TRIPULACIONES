@@ -89,11 +89,11 @@ export const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isSuccess = true;
-        // state.message = action.payload.message;
+        state.message = action.payload.message;
       })
       .addCase(register.rejected, (state, action) => {
         state.isError = true;
-        // state.message = action.payload;
+        state.message = action.payload.message;
       })
       .addCase(myInfo.fulfilled, (state, action) => {
         state.user = action.payload;
