@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 import { notification, Input } from 'antd';
 import { register, reset } from '../../../features/auth/authSlice';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const initialState = {
@@ -23,6 +24,7 @@ const Register = () => {
 
   const { name, email, password, password2, genre, imageUser } = formData;
 
+  const navigate=useNavigate()
   const dispatch = useDispatch();
 
   const { isError, isSuccess, message } = useSelector(state => state.auth);
@@ -58,6 +60,10 @@ const Register = () => {
       formData.set('password', e.target.password.value);
       dispatch(register(formData));
       setFormData(initialState);
+      setTimeout(() => {
+        navigate('/')
+
+      }, 3000);
     }
   };
   return (

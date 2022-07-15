@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Input, notification } from 'antd';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { login, reset } from '../../../features/auth/authSlice';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const initialState = {
@@ -16,7 +16,7 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const { isError, isSuccess, message } = useSelector(state => state.auth);
-
+const navigate=useNavigate()
   useEffect(() => {
     if (isError) {
       notification.error({ message: 'Error', description: message });
@@ -36,6 +36,9 @@ const Login = () => {
   const onSubmit = e => {
     e.preventDefault();
     dispatch(login(formData));
+    setTimeout(() => {
+      navigate('/main')
+    }, 3000);
   };
 
   return (
