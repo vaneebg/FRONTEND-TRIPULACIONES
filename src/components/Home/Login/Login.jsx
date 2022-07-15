@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Input} from 'antd'
+import { useState , useEffect} from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+import { Input, notification} from 'antd'
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
+import { login ,reset} from '../../../features/auth/authSlice';
 
 const Login = () => {
   const initialState = {
@@ -14,7 +15,18 @@ const Login = () => {
   const { email, password } = formData;
 
   const dispatch = useDispatch();
+  const { isError, isSuccess, message } = useSelector((state) => state.auth);
 
+  useEffect(() => {
+    if (isError) {
+      notification.error({ message: "Error", description: message });
+    }
+    if (isSuccess) {
+      notification.success({ message: "Éxito", description: message });
+     
+    }
+    dispatch(reset());
+  }, [isError, isSuccess, message]);
 
 
   const onChange = (e) => {
@@ -25,7 +37,7 @@ const Login = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault()
-    // dispatch(login(formData));
+    dispatch(login(formData));
   }
 
   return (
