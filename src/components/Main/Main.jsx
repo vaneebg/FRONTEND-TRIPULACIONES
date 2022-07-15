@@ -11,6 +11,7 @@ import {
   import React, { useState } from 'react';
   
 import {Link} from 'react-router-dom'
+import Routes from './Routes/Routes';
 
 
 const Main = () => {
@@ -26,7 +27,7 @@ const Main = () => {
       
       const items = [
         getItem('Option 1', '1',<Link to='/profile'> <PieChartOutlined /></Link>),
-        // getItem('Option 2', '2', <DesktopOutlined />),
+        getItem('Option 2', '2', <Link to ='/quiz'><DesktopOutlined /></Link>),
         // getItem('Option 3', '3', <ContainerOutlined />),
         // getItem('Navigation One', 'sub1', <MailOutlined />, [
         //   getItem('Option 5', '5'),
@@ -50,7 +51,7 @@ const Main = () => {
 
 
 
-  return (
+  return (<>
   
       <div
         style={{
@@ -75,6 +76,8 @@ const Main = () => {
           items={items}
         />
       </div>
+      <Routes/>
+      </>
     );
   };
     
