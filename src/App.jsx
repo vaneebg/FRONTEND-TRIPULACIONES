@@ -15,7 +15,7 @@ function App() {
         <Header />
         <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/main" element={<PrivateZone><Main/></PrivateZone>}/>
+        <Route path="/main" element={<Main/>}/>
 
         </Routes>
         <Footer/>
