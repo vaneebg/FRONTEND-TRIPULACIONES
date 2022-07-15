@@ -18,11 +18,14 @@ const Login = () => {
 
 
   const dispatch = useDispatch();
-  const { isError, isSuccess, message, messageLogout } = useSelector((state) => state.auth);
+  const { isError, isSuccess, message, messageLogout , messageDelete} = useSelector((state) => state.auth);
 const navigate=useNavigate()
   useEffect(() => {
     if (messageLogout) {
       notification.success({ message: "Éxito", description: messageLogout });
+    }
+    if (messageDelete) {
+      notification.success({ message: "Éxito", description: messageDelete});
     }
     if (isError) {
       notification.error({ message: 'Error', description: message });
@@ -31,7 +34,7 @@ const navigate=useNavigate()
       notification.success({ message: 'Éxito', description: message });
     }
     dispatch(reset());
-  }, [isError, isSuccess, message, messageLogout]);
+  }, [isError, isSuccess, message, messageLogout, messageDelete]);
 
   const onChange = e => {
     setFormData(prevState => ({

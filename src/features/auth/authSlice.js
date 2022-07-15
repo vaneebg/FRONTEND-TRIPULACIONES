@@ -7,7 +7,7 @@ const initialState = {
   user: user ? user : null,
   isError: false,
   isSuccess: false,
-  isSuccessLogout: false,
+  messageDelete: '',
   message: '',
   messageLogout: '',
 };
@@ -73,7 +73,7 @@ export const authSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
       state.message = '';
-      state.isSuccessLogout = false;
+      state.messageDelete = ''
     },
   },
   extraReducers: builder => {
@@ -104,7 +104,7 @@ export const authSlice = createSlice({
       })
       .addCase(deleteUser.fulfilled, (state, action) => {
         state.user = null;
-        state.message = action.payload.message;
+        state.messageDelete = action.payload.message;
 
       })
   },
