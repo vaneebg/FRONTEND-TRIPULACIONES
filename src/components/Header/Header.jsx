@@ -33,12 +33,13 @@ const Header = () => {
             type,
         };
     }
-
+  
+    
     const items = [
         getItem('', 'sub1', <MenuUnfoldOutlined />, [
             getItem('', '1', <Link to='/profile'><UserOutlined /></Link>),
             getItem('', '2', <Link to='/quiz'><ReconciliationOutlined /></Link>),
-            getItem('', '3', <Link to='/main'><HomeOutlined /></Link>),
+            getItem('', '3', <Link to='/main'><HomeOutlined /></Link>)
             //   getItem('Option 4', '4'),
         ]),
     ]
