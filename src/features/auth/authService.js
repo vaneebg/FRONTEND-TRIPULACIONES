@@ -40,11 +40,25 @@ const logout = async () => {
   return res.data;
 };
 
+const deleteUser = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.delete(URL + "/users/", {
+    headers: {
+      authorization: user?.user.tokens[0],
+    },
+  });
+  if (res.data) {
+    localStorage.removeItem("user");
+  }
+  return res.data;
+};
+
 const authService = {
   login,
   register,
   myInfo,
-  logout
+  logout,
+  deleteUser
 };
 
 export default authService;

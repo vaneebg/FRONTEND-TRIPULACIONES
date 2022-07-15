@@ -55,6 +55,16 @@ export const logout = createAsyncThunk("auth/logout", async (thunkAPI) => {
   }
 });
 
+export const deleteUser = createAsyncThunk("auth/deleteUser", async (thunkAPI) => {
+  try {
+    return await authService.deleteUser();
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -89,9 +99,13 @@ export const authSlice = createSlice({
         state.user = action.payload;
       })
       .addCase(logout.fulfilled, (state, action) => {
-        console.log(action.payload)
         state.user = null;
         state.messageLogout = action.payload.message;
+      })
+      .addCase(deleteUser.fulfilled, (state, action) => {
+        state.user = null;
+        state.message = action.payload.message;
+
       })
   },
 });
