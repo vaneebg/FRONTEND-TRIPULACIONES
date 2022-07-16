@@ -68,7 +68,7 @@ const Register = () => {
   };
   return (
     <div className='register-container'>
-      <form onSubmit={onSubmit} className='form-login-container'>
+      <form onSubmit={onSubmit} className='form-register-container'>
         <label htmlFor='name'>Nombre de usuario:</label>
         <Input
           prefix={<UserOutlined />}
@@ -131,7 +131,7 @@ const Register = () => {
         />
         <input className='loginBt' type='submit' />
         <span>
-          Si ya tienes una cuenta, <Link to='/'>Login</Link>
+          Si ya tienes una cuenta, <Link to='/login'>Login</Link>
         </span>
       </form>
     </div>

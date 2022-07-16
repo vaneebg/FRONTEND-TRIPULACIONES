@@ -11,6 +11,13 @@
   justify-content: center;
   padding: 5%;
 }
+.form-register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 1rem;
+}
 
 .loginBt {
   padding: 10px;
