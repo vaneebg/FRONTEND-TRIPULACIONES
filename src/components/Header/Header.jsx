@@ -8,7 +8,6 @@ import { Menu } from 'antd';
 import React, { useState } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
-import Routes from '../Main/Routes/Routes';
 
 const Header = () => {
   const rootSubmenuKeys = ['sub1'];
@@ -75,7 +74,6 @@ const Header = () => {
         }}
         items={items}
       />
-      <Routes />
     </>
   );
 };
