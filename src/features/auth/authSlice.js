@@ -5,7 +5,8 @@ const user = JSON.parse(localStorage.getItem('user'));
 
 const initialState = {
   user: user ? user : null,
-  userUpdated: [],
+  userUpdated: {},
+  info:{},
   isError: false,
   isSuccess: false,
   messageDelete: '',
@@ -84,9 +85,7 @@ export const authSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
       state.message = '';
-      state.messageDelete = '';
-      state.messageLogout= '';
-
+      state.messageDelete = ''
     },
   },
   extraReducers: builder => {

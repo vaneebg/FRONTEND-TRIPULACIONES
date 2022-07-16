@@ -20,13 +20,13 @@ import {
 
 const ModalEditUser = () => {
     const [visible, setVisible] = useState(false);
-    const { user,info } = useSelector((state) => state.auth);
+    const { user } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
 
     const initialState = {
-        name: user.name,
-        email: user.email,
-        imageUser: user.imagepath,
+        name: "",
+        email: "",
+        imageUser: "",
         genre: "",
         password: "",
     };
@@ -57,8 +57,8 @@ const ModalEditUser = () => {
     };
    
     useEffect(() => {
-        setFormData(info); //
-      }, [info]);
+        setFormData(user); //
+      }, []);
 
     return (<>
         <Button type="primary" onClick={() => setVisible(true)}>
