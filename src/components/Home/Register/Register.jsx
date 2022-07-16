@@ -8,7 +8,8 @@ import {
 } from '@ant-design/icons';
 import { notification, Input } from 'antd';
 import { register, reset } from '../../../features/auth/authSlice';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, Link } from 'react-router-dom';
+import './Register.scss';
 
 const Register = () => {
   const initialState = {
@@ -24,7 +25,7 @@ const Register = () => {
 
   const { name, email, password, password2, genre, imageUser } = formData;
 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { isError, isSuccess, message } = useSelector(state => state.auth);
@@ -33,7 +34,7 @@ const Register = () => {
     if (isSuccess) {
       notification.success({ message: 'Éxito register', description: message });
       setTimeout(() => {
-        navigate('/')
+        navigate('/');
       }, 1000);
     }
     if (isError) {
@@ -63,12 +64,11 @@ const Register = () => {
       formData.set('password', e.target.password.value);
       dispatch(register(formData));
       setFormData(initialState);
-     
     }
   };
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <div className='register-container'>
+      <form onSubmit={onSubmit} className='form-login-container'>
         <label htmlFor='name'>Nombre de usuario:</label>
         <Input
           prefix={<UserOutlined />}
@@ -130,6 +130,9 @@ const Register = () => {
           name='imageUser'
         />
         <input className='loginBt' type='submit' />
+        <span>
+          Si ya tienes una cuenta, <Link to='/'>Login</Link>
+        </span>
       </form>
     </div>
   );
