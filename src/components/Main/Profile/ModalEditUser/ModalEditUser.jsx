@@ -58,7 +58,7 @@ const ModalEditUser = () => {
    
     useEffect(() => {
         setFormData(user); //
-      }, []);
+      }, [user]);
 
     return (<>
         <Button type="primary" onClick={() => setVisible(true)}>
