@@ -19,6 +19,7 @@ import {
 import {
   UserOutlined,
   MailOutlined,
+  LockOutlined
 } from '@ant-design/icons';
 import { PoweroffOutlined, FastBackwardOutlined } from "@ant-design/icons";
 
@@ -32,20 +33,24 @@ const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const initialState = {
-    name: "",
-    email: "",
-    imageUser: "",
-    genre:"",
+    name: user.name,
+    email: user.name,
+    imageUser: user.imagepath,
+    genre:user.genre,
+    password:user.password,
   };
   const [formData, setFormData] = useState(initialState);
-  const { name, email, imageUser } = formData;
+  const { name, email, imageUser, password } = formData;
   useEffect(() => {
   dispatch(myInfo());
 }, []);
 
 
+
+
+
+
   const onSubmit = async (e) => {
-    console.log(e.target.genre.value)
     e.preventDefault();
     const editedData = new FormData();
     if (e.target.imageUser.files[0]) {
@@ -54,6 +59,7 @@ const Profile = () => {
     editedData.set("name", e.target.name.value);
     editedData.set("genre", e.target.genre.value);
     editedData.set("email", e.target.email.value);
+    editedData.set("password", e.target.password.value);
     setVisible(false);
     await dispatch(updateUser(editedData));
   };
@@ -118,6 +124,15 @@ const Profile = () => {
             onChange={onChange}
             required
           />
+           <Input
+          prefix={<LockOutlined />}
+          type='password'
+          name='password'
+          placeholder='*******'
+          value={password}
+          onChange={onChange}
+          required
+        />
           <label htmlFor="genre">Género:</label>
 
           <select name="genre">
