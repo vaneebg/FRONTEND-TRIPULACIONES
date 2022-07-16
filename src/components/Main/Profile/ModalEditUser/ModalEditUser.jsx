@@ -44,7 +44,6 @@ const ModalEditUser = () => {
         }
         editedData.set("name", e.target.name.value);
         editedData.set("genre", e.target.genre.value);
-        editedData.set("email", e.target.email.value);
         editedData.set("password", e.target.password.value);
         setVisible(false);
         await dispatch(updateUser(editedData));
@@ -79,16 +78,6 @@ const ModalEditUser = () => {
                     type="text"
                     name="name"
                     value={name}
-                    onChange={onChange}
-                    required
-                />
-                <label htmlFor="email">Correo: </label>
-                <Input
-                    prefix={<MailOutlined />}
-                    placeholder="pepito@gmail.com"
-                    type="email"
-                    name="email"
-                    value={email}
                     onChange={onChange}
                     required
                 />
