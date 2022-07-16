@@ -73,7 +73,9 @@ export const authSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
       state.message = '';
-      state.messageDelete = ''
+      state.messageDelete = '';
+      state.messageLogout= '';
+
     },
   },
   extraReducers: builder => {
