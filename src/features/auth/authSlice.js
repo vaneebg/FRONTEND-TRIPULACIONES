@@ -5,6 +5,7 @@ const user = JSON.parse(localStorage.getItem('user'));
 
 const initialState = {
   user: user ? user : null,
+  userUpdated: {},
   isError: false,
   isSuccess: false,
   messageDelete: '',
@@ -65,6 +66,16 @@ export const deleteUser = createAsyncThunk("auth/deleteUser", async (thunkAPI) =
   }
 });
 
+export const updateUser = createAsyncThunk("auth/updateUser", async (data, thunkAPI) => {
+  try {
+    return await authService.updateUser(data);
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -105,7 +116,10 @@ export const authSlice = createSlice({
       .addCase(deleteUser.fulfilled, (state, action) => {
         state.user = null;
         state.messageDelete = action.payload.message;
-
+      })
+      .addCase(updateUser.fulfilled, (state, action) =>{
+        state.userUpdated = action.payload;
+        state.messageUpdated = action.payload.message;
       })
   },
 });

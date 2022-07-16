@@ -53,12 +53,24 @@ const deleteUser = async () => {
   return res.data;
 };
 
+const updateUser = async (data) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(URL + "/users/", data, {
+    headers: {
+      authorization: user?.user.tokens[0],
+    },
+  });
+  console.log(res.data)
+  return res.data;
+};
+
 const authService = {
   login,
   register,
   myInfo,
   logout,
-  deleteUser
+  deleteUser,
+  updateUser
 };
 
 export default authService;
