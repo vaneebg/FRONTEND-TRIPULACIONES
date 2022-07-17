@@ -61,7 +61,7 @@ const Profile = () => {
         okText="Yes"
         cancelText="No"
       >
-        <button>Borrar cuenta</button>
+        <button className = 'Button'>Borrar cuenta</button>
       </Popconfirm>
     </>
   );
