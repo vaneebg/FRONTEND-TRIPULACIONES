@@ -51,14 +51,6 @@ describe("Test para testear registro", () => {
   });
 });
 
-beforeEach(() => {
-  cy.restoreLocalStorage("user");
-});
-
-afterEach(() => {
-  cy.saveLocalStorage("user");
-});
-
 describe("Test para testear confirmación y Login", () => {
   it("Comprobación de logueo", () => {
     cy.request("get", "http://localhost:8080/users/confirmByCypress");
