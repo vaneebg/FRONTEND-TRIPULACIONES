@@ -1,4 +1,3 @@
-
 describe("Test para testear registro", () => {
   it("Abrimos la web", () => {
     cy.visit("http://localhost:3000");
@@ -28,7 +27,6 @@ it('Accedemos al registro', () =>{
   it('Verificación de url', ()=>{
     cy.url().should('include', '/register' )
   })
-
     it('Rellenamos todos los campos', ()=>{
       cy.get('input[name="name"]').click().type('Dumbo2')
       cy.get('input[name="email"]').click().type('Dumbo2@gmail.com')
@@ -39,7 +37,6 @@ it('Accedemos al registro', () =>{
       cy.get('input[name="password2"]').click().type('123456')
       cy.get("input[type=file]").attachFile('radec.jpg')
       cy.get('[type="submit"]').click()
-      cy.get('div > .ant-notification-notice > .ant-notification-notice-content > .ant-notification-notice-with-icon > .ant-notification-notice-description').should('have.text', 'Te hemos enviado un email para confirmar tu registro...')
-      
+      cy.get('div > .ant-notification-notice > .ant-notification-notice-content > .ant-notification-notice-with-icon > .ant-notification-notice-description').should('have.text', 'Te hemos enviado un email para confirmar tu registro...')     
     })
 });

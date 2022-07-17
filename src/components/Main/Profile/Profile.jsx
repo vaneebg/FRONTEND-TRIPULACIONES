@@ -27,6 +27,8 @@ const Profile = () => {
     dispatch(reset());
   };
 
+  
+
   useEffect(() => {
     dispatch(myInfo()); //
   }, [userUpdated]);
