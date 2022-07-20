@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const URL = process.env.REACT_APP_URL;
 
-
 const getAll = async ()=> {
   const user = JSON.parse(localStorage.getItem("user"));
     const res = await axios.get(URL+"/routes/", {
@@ -11,10 +10,21 @@ const getAll = async ()=> {
       },
     });
     return res.data;
+};
 
-   }
+const getById = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(URL + "/routes/route/" + _id, {
+    headers: {
+      authorization: user?.token
+    }
+  });
+  return res.data
+}
+
   const routesService = {
-    getAll
+    getAll,
+    getById
   };
   
   export default routesService;
