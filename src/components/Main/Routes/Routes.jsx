@@ -7,7 +7,17 @@ import './Routes.scss'
 
 const Routes = () => {
 
+  const { isLoading } = useSelector((state) => state.routes);
   const dispatch = useDispatch()
+
+  console.log(isLoading)
+  useEffect(() => {
+    if (isLoading) {
+      console.log("entra", isLoading);
+      <span>HOLAAAAAAAAAAA</span>
+    }
+  }, [isLoading]);
+
 
   const getRoutesAndReset = async () => {
     await dispatch(getAll());
@@ -17,7 +27,6 @@ const Routes = () => {
   useEffect(() => {
     getRoutesAndReset();
   }, [getAll]);
-
   return (
     <div className="main">
       <h2>Rutas</h2>
