@@ -1,8 +1,8 @@
 import Route from "./Route/Route"
-import { useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getAll, reset } from "../../../features/routes/routesSlice";
-import { Skeleton} from "antd";
+import { Skeleton } from "antd";
 import './Routes.scss'
 
 const Routes = () => {
@@ -10,26 +10,26 @@ const Routes = () => {
   const { isLoading } = useSelector((state) => state.routes);
   const dispatch = useDispatch()
 
-  
-  
-  
+
+  const [current, setCurrent] = useState(1);
+
   const getRoutesAndReset = async () => {
-    await dispatch(getAll());
+    await dispatch(getAll(current));
     dispatch(reset())
   };
-  
+
   useEffect(() => {
     getRoutesAndReset();
   }, [getAll]);
 
 
-    if (isLoading) {
+  if (isLoading) {
     return <Skeleton active paragraph={{ rows: 20 }} />;
-    }
+  }
   return (
     <div className="main">
       <h2>Rutas</h2>
-      <Route />
+      <Route pageC={current} functionPage={setCurrent} />
     </div>
   )
 }
