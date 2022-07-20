@@ -42,14 +42,15 @@ const Route = () => {
                 <span>Descripción: {el.description}</span> <br />
                 <span>Dificultad: {el.difficulty}</span> <br />
                 <span>Duración del trayecto: {el.duration}</span>
-                <div style={styles.wrapper}>
+                <img src={el.image} alt="" />
+                {/* <div style={styles.wrapper}>
 
                     <MapContainer style={styles.map} center={[39.46975, -0.37739]} zoom={13}>
                         <TileLayer url={'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png'} />
                         {points}
                         <Polyline pathOptions={blackOptions} positions={polyline} />
                     </MapContainer>
-                </div>
+                </div> */}
             </div>
         )
     })

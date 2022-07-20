@@ -10,6 +10,7 @@ import 'antd/dist/antd.css';
 import Profile from './components/Main/Profile/Profile';
 import Quiz from './components/Main/Quiz/Quiz';
 import Register from './components/Home/Register/Register';
+import AboutUs from './components/AboutUs/AboutUs';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/profile' element={<PrivateZone><Profile /></PrivateZone>} />
           <Route path='/quiz' element={<PrivateZone><Quiz /></PrivateZone>} />
           <Route path='/register' element={<Register />} />
+          <Route path='/aboutUs' element={<AboutUs/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
