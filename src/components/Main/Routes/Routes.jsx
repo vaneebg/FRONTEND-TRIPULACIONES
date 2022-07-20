@@ -1,31 +1,28 @@
 import Route from "./Route/Route"
-import { useEffect} from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { getAll, reset } from "../../../features/routes/routesSlice";
-import { Skeleton} from "antd";
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux"
+import { getAll, reset } from "../../../features/routes/routesSlice"
+import { Skeleton } from "antd"
 import './Routes.scss'
 
 const Routes = () => {
 
   const { isLoading } = useSelector((state) => state.routes);
-  const dispatch = useDispatch()
 
-  
-  
-  
+  const dispatch = useDispatch();
+
   const getRoutesAndReset = async () => {
     await dispatch(getAll());
     dispatch(reset())
   };
-  
+
   useEffect(() => {
-    getRoutesAndReset();
+    getRoutesAndReset()
   }, [getAll]);
 
-
-    if (isLoading) {
+  if (isLoading) {
     return <Skeleton active paragraph={{ rows: 20 }} />;
-    }
+  }
   return (
     <div className="main">
       <h2>Rutas</h2>

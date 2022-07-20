@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"
 // import { MapContainer, TileLayer, Marker, Popup , Polyline} from 'react-leaflet';
+import { Link } from "react-router-dom"
 import './Route.scss'
-
 
 // const styles = {
 //     wrapper: {
@@ -40,7 +40,9 @@ const Route = () => {
         return (
 
             <div key={el.id} className="route">
-                <span>Nombre ruta:{el.name}</span> <br />
+                <Link to={"/routes/id/"}>
+                    <span>{el.name}</span> <br />
+                </Link>
                 <span>Descripción: {el.description}</span> <br />
                 <span>Dificultad: {el.difficulty}</span> <br />
                 <span>Duración del trayecto: {el.duration}</span>
