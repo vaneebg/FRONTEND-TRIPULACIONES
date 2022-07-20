@@ -1,8 +1,8 @@
 import Route from "./Route/Route"
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getAll, reset } from "../../../features/routes/routesSlice";
-import { notification , Skeleton} from "antd";
+import { Skeleton} from "antd";
 import './Routes.scss'
 
 const Routes = () => {
