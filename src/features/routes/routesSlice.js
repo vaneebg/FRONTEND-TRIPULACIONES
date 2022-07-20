@@ -20,9 +20,7 @@ export const getAll = createAsyncThunk("routes/getAll", async (page) => {
     }
   });
 
-export const getById = createAsyncThunk(
-  "routes/getById",
-  async (_id) => {
+export const getById = createAsyncThunk("routes/getById", async (_id) => {
     try {
       return await routesService.getById(_id);
     } catch (error) {
@@ -52,6 +50,7 @@ export const getById = createAsyncThunk(
           state.isLoading = true;
         })
         .addCase(getById.fulfilled, (state, action) => {
+          console.log("action",action.payload)
           state.route = action.payload
         })
     }})
