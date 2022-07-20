@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup , Polyline} from 'react-leaflet';
 import './Route.scss'
 
 
@@ -14,7 +14,12 @@ const styles = {
         flex: 1
     }
 };
-
+const polyline = [
+    [39.48, -0.36],
+    [39.4894, -0.364],
+    [39.47, -0.369],
+  ]
+const blackOptions = { color: 'black' }
 
 const Route = () => {
 
@@ -42,6 +47,7 @@ const Route = () => {
                     <MapContainer style={styles.map} center={[39.46975, -0.37739]} zoom={13}>
                         <TileLayer url={'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png'} />
                         {points}
+                        <Polyline pathOptions={blackOptions} positions={polyline} />
                     </MapContainer>
                 </div>
             </div>
