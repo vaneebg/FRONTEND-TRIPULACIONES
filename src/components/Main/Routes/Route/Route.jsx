@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux"
 // import { MapContainer, TileLayer, Marker, Popup , Polyline} from 'react-leaflet';
 import { Link } from "react-router-dom"
 import './Route.scss'
