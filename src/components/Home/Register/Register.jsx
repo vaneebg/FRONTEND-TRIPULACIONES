@@ -131,7 +131,7 @@ const Register = () => {
         />
         <input className='loginBt' type='submit' />
         <span>
-          Si ya tienes una cuenta, <Link to='/login'>Login</Link>
+          Si ya tienes una cuenta, <Link to='/'>Login</Link>
         </span>
       </form>
     </div>
