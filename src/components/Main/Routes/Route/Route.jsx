@@ -1,7 +1,10 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux";
 // import { MapContainer, TileLayer, Marker, Popup , Polyline} from 'react-leaflet';
 import { Link } from "react-router-dom"
 import './Route.scss'
+import { Pagination} from 'antd';
+import { getAll } from "../../../../features/routes/routesSlice";
+
 
 // const styles = {
 //     wrapper: {
@@ -23,12 +26,16 @@ import './Route.scss'
 
 
 
-const Route = () => {
+const Route = ({ pageC, functionPage }) => {
 
-    const { routes } = useSelector((state) => state.routes);
-
+    const { routes, numberRoutes } = useSelector((state) => state.routes);
+    console.log("numberroutes",numberRoutes)
+    const dispatch=useDispatch()
+    const onChange = (page) => {
+        functionPage(page);
+        dispatch(getAll(page))
+      };
     const route = routes?.map(el => {
-        console.log(el._id)
         // const points = el.pois.map(point => {
         //     return (
         //         <Marker position={[point.latitude, point.longitude]}>
@@ -62,7 +69,23 @@ const Route = () => {
 
     return (
         <div className="container">
-            {route}
+             <Pagination
+      total={numberRoutes}
+      current={pageC}
+      onChange={onChange}
+      showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+      defaultPageSize={10}
+      defaultCurrent={1}
+    />
+    {route}
+    <Pagination
+      current={numberRoutes}
+      total={30}
+      onChange={onChange}
+      showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+      defaultPageSize={10}
+      defaultCurrent={1}
+    />
         </div>
     )
 }
