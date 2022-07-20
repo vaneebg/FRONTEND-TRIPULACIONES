@@ -3,6 +3,7 @@ import {
   MenuUnfoldOutlined,
   ReconciliationOutlined,
   HomeOutlined,
+  UsergroupAddOutlined
 } from '@ant-design/icons';
 import { Menu } from 'antd';
 import React, { useState } from 'react';
@@ -42,24 +43,30 @@ const Header = () => {
         '',
         '1',
         <Link to='/profile'>
-          <UserOutlined />
+          <UserOutlined /> Perfil
         </Link>
       ),
       getItem(
         '',
         '2',
         <Link to='/quiz'>
-          <ReconciliationOutlined />
+          <ReconciliationOutlined /> Cuestionario
         </Link>
       ),
       getItem(
         '',
         '3',
         <Link to='/main'>
-          <HomeOutlined />
+          <HomeOutlined /> Principal
         </Link>
       ),
-      //   getItem('Option 4', '4'),
+      getItem(
+        '',
+        '4',
+        <Link to='/aboutUs'>
+        <UsergroupAddOutlined />  Sobre nosotros
+        </Link>
+      ),
     ]),
   ];
 
@@ -70,7 +77,7 @@ const Header = () => {
         openKeys={openKeys}
         onOpenChange={onOpenChange}
         style={{
-          width: 150,
+          width: 200,
         }}
         items={items}
       />

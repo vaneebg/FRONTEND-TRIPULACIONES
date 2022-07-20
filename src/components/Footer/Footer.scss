@@ -5,4 +5,11 @@
     position: fixed;
     bottom:0;
     width:100%;
+    height:2.5em;
+    display:none
+}
+@media  screen and (max-width: 600px) {
+  .footerContainer{
+    display: flex;
+  }
 }
