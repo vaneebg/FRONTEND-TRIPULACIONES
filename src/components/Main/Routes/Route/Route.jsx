@@ -27,7 +27,8 @@ const Route = () => {
 
     const { routes } = useSelector((state) => state.routes);
 
-    const route = routes.map(el => {
+    const route = routes?.map(el => {
+        console.log(el._id)
         // const points = el.pois.map(point => {
         //     return (
         //         <Marker position={[point.latitude, point.longitude]}>
@@ -40,7 +41,7 @@ const Route = () => {
         return (
 
             <div key={el.id} className="route">
-                <Link to={"/routes/id/"}>
+                <Link to={"/routes/route/" + el._id}>
                     <span>{el.name}</span> <br />
                 </Link>
                 <span>Descripción: {el.description}</span> <br />

@@ -6,26 +6,25 @@ const getAll = async ()=> {
   const user = JSON.parse(localStorage.getItem("user"));
     const res = await axios.get(URL+"/routes/", {
       headers: {
-        authorization: user?.user.tokens[0],
-      },
+        authorization: user?.user.tokens[0]
+      }
     });
-    return res.data;
+    return res.data
 };
 
 const getById = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.get(URL + "/routes/route/" + _id, {
     headers: {
-      authorization: user?.token
+      authorization: user?.user.tokens[0]
     }
   });
   return res.data
-}
+};
 
   const routesService = {
     getAll,
     getById
   };
   
-  export default routesService;
-  
+  export default routesService

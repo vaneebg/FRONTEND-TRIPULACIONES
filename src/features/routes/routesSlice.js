@@ -4,6 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   routes:[],
+  route: {},
   isLoading: false,
   isError: false,
   isSuccess: false,
@@ -49,7 +50,7 @@ export const getById = createAsyncThunk(
           state.isLoading = true;
         })
         .addCase(getById.fulfilled, (state, action) => {
-          state.post = action.payload
+          state.route = action.payload
         })
     }})
 
