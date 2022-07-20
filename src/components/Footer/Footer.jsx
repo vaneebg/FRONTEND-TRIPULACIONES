@@ -9,6 +9,7 @@ const Footer = () => {
      
    <Link to='/profile'>Perfil</Link>
    <Link to='/quiz'>Cuestionario</Link>
+   <Link to='/main'>Principal</Link>
    <Link to='/aboutUs'>Sobre nosotros</Link>
   
 </div>

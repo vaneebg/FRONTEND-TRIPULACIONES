@@ -8,7 +8,7 @@ import { Menu } from 'antd';
 import React, { useState } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
-
+import './Header.scss'
 const Header = () => {
   const rootSubmenuKeys = ['sub1'];
   const [openKeys, setOpenKeys] = useState(['sub1']);
@@ -64,7 +64,7 @@ const Header = () => {
   ];
 
   return (
-    <>
+    <div className='responsive'>
       <Menu
         mode='inline'
         openKeys={openKeys}
@@ -74,7 +74,7 @@ const Header = () => {
         }}
         items={items}
       />
-    </>
+    </div>
   );
 };
 
