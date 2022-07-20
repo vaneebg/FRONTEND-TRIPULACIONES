@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getAll, reset } from "../../../features/routes/routesSlice";
 import { notification } from "antd";
+import './Routes.scss'
 
 const Routes = () => {
 
@@ -18,10 +19,10 @@ const Routes = () => {
   }, [getAll]);
 
   return (
-    <>
+    <div className="main">
       <h2>Rutas</h2>
       <Route />
-    </>
+    </div>
   )
 }
 

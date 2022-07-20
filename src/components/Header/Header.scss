@@ -1,5 +1,10 @@
-@media  screen and (max-width: 420px) {
-  .responsive{
-   display:none
+.menu {
+  background-color: #FAFAFA;
+}
+
+
+@media screen and (max-width: 420px) {
+  .menu {
+    display: none
   }
 }

@@ -71,13 +71,14 @@ const Header = () => {
   ];
 
   return (
-    <div className='responsive'>
+    <div className='menu'>
       <Menu
         mode='inline'
         openKeys={openKeys}
         onOpenChange={onOpenChange}
         style={{
           width: 200,
+          height: 100
         }}
         items={items}
       />
