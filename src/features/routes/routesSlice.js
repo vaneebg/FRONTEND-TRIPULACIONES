@@ -18,6 +18,16 @@ export const getAll = createAsyncThunk("routes/getAll", async () => {
     }
   });
 
+export const getById = createAsyncThunk(
+  "routes/getById",
+  async (_id) => {
+    try {
+      return await routesService.getById(_id);
+    } catch (error) {
+      console.error(error)
+    }
+  });
+
   export const routesSlice = createSlice({
     name: "routes",
     initialState,
@@ -38,8 +48,11 @@ export const getAll = createAsyncThunk("routes/getAll", async () => {
         .addCase(getAll.pending, (state) => {
           state.isLoading = true;
         })
+        .addCase(getById.fulfilled, (state, action) => {
+          state.post = action.payload
+        })
     }})
 
-    export const { reset} = routesSlice.actions;
+    export const { reset } = routesSlice.actions;
 
 export default routesSlice.reducer;
