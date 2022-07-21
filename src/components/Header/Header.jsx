@@ -3,13 +3,13 @@ import {
   MenuUnfoldOutlined,
   ReconciliationOutlined,
   HomeOutlined,
-  UsergroupAddOutlined
+  UsergroupAddOutlined,
 } from '@ant-design/icons';
 import { Menu } from 'antd';
 import React, { useState } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
-import './Header.scss'
+import './Header.scss';
 const Header = () => {
   const rootSubmenuKeys = ['sub1'];
   const [openKeys, setOpenKeys] = useState(['sub1']);
@@ -64,7 +64,7 @@ const Header = () => {
         '',
         '4',
         <Link to='/aboutUs'>
-        <UsergroupAddOutlined />  Sobre nosotros
+          <UsergroupAddOutlined /> Sobre nosotros
         </Link>
       ),
     ]),
@@ -79,7 +79,7 @@ const Header = () => {
         style={{
           width: 200,
           height: 100,
-          border: 0
+          border: 0,
         }}
         items={items}
       />
