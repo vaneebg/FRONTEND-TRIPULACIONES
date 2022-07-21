@@ -10,12 +10,11 @@ const Route = ({ pageC, functionPage }) => {
   const { user } = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const onChange = page => {
-    console.log(page)
     functionPage(page);
     dispatch(getAll(page));
   };
+
   const route = routes?.map(el => {
-    console.log(el)
 
     const isAlreadyLiked = el.likes?.includes(user?.user?._id);
     return (
@@ -137,8 +136,8 @@ const Route = ({ pageC, functionPage }) => {
       />
       {route}
       <Pagination
-        current={numberRoutes}
-        total={30}
+        total={numberRoutes}
+        current={pageC}
         onChange={onChange}
         showTotal={(total, range) =>
           `${range[0]}-${range[1]} of ${total} items`

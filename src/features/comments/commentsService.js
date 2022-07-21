@@ -18,9 +18,10 @@ const createComment = async (comment) => {
 return res.data;
 }
 
-const getAll = async() =>{
+const getAll = async(page) =>{
+  console.log(page)
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(URL+"/comments/allCommentsPage", {
+  const res = await axios.get(URL+"/comments/allCommentsPage/?page="+page , {
     headers:{
       authorization: user?.token
     }

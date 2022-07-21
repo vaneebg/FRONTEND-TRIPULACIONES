@@ -4,14 +4,12 @@ import { useParams } from "react-router-dom";
 import { Avatar, Comment, Form, Input, Button } from "antd";
 import { Pagination } from "antd";
 import React, { useState } from "react";
-import { createComment, getAll } from "../../../../../features/comments/commentsSlice";
 import {
-  getById,
-  reset,
-} from "../../../../../features/routes/routesSlice";
+  createComment,
+  getAll,
+} from "../../../../../features/comments/commentsSlice";
+import { getById, reset } from "../../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../../features/auth/authSlice";
-
-
 
 const { TextArea } = Input;
 const validateMessages = {
@@ -42,7 +40,6 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 
 const CommentDetail = ({ pageC, functionPage }) => {
   const { comments, numberComments } = useSelector((state) => state.comments);
-  const { route } = useSelector((state) => state.routes);
   const { user } = useSelector((state) => state.auth);
   const { isLoading } = useSelector((state) => state.routes);
   const [comment, setComment] = useState([]);
@@ -50,7 +47,6 @@ const CommentDetail = ({ pageC, functionPage }) => {
   const [value, setValue] = useState("");
   const { _id } = useParams();
   const dispatch = useDispatch();
-
 
   const onChange = (page) => {
     functionPage(page);
@@ -64,8 +60,6 @@ const CommentDetail = ({ pageC, functionPage }) => {
     dispatch(reset());
   }, [isLoading]);
 
-  console.log(user.name)
-
   const handleSubmit = async () => {
     if (!value) return;
     let data = { body: value, routeId: _id };
@@ -75,23 +69,25 @@ const CommentDetail = ({ pageC, functionPage }) => {
     setTimeout(() => {
       setSubmitting(false);
       setValue("");
-      setComment([
-        ...comment,
-      ]);
+      setComment([...comment]);
     }, 1000);
   };
   const handleChange = async (e) => {
     setValue(e.target.value);
   };
 
-  const commentUser = route.commentsId?.map((element) => {
-   
+  const commentUser = comments?.map((element) => {
     return (
       <>
         <div className="animate__animated animate__fadeIn" key={element._id}>
           <Comment
             author={<a>{element.userId?.name}</a>}
-            avatar={<Avatar src={URL +  "/users/" + element.userId?.imagepath} alt="" />}
+            avatar={
+              <Avatar
+                src={URL + "/users/" + element.userId?.imagepath}
+                alt=""
+              />
+            }
             content={<p>{element.body}</p>}
           />
         </div>
@@ -123,7 +119,7 @@ const CommentDetail = ({ pageC, functionPage }) => {
       />
       <ul>{commentUser}</ul>
       <Comment
-        avatar={<Avatar src={URL +  "/users/" + user.imagepath} alt="alt" />}
+        avatar={<Avatar src={URL + "/users/" + user.imagepath} alt="alt" />}
         content={
           <Editor
             onChange={handleChange}
