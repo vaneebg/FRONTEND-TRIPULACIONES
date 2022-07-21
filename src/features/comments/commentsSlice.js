@@ -3,6 +3,7 @@ import commentsService from "./commentsService";
 
 const initialState = {
     comments: [],
+    newComment:{},
     numberComments:0,
     isLoading: false,
     isError: false,
@@ -49,11 +50,12 @@ export const commentsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(createComment.fulfilled, (state, action) => {
-        state.comments = action.payload;
+        state.newComment = action.payload;
         state.isSuccess = true;
         state.message = action.payload.message;
       })
       .addCase(getAll.fulfilled,(state, action)=>{
+        console.log(action.payload.comments)
         state.numberComments = action.payload.numberComments
         state.comments = action.payload.comments
       })

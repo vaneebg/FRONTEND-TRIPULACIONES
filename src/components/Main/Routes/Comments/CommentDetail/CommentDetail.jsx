@@ -39,7 +39,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 );
 
 const CommentDetail = ({ pageC, functionPage }) => {
-  const { comments, numberComments } = useSelector((state) => state.comments);
+  const { comments, numberComments, newComment } = useSelector((state) => state.comments);
   const { user } = useSelector((state) => state.auth);
   const { isLoading } = useSelector((state) => state.routes);
   const [comment, setComment] = useState([]);
@@ -65,7 +65,7 @@ const CommentDetail = ({ pageC, functionPage }) => {
     let data = { body: value, routeId: _id };
     setSubmitting(true);
     await dispatch(createComment(data));
-    dispatch(getById(_id));
+    // await dispatch(getById(_id));
     setTimeout(() => {
       setSubmitting(false);
       setValue("");
@@ -76,7 +76,10 @@ const CommentDetail = ({ pageC, functionPage }) => {
     setValue(e.target.value);
   };
 
+ console.log(comments)
+
   const commentUser = comments?.map((element) => {
+   
     return (
       <>
         <div className="animate__animated animate__fadeIn" key={element._id}>
@@ -97,8 +100,8 @@ const CommentDetail = ({ pageC, functionPage }) => {
   });
 
   useEffect(() => {
-    dispatch(getById(_id));
-  }, [comments]);
+    dispatch(getAll());
+  }, [newComment]);
 
   useEffect(() => {
     dispatch(myInfo());
