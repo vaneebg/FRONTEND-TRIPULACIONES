@@ -28,6 +28,22 @@ export const getById = createAsyncThunk("routes/getById", async (_id) => {
     }
   });
 
+export const like = createAsyncThunk("routes/like", async (_id) => {
+  try {
+    return await routesService.like(_id);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+export const dislike = createAsyncThunk("routes/dislike", async (_id) => {
+  try {
+    return await routesService.dislike(_id);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
   export const routesSlice = createSlice({
     name: "routes",
     initialState,
@@ -52,6 +68,24 @@ export const getById = createAsyncThunk("routes/getById", async (_id) => {
         .addCase(getById.fulfilled, (state, action) => {
           console.log("action",action.payload)
           state.route = action.payload
+        })
+        .addCase(like.fulfilled, (state, action) =>{
+          const routes = state.routes.map((route)=>{
+            if (route._id === action.payload._id){
+              route = action.payload;
+            }
+            return route;
+          });
+          state.routes = routes;
+        })
+        .addCase(dislike.fulfilled, (state, action) =>{
+          const routes = state.routes.map((route)=>{
+            if (route._id === action.payload.route._id){
+              route = action.payload.route;
+            }
+            return route;
+          });
+          state.routes = routes;
         })
     }})
 
