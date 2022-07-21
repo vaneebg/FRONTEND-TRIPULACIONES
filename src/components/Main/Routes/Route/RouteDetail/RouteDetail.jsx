@@ -40,9 +40,26 @@ const RouteDetail = () => {
     dispatch(getById(_id));
   }, []);
 
+<<<<<<< HEAD
   useEffect(() => {
     dispatch(getById(_id));
   }, []);
+=======
+    useEffect(() => {
+        dispatch(getById(_id))
+    }, []);
+
+    const points = route.poi?.map(point => {
+        console.log(point.longitude)
+        return (
+            <Marker position={[point.longitude,point.latitude]}>
+                <Popup>
+                    {point.name} <br />
+                </Popup>
+            </Marker>
+        )
+    })
+>>>>>>> acf06951a20740f99e5643d5e9d5255c44b60ea5
 
   const points = route.poi?.map((point) => {
     console.log(point.longitude);
