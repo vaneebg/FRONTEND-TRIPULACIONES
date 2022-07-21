@@ -14,6 +14,8 @@ const Route = ({ pageC, functionPage }) => {
     dispatch(getAll(page));
   };
   const route = routes?.map(el => {
+    console.log(el)
+
     const isAlreadyLiked = el.likes?.includes(user?.user?._id);
     return (
       <section key={el._id} className='wrapper'>
@@ -22,7 +24,7 @@ const Route = ({ pageC, functionPage }) => {
             <div className='card-header'>
               <div className='card-header-left'>
                 <img
-                  src='https://www.linkalicante.com/wp-content/uploads/mejores-rutas-senderismo-valencia.jpg'
+                  src={el.image}
                   alt=''
                   className='picture-title'
                 />
@@ -36,7 +38,7 @@ const Route = ({ pageC, functionPage }) => {
               </div>
             </div>
             <img
-              src='https://www.linkalicante.com/wp-content/uploads/mejores-rutas-senderismo-valencia.jpg'
+                src={el.image}
               alt='No picture'
               class='main-picture'
             />
@@ -109,7 +111,7 @@ const Route = ({ pageC, functionPage }) => {
                 </div>
               </div>
               <div className='bottom-text-card'>
-                <span>Descripción: {el?.description}</span> <br />
+                <span>Descripción: {el?.description_es}</span> <br />
                 <span>Dificultad: {el?.difficulty}</span> <br />
                 <span>Duración del trayecto: {el?.duration}</span>
               </div>
