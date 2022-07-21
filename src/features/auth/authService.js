@@ -13,7 +13,6 @@ const login = async userData => {
 
 const register = async userData => {
   const res = await axios.post(URL + '/users/', userData);
-  console.log('4', res.data);
   return res.data;
 };
 
@@ -60,7 +59,6 @@ const updateUser = async (data) => {
       authorization: user?.user.tokens[0],
     },
   });
-  console.log(res.data)
   return res.data;
 };
 

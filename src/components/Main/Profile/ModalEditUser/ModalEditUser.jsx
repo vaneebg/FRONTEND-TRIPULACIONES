@@ -20,7 +20,6 @@ const ModalEditUser = () => {
   const { name, password, imageUser } = formData;
 
   const onSubmit = async (e) => {
-    console.log(e.target.genre.value);
     e.preventDefault();
     const editedData = new FormData();
     if (e.target.imageUser.files[0]) {

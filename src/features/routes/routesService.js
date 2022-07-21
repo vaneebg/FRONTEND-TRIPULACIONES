@@ -20,7 +20,6 @@ const getById = async (_id) => {
       authorization: user?.user.tokens[0]
     }
   });
-  console.log("res.data service",res.data)
   return res.data
 };
 
@@ -30,7 +29,7 @@ const like = async(_id) => {
       headers: {
           authorization: user.token,
       }
-  });
+    });
   return res.data;
 
 };

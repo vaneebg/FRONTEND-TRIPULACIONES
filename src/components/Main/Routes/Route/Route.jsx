@@ -31,7 +31,7 @@ const Route = ({ pageC, functionPage }) => {
               </div>
               <div className='dropdown'>
                 <span className='simbol-right dropbtn'>
-                  <Link to={'/routes/route' + el._id}>{el?.name}</Link>{' '}
+                  <Link to={'/routes/route/' + el._id}>{el?.name}</Link>{' '}
                 </span>
               </div>
             </div>

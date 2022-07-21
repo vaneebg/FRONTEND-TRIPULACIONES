@@ -66,7 +66,6 @@ export const dislike = createAsyncThunk("routes/dislike", async (_id) => {
           state.isLoading = true;
         })
         .addCase(getById.fulfilled, (state, action) => {
-          console.log("action",action.payload)
           state.route = action.payload
         })
         .addCase(like.fulfilled, (state, action) =>{
