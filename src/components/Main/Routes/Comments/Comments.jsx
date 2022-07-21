@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import CommentDetail from './CommentDetail/CommentDetail'
 import React from 'react'
-import { getAll} from '../../../../features/routes/routesSlice';
-import { resetC } from '../../../../features/comments/commentsSlice';
+import { getAll, resetC } from '../../../../features/comments/commentsSlice';
 import { notification } from "antd";
 
 
@@ -36,7 +35,9 @@ const Comments = () => {
   }, [isError, isSuccess, message]);
 
   return (
+    <div>
     <CommentDetail pageC={current} functionPage={setCurrent}/>
+    </div>
   )
 }
 

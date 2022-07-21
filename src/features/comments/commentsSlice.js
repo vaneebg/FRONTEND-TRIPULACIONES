@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export const createComment = createAsyncThunk(
-  "comments/getPostsByName",
+  "comments/createComment",
   async (data) => {
     try {
       return await commentsService.createComment(data);
@@ -21,6 +21,17 @@ export const createComment = createAsyncThunk(
     }
   }
 );
+
+export const getAll = createAsyncThunk(
+  "comments/getComments",
+  async()=>{
+    try {
+      return await commentsService.getAll();
+    } catch (error) {
+      console.error(error)
+    }
+  }
+)
 
 export const commentsSlice = createSlice({
   name: "comments",
@@ -38,9 +49,14 @@ export const commentsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(createComment.fulfilled, (state, action) => {
-        state.comment = action.payload;
+        console.log('soy el action',action.payload)
+        state.comments = action.payload;
         state.isSuccess = true;
         state.message = action.payload.message;
+      })
+      .addCase(getAll.fulfilled,(state, action)=>{
+        console.log(action.payload)
+        state.numberComments = action.payload.Number_of_comments
       })
     },
 });

@@ -4,17 +4,21 @@ import { useParams } from "react-router-dom";
 import { Avatar, Comment, Form, Input, Button } from "antd";
 import { Pagination } from "antd";
 import React, { useState } from "react";
-// import moment from "moment";
-import { createComment } from "../../../../../features/comments/commentsSlice";
-import { getAll,getById,reset} from "../../../../../features/routes/routesSlice";
+import { createComment, getAll } from "../../../../../features/comments/commentsSlice";
+import {
+  getById,
+  reset,
+} from "../../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../../features/auth/authSlice";
+
+
 
 const { TextArea } = Input;
 const validateMessages = {
   required: "${label} es requerido",
 };
 
-const url = process.env.REACT_APP_URL;
+const URL = process.env.REACT_APP_URL;
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <>
@@ -47,6 +51,7 @@ const CommentDetail = ({ pageC, functionPage }) => {
   const { _id } = useParams();
   const dispatch = useDispatch();
 
+
   const onChange = (page) => {
     functionPage(page);
     dispatch(getAll(page));
@@ -59,10 +64,11 @@ const CommentDetail = ({ pageC, functionPage }) => {
     dispatch(reset());
   }, [isLoading]);
 
+  console.log(user.name)
 
   const handleSubmit = async () => {
     if (!value) return;
-    let data = { body: value, postId: _id };
+    let data = { body: value, routeId: _id };
     setSubmitting(true);
     await dispatch(createComment(data));
     dispatch(getById(_id));
@@ -71,11 +77,6 @@ const CommentDetail = ({ pageC, functionPage }) => {
       setValue("");
       setComment([
         ...comment,
-        {
-          author: route.userId.name,
-          avatar: url+ user.imagepath,
-          content: <p>{value}</p>,
-        },
       ]);
     }, 1000);
   };
@@ -83,22 +84,20 @@ const CommentDetail = ({ pageC, functionPage }) => {
     setValue(e.target.value);
   };
 
-  const commentUser = route.commentsId?.map((element)=>{
+  const commentUser = route.commentsId?.map((element) => {
+   
     return (
       <>
-      <div className= 'animate__animated animate__fadeIn'key={element._id}>
-        <Comment
-          author={<a>{element.userId?.name}</a>}
-          avatar={
-            <Avatar src={url+element.userId.imagepath} alt="" />
-          }
-          content={<p>{element.body}</p>}
-        />
-      </div>
-      <hr></hr>
+        <div className="animate__animated animate__fadeIn" key={element._id}>
+          <Comment
+            author={<a>{element.userId?.name}</a>}
+            avatar={<Avatar src={URL +  "/users/" + element.userId?.imagepath} alt="" />}
+            content={<p>{element.body}</p>}
+          />
+        </div>
+        <hr></hr>
       </>
-
-    )
+    );
   });
 
   useEffect(() => {
@@ -122,42 +121,18 @@ const CommentDetail = ({ pageC, functionPage }) => {
         defaultPageSize={10}
         defaultCurrent={1}
       />
-      {comment}
-      <Pagination
-        current={pageC}
-        total={numberComments}
-        onChange={onChange}
-        showTotal={(total, range) =>
-          `${range[0]}-${range[1]} of ${total} items`
-        }
-        defaultPageSize={10}
-        defaultCurrent={1}
-      />
-      {/* <div className="Caja">
-      <div className="WrapperContainer">
-        <div className="CommentsContainer"> */}
-          <p><img className='ImageUserPost' src= {url + route?.userId?.imagepath} alt=''></img>{route.userId?.name}</p>
-          <p>{route.name}</p>
-          <p>{route.description_es}</p>
-          <ul>{commentUser}</ul>
-        {/* </div>
-        <div> */}
-          <Comment
-            avatar={
-              <Avatar src={url + user.imagepath} alt="alt" />
-            }
-            content={
-              <Editor
-                onChange={handleChange}
-                onSubmit={handleSubmit}
-                submitting={submitting}
-                value={value}
-              />
-            }
+      <ul>{commentUser}</ul>
+      <Comment
+        avatar={<Avatar src={URL +  "/users/" + user.imagepath} alt="alt" />}
+        content={
+          <Editor
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+            submitting={submitting}
+            value={value}
           />
-        {/* </div> */}
-      {/* </div> */}
-    {/* </div> */}
+        }
+      />
     </>
   );
 };

@@ -40,7 +40,12 @@ const RouteDetail = () => {
     dispatch(getById(_id));
   }, []);
 
-  const points = route?.pois?.map((point) => {
+  useEffect(() => {
+    dispatch(getById(_id));
+  }, []);
+
+  const points = route.poi?.map((point) => {
+    console.log(point.longitude);
     return (
       <Marker position={[point.latitude, point.longitude]}>
         <Popup>
@@ -49,14 +54,15 @@ const RouteDetail = () => {
       </Marker>
     );
   });
+
   return (
     <>
       <div className="routeDetail">
         <h3>{route?.name}</h3>
-        <img src={route?.imagepath} alt="" />
+        <img src={route?.image} alt="" />
         <p>{route?.dificulty}</p>
         <p>{route?.duration}</p>
-        <p>{route?.description}</p>
+        <p>{route?.description_es}</p>
         <p>{route?.startingPoint}</p>
         <p>{route?.endingPoint}</p>
         <div style={styles.wrapper}>
@@ -69,11 +75,15 @@ const RouteDetail = () => {
               url={"https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png"}
             />
             {points}
+
             <Polyline pathOptions={blackOptions} positions={polyline} />
           </MapContainer>
         </div>
+        <>
+      <Comments />
+      </>
       </div>
-      {/* <Comments /> */}
+
     </>
   );
 };
