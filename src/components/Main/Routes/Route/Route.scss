@@ -1,15 +1,96 @@
-.container{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+// .container{
+//     display:flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
+
+// .route{
+//     border:2px solid black;
+//     width:60%;
+//     margin:1em;
+// }
+// img{
+//     width:15em;
+// }
+
+.wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+}
+.main-card {
+  margin: 30px auto;
+  border: 1px solid rgb(222, 222, 222);
+  width: 80%;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+}
+.panel {
+  background-color: white;
 }
 
-
-.route{
-    border:2px solid black;
-    width:60%;
-    margin:1em;
+.card-header {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-img{
-    width:15em;
+
+.card-header-left {
+  display: flex;
+  align-items: center;
+}
+.picture-title-nav {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.picture-title {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid transparent; /*2*/
+  background: linear-gradient(45deg, red, blue) border-box;
+}
+.card-title {
+  margin-left: 20px;
+}
+.user {
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+/*******DROPDOWN MENU***********/
+
+.dropdown {
+  position: relative;
+}
+.simbol-right {
+  cursor: pointer;
+}
+.main-picture {
+  width: 100%;
+}
+
+/************CARD BOTTOM**************/
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 20px;
+}
+.heart {
+  font-size: 25px;
+  margin-right: 10px;
+}
+.bottom-text-card > span {
+  margin-top: 5px;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+}
+h4 {
+  font-weight: bolder;
 }
