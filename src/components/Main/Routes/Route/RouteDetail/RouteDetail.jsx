@@ -45,7 +45,6 @@ const RouteDetail = () => {
     }, []);
 
   const points = route.poi?.map((point) => {
-    console.log(point.longitude);
     return (
       <Marker position={[point.latitude, point.longitude]}>
         <Popup>

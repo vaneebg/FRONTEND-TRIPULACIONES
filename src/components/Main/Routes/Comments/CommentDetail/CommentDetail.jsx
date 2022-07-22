@@ -2,13 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Avatar, Comment, Form, Input, Button } from "antd";
-import { Pagination } from "antd";
+// import { Pagination } from "antd";
 import React, { useState } from "react";
-import {
-  createComment,
-  getAll,
-} from "../../../../../features/comments/commentsSlice";
-import { getById, reset } from "../../../../../features/routes/routesSlice";
+import {createComment} from "../../../../../features/comments/commentsSlice";
+import { getAll, getById, reset } from "../../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../../features/auth/authSlice";
 
 const { TextArea } = Input;
@@ -39,7 +36,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 );
 
 const CommentDetail = ({ pageC, functionPage }) => {
-  const { comments, numberComments, newComment } = useSelector(
+  const { comments, newComment } = useSelector(
     (state) => state.comments
   );
   const { user } = useSelector((state) => state.auth);
@@ -50,10 +47,10 @@ const CommentDetail = ({ pageC, functionPage }) => {
   const { _id } = useParams();
   const dispatch = useDispatch();
 
-  const onChange = (page) => {
-    functionPage(page);
-    dispatch(getAll(page));
-  };
+  // const onChange = (page) => {
+  //   functionPage(page);
+  //   dispatch(getAll(page));
+  // };
 
   useEffect(() => {
     if (isLoading) {
@@ -78,7 +75,12 @@ const CommentDetail = ({ pageC, functionPage }) => {
     setValue(e.target.value);
   };
 
-  const commentUser = comments?.map((element) => {
+  console.log(_id)
+  console.log(comments)
+
+  console.log(route)
+
+  const commentUser = route.commentsId?.map((element) => {
     return (
       <>
         <div className="animate__animated animate__fadeIn" key={element._id}>
@@ -99,7 +101,7 @@ const CommentDetail = ({ pageC, functionPage }) => {
   });
 
   useEffect(() => {
-    dispatch(getAll());
+    dispatch(getAll ());
   }, [newComment]);
 
   useEffect(() => {
@@ -108,7 +110,7 @@ const CommentDetail = ({ pageC, functionPage }) => {
 
   return (
     <>
-      <br /> <br />
+      {/* <br /> <br />
       <Pagination
         total={numberComments}
         current={pageC}
@@ -118,8 +120,11 @@ const CommentDetail = ({ pageC, functionPage }) => {
         }
         defaultPageSize={10}
         defaultCurrent={1}
-      />
+      /> */}
+     {/* {_id === comments[0]?.routeId ? ( */}
       <ul>{commentUser}</ul>
+      {/* ) : ( */}
+      {/* )} */}
       <Comment
         avatar={<Avatar src={URL + "/users/" + user.imagepath} alt="alt" />}
         content={

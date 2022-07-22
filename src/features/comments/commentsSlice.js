@@ -55,7 +55,7 @@ export const commentsSlice = createSlice({
         state.message = action.payload.message;
       })
       .addCase(getAll.fulfilled,(state, action)=>{
-        console.log(action.payload.comments)
+        console.log(action.payload)
         state.numberComments = action.payload.numberComments
         state.comments = action.payload.comments
       })
