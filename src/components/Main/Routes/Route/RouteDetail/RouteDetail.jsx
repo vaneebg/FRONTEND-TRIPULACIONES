@@ -44,13 +44,21 @@ const RouteDetail = () => {
         dispatch(getById(_id))
     }, []);
 
-  const points = route.poi?.map((point) => {
+  const pointsMap = route.poi?.map((point) => {
     return (
-      <Marker position={[point.latitude, point.longitude]}>
+      <Marker position={[ point.longitude, point.latitude]}>
         <Popup>
           {point.name} <br />
         </Popup>
       </Marker>
+    );
+  });
+  const pointsInfo = route.poi?.map((point) => {
+    console.log(point)
+    return (<div className='poiDesc'>
+     <span>Punto: {point.name}</span> <br />
+     <span>Descripción: {point.description_es}</span>
+     </div>
     );
   });
 
@@ -73,12 +81,13 @@ const RouteDetail = () => {
             <TileLayer
               url={"https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png"}
             />
-            {points}
+            {pointsMap}
 
             <Polyline pathOptions={blackOptions} positions={polyline} />
           </MapContainer>
         </div>
         <>
+        {pointsInfo}
       <Comments />
       </>
       </div>
