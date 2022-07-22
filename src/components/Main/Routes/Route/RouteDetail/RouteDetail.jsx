@@ -10,6 +10,7 @@ import {
   Polyline,
 } from "react-leaflet";
 import Comments from "../../Comments/Comments";
+import Scores from "./Scores/Scores";
 
 const styles = {
   wrapper: {
@@ -54,14 +55,12 @@ const RouteDetail = () => {
     );
   });
   const pointsInfo = route.poi?.map((point) => {
-    console.log(point)
     return (<div className='poiDesc'>
      <span>Punto: {point.name}</span> <br />
      <span>Descripción: {point.description_es}</span>
      </div>
     );
   });
-
   return (
     <>
       <div className="routeDetail">
@@ -88,6 +87,7 @@ const RouteDetail = () => {
         </div>
         <>
         {pointsInfo}
+        <Scores routeId={route._id}/>
       <Comments />
       </>
       </div>
