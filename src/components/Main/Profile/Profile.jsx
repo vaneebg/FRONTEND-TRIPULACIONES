@@ -28,7 +28,7 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(myInfo()); //
-  }, [userUpdated, userLikes]);
+  }, [userUpdated]);
 
   const likedRoutes = userLikes?.map((likedRoute) => {
     return(
