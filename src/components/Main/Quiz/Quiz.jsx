@@ -50,7 +50,7 @@ const dispatch=useDispatch()
 
   };
   return (
-<div className="container">
+<div className="containerQuiz">
     <form className='form' onSubmit={onSubmit}>
     <span className='titleForm'>Formulario:</span>
       <label htmlFor='age'>Edad:</label>

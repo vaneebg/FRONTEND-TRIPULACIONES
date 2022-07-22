@@ -12,9 +12,13 @@
 // img{
 //     width:15em;
 // }
-
-.wrapper {
-  max-width: 850px;
+// .container-wrap {
+//   height: 100vh;
+//   width: 100vw;
+//   background-color: beige;
+// }
+.wrapper-ok {
+  max-width: 1000px;
   margin: 0 auto;
 }
 .main-card {
@@ -25,7 +29,7 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 100%;
+  // width: 100%;
 }
 .panel {
   background-color: white;
