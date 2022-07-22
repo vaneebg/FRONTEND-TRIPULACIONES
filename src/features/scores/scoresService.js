@@ -26,10 +26,20 @@ const getAllScores = async() =>{
   })
   return res.data
 }
+const deleteScore = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.delete(URL + "/scores/score/" + _id, {
+    headers: {
+      authorization: user?.user.tokens[0],
+    },
+  });
+  return res.data;
+};
 
 const scoresService = {
     createScore,
-    getAllScores
+    getAllScores,
+    deleteScore
   };
 
 export default scoresService;

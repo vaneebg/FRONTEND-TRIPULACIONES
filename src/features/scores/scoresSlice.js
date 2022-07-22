@@ -27,6 +27,14 @@ export const getAllScores = createAsyncThunk("scores/getAllScores", async()=>{
     }
   }
 )
+export const deleteScore= createAsyncThunk("scores/deleteScore", async (_id) => {
+  try {
+    return await scoresService.deleteScore(_id)
+  } catch (error) {
+    console.error(error);
+   
+  }
+});
 
 export const scoresSlice = createSlice({
   name: "scores",
@@ -48,6 +56,11 @@ export const scoresSlice = createSlice({
       })
       .addCase(getAllScores.fulfilled,(state, action)=>{
         state.scores = action.payload
+      })
+      .addCase(deleteScore.fulfilled, (state, action) => {
+        state.isSuccess = true;
+        state.newScore = action.payload.score;
+        state.message = action.payload.message;
       })
     },
 });
