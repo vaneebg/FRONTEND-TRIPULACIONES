@@ -11,7 +11,7 @@ import { getById, reset } from "../../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../../features/auth/authSlice";
 
 const URL = process.env.REACT_APP_URL;
-const URL2 = 'http://localhost:8080/comments/'
+
 
 const CommentDetail = () => {
   const initialState = {
@@ -73,8 +73,9 @@ const CommentDetail = () => {
             content={
               <>
             <p>{element.body}</p>
-            <img alt='' src={URL2 + element?.imagepath} ></img>
+            <img alt='' src={URL+'/comments/' + element?.imagepath} ></img>
             </>
+            
           }
           />
         </div>
