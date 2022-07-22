@@ -1,12 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  reset,
-  myInfo,
-  logout,
-  deleteUser,
-} from '../../../features/auth/authSlice';
+import { reset, myInfo, logout, deleteUser } from '../../../features/auth/authSlice';
 import { Tooltip, Popconfirm } from 'antd';
 import { PoweroffOutlined, FastBackwardOutlined } from '@ant-design/icons';
 import ModalEditUser from './ModalEditUser/ModalEditUser';
@@ -17,6 +12,8 @@ const URL = process.env.REACT_APP_URL;
 const Profile = () => {
   const { user, userUpdated } = useSelector(state => state.auth);
   console.log('Hellooooooobaby', user);
+  const userLikes = user.likes;
+  console.log('userLikes',userLikes)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onLogout = () => {
@@ -31,7 +28,17 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(myInfo()); //
-  }, [userUpdated]);
+  }, [userUpdated, userLikes]);
+
+  const likedRoutes = userLikes?.map((likedRoute) => {
+    return(
+      <div key={likedRoute._id}>
+        <Link to={"/routes/route/" + likedRoute._id}>
+          <p>{likedRoute.name}</p>
+        </Link>
+      </div>
+    )
+  });
 
   return (
     <div className='profile-container'>
@@ -69,6 +76,7 @@ const Profile = () => {
         <br />
         <div className='rutas'>
           <p>Aquí van las rutas</p>
+          <div>{userLikes}</div>
         </div>
       </div>
     </div>

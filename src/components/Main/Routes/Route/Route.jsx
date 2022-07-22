@@ -32,7 +32,7 @@ const Route = ({ pageC, functionPage }) => {
                 </span>
               </div>
             </div>
-            <img src={el.image} alt='No picture' class='main-picture' />
+            <img src={el.image} alt='No picture' className='main-picture' />
             <div className='bottom-container'>
               <div className='icon-container'>
                 <div className='bottom-icon-right'>
