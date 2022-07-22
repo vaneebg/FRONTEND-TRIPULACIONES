@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { Avatar, Comment, Form, Input, Button } from "antd";
 // import { Pagination } from "antd";
 import React, { useState } from "react";
-import {createComment} from "../../../../../features/comments/commentsSlice";
-import { getAll, getById, reset } from "../../../../../features/routes/routesSlice";
+import {createComment, getAll} from "../../../../../features/comments/commentsSlice";
+import { getById, reset } from "../../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../../features/auth/authSlice";
 
 const { TextArea } = Input;
@@ -64,7 +64,7 @@ const CommentDetail = ({ pageC, functionPage }) => {
     let data = { body: value, routeId: _id };
     setSubmitting(true);
     await dispatch(createComment(data));
-    // await dispatch(getById(_id));
+    await dispatch(getById(_id));
     setTimeout(() => {
       setSubmitting(false);
       setValue("");
@@ -74,11 +74,6 @@ const CommentDetail = ({ pageC, functionPage }) => {
   const handleChange = async (e) => {
     setValue(e.target.value);
   };
-
-  console.log(_id)
-  console.log(comments)
-
-  console.log(route)
 
   const commentUser = route.commentsId?.map((element) => {
     return (
@@ -101,7 +96,7 @@ const CommentDetail = ({ pageC, functionPage }) => {
   });
 
   useEffect(() => {
-    dispatch(getAll ());
+    dispatch(getAll());
   }, [newComment]);
 
   useEffect(() => {

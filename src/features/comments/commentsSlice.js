@@ -25,9 +25,9 @@ export const createComment = createAsyncThunk(
 
 export const getAll = createAsyncThunk(
   "comments/getComments",
-  async(page)=>{
+  async()=>{
     try {
-      return await commentsService.getAll(page);
+      return await commentsService.getAll();
     } catch (error) {
       console.error(error)
     }
@@ -50,13 +50,14 @@ export const commentsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(createComment.fulfilled, (state, action) => {
-        state.newComment = action.payload;
+      console.log(action.payload.comment)
+        state.newComment = action.payload.comment
         state.isSuccess = true;
         state.message = action.payload.message;
       })
       .addCase(getAll.fulfilled,(state, action)=>{
         console.log(action.payload)
-        state.numberComments = action.payload.numberComments
+        // state.numberComments = action.payload.numberComments
         state.comments = action.payload.comments
       })
     },
