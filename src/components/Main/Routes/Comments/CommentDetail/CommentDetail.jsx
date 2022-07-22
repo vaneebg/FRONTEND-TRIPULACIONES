@@ -36,7 +36,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 );
 
 const CommentDetail = ({ pageC, functionPage }) => {
-  const { comments, newComment } = useSelector(
+  const { newComment } = useSelector(
     (state) => state.comments
   );
   const { user } = useSelector((state) => state.auth);
@@ -46,11 +46,6 @@ const CommentDetail = ({ pageC, functionPage }) => {
   const [value, setValue] = useState("");
   const { _id } = useParams();
   const dispatch = useDispatch();
-
-  // const onChange = (page) => {
-  //   functionPage(page);
-  //   dispatch(getAll(page));
-  // };
 
   useEffect(() => {
     if (isLoading) {
@@ -105,21 +100,7 @@ const CommentDetail = ({ pageC, functionPage }) => {
 
   return (
     <>
-      {/* <br /> <br />
-      <Pagination
-        total={numberComments}
-        current={pageC}
-        onChange={onChange}
-        showTotal={(total, range) =>
-          `${range[0]}-${range[1]} of ${total} items`
-        }
-        defaultPageSize={10}
-        defaultCurrent={1}
-      /> */}
-     {/* {_id === comments[0]?.routeId ? ( */}
       <ul>{commentUser}</ul>
-      {/* ) : ( */}
-      {/* )} */}
       <Comment
         avatar={<Avatar src={URL + "/users/" + user.imagepath} alt="alt" />}
         content={
