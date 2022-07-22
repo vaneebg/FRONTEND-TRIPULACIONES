@@ -1,17 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Avatar, Comment } from "antd";
+import { Avatar, Comment, Button } from "antd";
+
 import React, { useState } from "react";
 import {
   createComment,
+  destroyComment,
   getAll,
 } from "../../../../../features/comments/commentsSlice";
 import { getById, reset } from "../../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../../features/auth/authSlice";
 
 const URL = process.env.REACT_APP_URL;
-
 
 const CommentDetail = () => {
   const initialState = {
@@ -21,11 +22,13 @@ const CommentDetail = () => {
 
   const [formData, setFormData] = useState(initialState);
   const { imageComment, body } = formData;
-  const {newComment } = useSelector((state) => state.comments);
+  const { newComment, eraseComment } = useSelector((state) => state.comments);
   const { isLoading, route } = useSelector((state) => state.routes);
   const [comment, setComment] = useState([]);
   const { _id } = useParams();
   const dispatch = useDispatch();
+
+  console.log(route);
 
   useEffect(() => {
     if (isLoading) {
@@ -37,7 +40,7 @@ const CommentDetail = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!e) return;
-    console.log(e.target.myFile)
+    console.log(e.target.myFile);
     const editedData = new FormData();
     if (e.target.imageComment.files[0]) {
       editedData.set("imageComment", e.target.imageComment.files[0]);
@@ -50,6 +53,12 @@ const CommentDetail = () => {
       setComment([...comment]);
     }, 1000);
   };
+
+  const destroy = (_id) => {
+    dispatch(destroyComment(_id));
+  };
+
+  console.log("hola");
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -72,12 +81,19 @@ const CommentDetail = () => {
             }
             content={
               <>
-            <p>{element.body}</p>
-            <img alt='' src={URL+'/comments/' + element?.imagepath} ></img>
-            </>
-            
-          }
+                <p>{element.body}</p>
+                <img alt="" src={URL + "/comments/" + element?.imagepath}></img>
+              </>
+            }
           />
+          <Button
+            type="danger"
+            onClick={() => {
+              destroy(element._id);
+            }}
+          >
+            Borrar Post
+          </Button>
         </div>
         <hr></hr>
       </>

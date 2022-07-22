@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Skeleton } from "antd";
 import { useParams } from "react-router-dom";
 import { getById } from "../../../../../features/routes/routesSlice";
 import {
@@ -41,21 +42,19 @@ const RouteDetail = () => {
     dispatch(getById(_id));
   }, []);
 
- 
-
   const pointsMap = route.poi?.map((point) => {
     return (
-      <Marker position={[ point.longitude, point.latitude]}>
+      <Marker position={[ point?.longitude, point?.latitude]}>
         <Popup>
-          {point.name} <br />
+          {point?.name} <br />
         </Popup>
       </Marker>
     );
   });
   const pointsInfo = route.poi?.map((point) => {
     return (<div className='poiDesc'>
-     <span>Punto: {point.name}</span> <br />
-     <span>Descripción: {point.description_es}</span>
+     <span>Punto: {point?.name}</span> <br />
+     <span>Descripción: {point?.description_es}</span>
      </div>
     );
   });
