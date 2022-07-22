@@ -11,7 +11,7 @@ import {
 } from "react-leaflet";
 import Comments from "../../Comments/Comments";
 import Scores from "./Scores/Scores";
-
+import Score from "./Scores/Score/Score"
 const styles = {
   wrapper: {
     height: 400,
@@ -88,6 +88,7 @@ const RouteDetail = () => {
         <>
         {pointsInfo}
         <Scores routeId={route._id}/>
+       <Score/>
       <Comments />
       </>
       </div>
