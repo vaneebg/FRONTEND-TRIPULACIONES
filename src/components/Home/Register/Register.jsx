@@ -69,6 +69,8 @@ const Register = () => {
   return (
     <div className='register-container'>
       <form onSubmit={onSubmit} className='form-register-container'>
+        <h2 className='register-title'>Rout'opic</h2>
+
         <label htmlFor='name'>Nombre de usuario:</label>
         <Input
           prefix={<UserOutlined />}

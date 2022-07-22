@@ -17,7 +17,7 @@ const Route = ({ pageC, functionPage }) => {
   const route = routes?.map(el => {
     const isAlreadyLiked = el.likes?.includes(user?._id);
     return (
-      <section key={el._id} className='wrapper'>
+      <section key={el._id} className='wrapper-ok'>
         <div className='main-card'>
           <div className='card panel'>
             <div className='card-header'>
@@ -50,34 +50,6 @@ const Route = ({ pageC, functionPage }) => {
                     />
                   )}
                   <span>{el?.likes.length}</span>
-                  <svg
-                    aria-label='Compartir publicación'
-                    className='send '
-                    color='#8e8e8e'
-                    fill='#8e8e8e'
-                    height='24'
-                    role='img'
-                    viewBox='0 0 24 24'
-                    width='24'
-                  >
-                    <line
-                      fill='none'
-                      stroke='black'
-                      stroke-linejoin='round'
-                      stroke-width='2'
-                      x1='22'
-                      x2='9.218'
-                      y1='3'
-                      y2='10.083'
-                    ></line>
-                    <polygon
-                      fill='none'
-                      points='11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334'
-                      stroke='black'
-                      stroke-linejoin='round'
-                      stroke-width='2'
-                    ></polygon>
-                  </svg>
                 </div>
                 <div className='bottom-icon-left'>
                   <svg
