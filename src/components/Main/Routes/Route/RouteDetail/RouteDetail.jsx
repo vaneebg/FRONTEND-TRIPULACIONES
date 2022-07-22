@@ -41,9 +41,7 @@ const RouteDetail = () => {
     dispatch(getById(_id));
   }, []);
 
-    useEffect(() => {
-        dispatch(getById(_id))
-    }, []);
+ 
 
   const pointsMap = route.poi?.map((point) => {
     return (
