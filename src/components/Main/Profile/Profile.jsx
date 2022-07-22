@@ -11,9 +11,7 @@ const URL = process.env.REACT_APP_URL;
 
 const Profile = () => {
   const { user, userUpdated } = useSelector(state => state.auth);
-  console.log('Hellooooooobaby', user);
-  const userLikes = user.likes;
-  console.log('userLikes',userLikes)
+  console.log('user', user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onLogout = () => {
@@ -27,10 +25,10 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    dispatch(myInfo()); //
-  }, [userUpdated, userLikes]);
+    dispatch(myInfo());
+  }, [userUpdated]);
 
-  const likedRoutes = userLikes?.map((likedRoute) => {
+  const likedRoutes = user?.likes?.map((likedRoute) => {
     return(
       <div key={likedRoute._id}>
         <Link to={"/routes/route/" + likedRoute._id}>
@@ -76,7 +74,7 @@ const Profile = () => {
         <br />
         <div className='rutas'>
           <p>Aquí van las rutas</p>
-          <div>{userLikes}</div>
+          <div>{likedRoutes}</div>
         </div>
       </div>
     </div>
