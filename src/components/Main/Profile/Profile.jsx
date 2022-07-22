@@ -1,7 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { reset, myInfo, logout, deleteUser } from '../../../features/auth/authSlice';
+import {
+  reset,
+  myInfo,
+  logout,
+  deleteUser,
+} from '../../../features/auth/authSlice';
 import { Tooltip, Popconfirm } from 'antd';
 import { PoweroffOutlined, FastBackwardOutlined } from '@ant-design/icons';
 import ModalEditUser from './ModalEditUser/ModalEditUser';
@@ -28,19 +33,43 @@ const Profile = () => {
     dispatch(myInfo());
   }, [userUpdated]);
 
-  const likedRoutes = user?.likes?.map((likedRoute) => {
-    return(
+  const likedRoutes = user?.likes?.map(likedRoute => {
+    return (
       <div key={likedRoute._id}>
-        <Link to={"/routes/route/" + likedRoute._id}>
+        <Link to={'/routes/route/' + likedRoute._id}>
           <p>{likedRoute.name}</p>
         </Link>
       </div>
-    )
+    );
   });
 
   return (
     <div className='profile-container'>
       <div className='profile-card'>
+        <div className='profile-card-header'>
+          <div className='profile-image2'>
+            {user.imagepath ? (
+              <img
+                src={URL + '/users/' + user.imagepath}
+                alt=''
+                className='profile-image'
+              />
+            ) : null}
+          </div>
+        </div>
+        <div className='profile-info'>
+          <h2 className='profile-name'>
+            {user?.name}{' '}
+            <span>
+              <Link to='/' onClick={onLogout}>
+                <PoweroffOutlined />
+              </Link>
+            </span>
+          </h2>
+
+          <p className='profile-desc'>{user?.genre}</p>
+          <p className='profile-desc'>3</p>
+        </div>
         <Tooltip placement='bottom' title='Volver a principal'>
           <Link to='/main'>
             <FastBackwardOutlined
@@ -51,14 +80,11 @@ const Profile = () => {
             />
           </Link>
         </Tooltip>
-        {user.imagepath ? (
+        {/* {user.imagepath ? (
           <img src={URL + '/users/' + user.imagepath} alt='' width='250px' />
-        ) : null}
+        ) : null} */}
         <span>Género:{user?.genre}</span>
         <span>Nombre: {user?.name} </span> <br />
-        <Link to='/' onClick={onLogout}>
-          <PoweroffOutlined />
-        </Link>
         <ModalEditUser />
         <Popconfirm
           placement='bottom'
