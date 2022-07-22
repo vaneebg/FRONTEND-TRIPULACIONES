@@ -8,7 +8,7 @@ import { Avatar } from "antd";
 
 const Score = () => {
     const dispatch = useDispatch();
-  const { scores,score } = useSelector((state) => state.scores);
+  const { scores,newScore } = useSelector((state) => state.scores);
 
   const getScoresAndReset = async () => {
     await dispatch(getAllScores());
@@ -17,7 +17,7 @@ const Score = () => {
 
   useEffect(() => {
     getScoresAndReset();
-  }, [getAllScores]);
+  }, [getAllScores,newScore]);
 
  const scoresPint=scores.scores?.map(el=>{return(
     <div>
