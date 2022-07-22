@@ -86,7 +86,7 @@ const Route = ({ pageC, functionPage }) => {
   });
 
   return (
-    <div className='container'>
+    <>
       <Pagination
         total={numberRoutes}
         current={pageC}
@@ -108,7 +108,7 @@ const Route = ({ pageC, functionPage }) => {
         defaultPageSize={10}
         defaultCurrent={1}
       />
-    </div>
+    </>
   );
 };
 export default Route;
