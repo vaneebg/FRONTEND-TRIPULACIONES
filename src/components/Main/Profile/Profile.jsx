@@ -8,9 +8,14 @@ import {
   deleteUser,
 } from '../../../features/auth/authSlice';
 import { Tooltip, Popconfirm } from 'antd';
-import { PoweroffOutlined, FastBackwardOutlined } from '@ant-design/icons';
+import {
+  PoweroffOutlined,
+  HomeFilled,
+  FastBackwardOutlined,
+} from '@ant-design/icons';
 import ModalEditUser from './ModalEditUser/ModalEditUser';
 import './Profile.scss';
+import pic from '../../../assets/route_login.png';
 
 const URL = process.env.REACT_APP_URL;
 
@@ -45,6 +50,7 @@ const Profile = () => {
 
   return (
     <div className='profile-container'>
+      <h2 className='profile-title'>Vista de Perfil</h2>
       <div className='profile-card'>
         <div className='profile-card-header'>
           <div className='profile-image2'>
@@ -58,48 +64,43 @@ const Profile = () => {
           </div>
         </div>
         <div className='profile-info'>
-          <h2 className='profile-name'>
-            {user?.name}{' '}
-            <span>
+          <h2 className='profile-name'>{user?.name} </h2>
+          <div className='top-prof-div'>
+            <p>
               <Link to='/' onClick={onLogout}>
-                <PoweroffOutlined />
+                <PoweroffOutlined className='logo-prof' />
               </Link>
-            </span>
-          </h2>
-
-          <p className='profile-desc'>{user?.genre}</p>
-          <p className='profile-desc'>3</p>
+            </p>
+            <p className='profile-desc'>{user?.email}</p>
+            <p>
+              <Tooltip placement='bottom' title='Volver a principal'>
+                <Link to='/main'>
+                  <HomeFilled className='logo-prof' />
+                </Link>
+              </Tooltip>
+            </p>
+          </div>
+          <div className='but-profile-div'>
+            <ModalEditUser />
+            <Popconfirm
+              placement='bottom'
+              title='Seguro que quieres borrar tu cuenta definitivamente?'
+              onConfirm={() => deleteUserAndRedirect(user._id)}
+              okText='Yes'
+              cancelText='No'
+            >
+              <button className='Button' className='btn-profile'>
+                Borrar cuenta
+              </button>
+            </Popconfirm>
+          </div>
+          <br />
+          <br />
+          <hr />
         </div>
-        <Tooltip placement='bottom' title='Volver a principal'>
-          <Link to='/main'>
-            <FastBackwardOutlined
-              style={{
-                fontSize: '3.5em',
-                color: 'black',
-              }}
-            />
-          </Link>
-        </Tooltip>
-        {/* {user.imagepath ? (
-          <img src={URL + '/users/' + user.imagepath} alt='' width='250px' />
-        ) : null} */}
-        <span>Género:{user?.genre}</span>
-        <span>Nombre: {user?.name} </span> <br />
-        <ModalEditUser />
-        <Popconfirm
-          placement='bottom'
-          title='Seguro que quieres borrar tu cuenta definitivamente?'
-          onConfirm={() => deleteUserAndRedirect(user._id)}
-          okText='Yes'
-          cancelText='No'
-        >
-          <button className='Button'>Borrar cuenta</button>
-        </Popconfirm>
-        <br />
-        <br />
         <br />
         <div className='rutas'>
-          <p>Aquí van las rutas</p>
+          <h3 className='prof-h3'>Rutas favoritas</h3>
           <div>{likedRoutes}</div>
         </div>
       </div>
