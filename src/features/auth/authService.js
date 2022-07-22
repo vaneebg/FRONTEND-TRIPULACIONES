@@ -23,6 +23,7 @@ const myInfo = async () => {
       authorization: user?.user.tokens[0],
     },
   });
+  // console.log('service', res.data)
   return res.data;
 };
 
