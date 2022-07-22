@@ -60,7 +60,7 @@ const dispatch=useDispatch()
         name='age'
         value={age}
         onChange={onChange}
-        required
+       
       />
      <br />
       <label htmlFor='genre'>Género:</label>
@@ -80,7 +80,7 @@ const dispatch=useDispatch()
         onChange={onChange}
         min='30'
         max='480'
-        required
+      
       /> <br />
        <label htmlFor='route_type'>Tipo de ruta:</label>
       <Radio.Group   >
