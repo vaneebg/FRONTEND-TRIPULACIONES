@@ -1,56 +1,31 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Avatar, Comment, Form, Input, Button } from "antd";
-// import { Pagination } from "antd";
+import { Avatar, Comment } from "antd";
 import React, { useState } from "react";
-import {createComment, getAll} from "../../../../../features/comments/commentsSlice";
+import {
+  createComment,
+  getAll,
+} from "../../../../../features/comments/commentsSlice";
 import { getById, reset } from "../../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../../features/auth/authSlice";
 
-const { TextArea } = Input;
-const validateMessages = {
-  required: "${label} es requerido",
-};
-
 const URL = process.env.REACT_APP_URL;
+const URL2 = 'http://localhost:8080/comments/'
 
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
-  <>
-    <Form validateMessages={validateMessages}>
-      <Form.Item name={["comentario"]} rules={[{ required: true }]}>
-        <TextArea rows={4} onChange={onChange} value={value} />
-      </Form.Item>
-      <Form.Item>
-        <Button
-          htmlType="submit"
-          loading={submitting}
-          onClick={onSubmit}
-          type="primary"
-        >
-          Comentar
-        </Button>
-      </Form.Item>
-    </Form>
-  </>
-);
+const CommentDetail = () => {
+  const initialState = {
+    body: "",
+    imageComment: "",
+  };
 
-const CommentDetail = ({ pageC, functionPage }) => {
-  const { comments, newComment } = useSelector(
-    (state) => state.comments
-  );
-  const { user } = useSelector((state) => state.auth);
+  const [formData, setFormData] = useState(initialState);
+  const { imageComment, body } = formData;
+  const {newComment } = useSelector((state) => state.comments);
   const { isLoading, route } = useSelector((state) => state.routes);
   const [comment, setComment] = useState([]);
-  const [submitting, setSubmitting] = useState(false);
-  const [value, setValue] = useState("");
   const { _id } = useParams();
   const dispatch = useDispatch();
-
-  // const onChange = (page) => {
-  //   functionPage(page);
-  //   dispatch(getAll(page));
-  // };
 
   useEffect(() => {
     if (isLoading) {
@@ -59,20 +34,28 @@ const CommentDetail = ({ pageC, functionPage }) => {
     dispatch(reset());
   }, [isLoading]);
 
-  const handleSubmit = async () => {
-    if (!value) return;
-    let data = { body: value, routeId: _id };
-    setSubmitting(true);
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (!e) return;
+    console.log(e.target.myFile)
+    const editedData = new FormData();
+    if (e.target.imageComment.files[0]) {
+      editedData.set("imageComment", e.target.imageComment.files[0]);
+    }
+    editedData.set("body", e.target.body.value);
+    let data = { editedData, routeId: _id };
     await dispatch(createComment(data));
     await dispatch(getById(_id));
     setTimeout(() => {
-      setSubmitting(false);
-      setValue("");
       setComment([...comment]);
     }, 1000);
   };
-  const handleChange = async (e) => {
-    setValue(e.target.value);
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const commentUser = route.commentsId?.map((element) => {
@@ -87,7 +70,12 @@ const CommentDetail = ({ pageC, functionPage }) => {
                 alt=""
               />
             }
-            content={<p>{element.body}</p>}
+            content={
+              <>
+            <p>{element.body}</p>
+            <img alt='' src={URL2 + element?.imagepath} ></img>
+            </>
+          }
           />
         </div>
         <hr></hr>
@@ -105,32 +93,23 @@ const CommentDetail = ({ pageC, functionPage }) => {
 
   return (
     <>
-      {/* <br /> <br />
-      <Pagination
-        total={numberComments}
-        current={pageC}
-        onChange={onChange}
-        showTotal={(total, range) =>
-          `${range[0]}-${range[1]} of ${total} items`
-        }
-        defaultPageSize={10}
-        defaultCurrent={1}
-      /> */}
-     {/* {_id === comments[0]?.routeId ? ( */}
       <ul>{commentUser}</ul>
-      {/* ) : ( */}
-      {/* )} */}
-      <Comment
-        avatar={<Avatar src={URL + "/users/" + user.imagepath} alt="alt" />}
-        content={
-          <Editor
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-            submitting={submitting}
-            value={value}
-          />
-        }
-      />
+      <form onSubmit={onSubmit} className="form-comment-container">
+        <textarea
+          onChange={onChange}
+          value={body}
+          name="body"
+          rows="4"
+          cols="200"
+        ></textarea>
+        <input
+          onChange={onChange}
+          type="file"
+          name="imageComment"
+          value={imageComment}
+        />
+        <input className="loginBt" type="submit" />
+      </form>
     </>
   );
 };
