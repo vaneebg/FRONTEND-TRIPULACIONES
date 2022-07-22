@@ -15,19 +15,14 @@ const Route = ({ pageC, functionPage }) => {
   };
 
   const route = routes?.map(el => {
-
-    const isAlreadyLiked = el.likes?.includes(user?.user?._id);
+    const isAlreadyLiked = el.likes?.includes(user?._id);
     return (
       <section key={el._id} className='wrapper'>
         <div className='main-card'>
           <div className='card panel'>
             <div className='card-header'>
               <div className='card-header-left'>
-                <img
-                  src={el.image}
-                  alt=''
-                  className='picture-title'
-                />
+                <img src={el.image} alt='' className='picture-title' />
 
                 <span className='card-title user'>{el?.name}</span>
               </div>
@@ -37,11 +32,7 @@ const Route = ({ pageC, functionPage }) => {
                 </span>
               </div>
             </div>
-            <img
-                src={el.image}
-              alt='No picture'
-              class='main-picture'
-            />
+            <img src={el.image} alt='No picture' class='main-picture' />
             <div className='bottom-container'>
               <div className='icon-container'>
                 <div className='bottom-icon-right'>
