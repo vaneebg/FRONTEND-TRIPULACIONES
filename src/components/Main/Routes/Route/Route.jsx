@@ -14,9 +14,8 @@ const Route = ({ pageC, functionPage }) => {
     dispatch(getAll(page));
   };
 
-  const route = routes?.map(el => {
-
-    const isAlreadyLiked = el.likes?.includes(user?.user?._id);
+  const route = routes?.map(el => {  
+    const isAlreadyLiked = el.likes?.includes(user?._id);
     return (
       <section key={el._id} className='wrapper'>
         <div className='main-card'>

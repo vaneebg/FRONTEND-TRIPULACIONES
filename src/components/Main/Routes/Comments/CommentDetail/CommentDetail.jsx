@@ -39,9 +39,11 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 );
 
 const CommentDetail = ({ pageC, functionPage }) => {
-  const { comments, numberComments, newComment } = useSelector((state) => state.comments);
+  const { comments, numberComments, newComment } = useSelector(
+    (state) => state.comments
+  );
   const { user } = useSelector((state) => state.auth);
-  const { isLoading } = useSelector((state) => state.routes);
+  const { isLoading, route } = useSelector((state) => state.routes);
   const [comment, setComment] = useState([]);
   const [submitting, setSubmitting] = useState(false);
   const [value, setValue] = useState("");
@@ -76,10 +78,7 @@ const CommentDetail = ({ pageC, functionPage }) => {
     setValue(e.target.value);
   };
 
- console.log(comments)
-
   const commentUser = comments?.map((element) => {
-   
     return (
       <>
         <div className="animate__animated animate__fadeIn" key={element._id}>

@@ -4,6 +4,7 @@ import axios from "axios";
 const URL = process.env.REACT_APP_URL;
 
 const createComment = async (comment) => {
+  console.log(comment)
     const { body, routeId } = comment
     const data = {
       body: body
@@ -14,6 +15,7 @@ const createComment = async (comment) => {
         authorization: user?.token,
       },        
 });
+console.log(res.data)
 
 return res.data;
 }
