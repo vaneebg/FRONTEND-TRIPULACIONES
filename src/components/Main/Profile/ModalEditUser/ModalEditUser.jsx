@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { updateUser } from "../../../../features/auth/authSlice";
+import { resetPassword, updateUser } from "../../../../features/auth/authSlice";
 import { Modal, Input, Button } from "antd";
 import { UserOutlined, MailOutlined, LockOutlined } from "@ant-design/icons";
 
@@ -40,7 +40,7 @@ const ModalEditUser = () => {
 
   useEffect(() => {
     setFormData(user);
-    
+    // dispatch(resetPassword())
   }, [user]);
 
   return (

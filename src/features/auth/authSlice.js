@@ -87,6 +87,9 @@ export const authSlice = createSlice({
       state.messageDelete = '';
       state.messageLogout= '';
     },
+    resetPassword: state =>{
+      state.user.password = ''
+    }
   },
   extraReducers: builder => {
     builder
@@ -126,6 +129,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { reset } = authSlice.actions;
+export const { reset, resetPassword } = authSlice.actions;
 
 export default authSlice.reducer;
