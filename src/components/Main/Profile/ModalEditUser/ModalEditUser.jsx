@@ -39,7 +39,8 @@ const ModalEditUser = () => {
   };
 
   useEffect(() => {
-    setFormData(user); //
+    setFormData(user);
+    
   }, [user]);
 
   return (
