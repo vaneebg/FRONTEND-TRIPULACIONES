@@ -26,9 +26,9 @@ const RouteDetail = () => {
     dispatch(getById(_id));
   }, [getById]);
 
-  const pointsMap = route.poi?.map(point => {
+  const pointsMap = route.poi?.map((point,i) => {
     return (
-      <Marker position={[point?.longitude, point?.latitude]}>
+      <Marker key={i} position={[point?.longitude, point?.latitude]}>
         <Popup>
           {point?.name} <br />
         </Popup>

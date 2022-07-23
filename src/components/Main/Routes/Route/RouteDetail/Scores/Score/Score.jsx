@@ -30,10 +30,10 @@ const Score = () => {
     dispatch(myInfo());
   }, []);
 
-  const scoresPint = scores.scores?.map(el => {
+  const scoresPint = scores.scores?.map((el,i) => {
     if (route._id === el.routeId) {
       return (
-        <div key={el._id} className='score-div'>
+        <div key={i} className='score-div'>
           <Avatar src={URL + '/users/' + el.userId?.imagepath} alt='' />
           <span>{el.userId.name}</span>
           <span>{el.score}</span>
@@ -56,7 +56,7 @@ const Score = () => {
         </div>
       );
     } else {
-      return <div></div>;
+      return <div key={i}></div>;
     }
   });
 

@@ -120,7 +120,6 @@ const CommentDetail = () => {
                 ''
               )}
             </div>
-            {/* <hr></hr> */}
           </>
         ) : (
           ''
