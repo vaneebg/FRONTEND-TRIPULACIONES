@@ -5,6 +5,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const initialState = {
   routes:[],
   route: {},
+  routeLiked:{},
+  routeDisliked:{},
   numberRoutes: 0,
   isLoading: false,
   isError: false,
@@ -76,6 +78,7 @@ export const dislike = createAsyncThunk("routes/dislike", async (_id) => {
             return route;
           });
           state.routes = routes;
+          state.routeLiked = routes;
         })
         .addCase(dislike.fulfilled, (state, action) =>{
           const routes = state.routes.map((route)=>{
@@ -85,7 +88,7 @@ export const dislike = createAsyncThunk("routes/dislike", async (_id) => {
             return route;
           });
           state.routes = routes;
-          state.route = routes
+          state.routeDisliked = routes
         })
     }})
 
