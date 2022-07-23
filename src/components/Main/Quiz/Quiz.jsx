@@ -34,16 +34,15 @@ const dispatch=useDispatch()
 
   const onSubmit = e => {
     e.preventDefault();
-  
-      const formData = new FormData();
-      formData.set('age', e.target.age.value);
-      formData.set('gender', e.target.gender.value);
-      formData.set('time', e.target.time.value);
-      formData.set('route_type', e.target.route_type.value);
-      formData.set('price', e.target.price.value);
-      formData.set('difficulty', e.target.difficulty.value);
-      formData.set('companions', e.target.companions.value);
-      formData.set('transport', e.target.transport.value);
+  console.log(formData)
+    setFormData('age', e.target.age.value);
+    setFormData('gender', e.target.gender.value);
+    setFormData('time', e.target.time.value);
+    setFormData('route_type', e.target.route_type.value);
+    setFormData('price', e.target.price.value);
+    setFormData('difficulty', e.target.difficulty.value);
+    setFormData('companions', e.target.companions.value);
+    setFormData('transport', e.target.transport.value);
       // dispatch(quiz(formData));
       setFormData(initialState);
     
@@ -63,11 +62,11 @@ const dispatch=useDispatch()
        
       />
      <br />
-      <label htmlFor='genre'>Género:</label>
-      <Radio.Group   >
-          <Radio name={gender} value="hombre" onChange={onChange}>Hombre</Radio>
-          <Radio  name={gender} value="mujer" onChange={onChange}>Mujer</Radio>
-          <Radio  name={gender} value="otro" onChange={onChange}>Otro</Radio>
+      <label htmlFor='gender'>Género:</label>
+      <Radio.Group  onChange={(e) => setFormData(prevState=>({...prevState,gender: e.target.value}))}> 
+          <Radio name={gender} value="hombre" >Hombre</Radio>
+          <Radio  name={gender} value="mujer">Mujer</Radio>
+          <Radio  name={gender} value="otro" >Otro</Radio>
         </Radio.Group>
 <br />
         <label htmlFor='genre'>Duración de la ruta:</label>
@@ -83,42 +82,42 @@ const dispatch=useDispatch()
       
       /> <br />
        <label htmlFor='route_type'>Tipo de ruta:</label>
-      <Radio.Group   >
-          <Radio name={route_type} value="historica" onChange={onChange}>Histórica</Radio>
-          <Radio  name={route_type} value="turistica" onChange={onChange}>Turística</Radio>
-          <Radio  name={route_type} value="literaria" onChange={onChange}>Literaria</Radio>
-          <Radio  name={route_type} value="patrimonio" onChange={onChange}>Patrimonio</Radio>
+      <Radio.Group   onChange={(e) => setFormData(prevState=>({...prevState,route_type: e.target.value}))} >
+          <Radio name={route_type} value="historica" >Histórica</Radio>
+          <Radio  name={route_type} value="turistica" >Turística</Radio>
+          <Radio  name={route_type} value="literaria" >Literaria</Radio>
+          <Radio  name={route_type} value="patrimonio" >Patrimonio</Radio>
 
         </Radio.Group>
         <br />
         <label htmlFor='companions'>Compañía:</label>
-      <Radio.Group   >
-          <Radio name={companions} value="solo" onChange={onChange}>Solo</Radio>
-          <Radio  name={companions} value="pareja" onChange={onChange}>En pareja</Radio>
-          <Radio  name={companions} value="familia" onChange={onChange}>En familia</Radio>
-          <Radio  name={companions} value="amigos" onChange={onChange}>Amigos</Radio>
+      <Radio.Group  onChange={(e) => setFormData(prevState=>({...prevState,companions: e.target.value}))}  >
+          <Radio name={companions} value="solo">Solo</Radio>
+          <Radio  name={companions} value="pareja">En pareja</Radio>
+          <Radio  name={companions} value="familia">En familia</Radio>
+          <Radio  name={companions} value="amigos">Amigos</Radio>
 
         </Radio.Group>
         <br />
         <label htmlFor='price'>Rango de precios:</label>
-      <Radio.Group   >
-          <Radio name={price} value="gratis" onChange={onChange}>Gratis</Radio>
-          <Radio  name={price} value="1-50" onChange={onChange}>1-50€</Radio>
-          <Radio  name={price} value="+50" onChange={onChange}>+50€</Radio>
+      <Radio.Group   onChange={(e) => setFormData(prevState=>({...prevState,price: e.target.value}))} >
+          <Radio name={price} value="gratis" >Gratis</Radio>
+          <Radio  name={price} value="1-50" >1-50€</Radio>
+          <Radio  name={price} value="+50" >+50€</Radio>
         </Radio.Group>
         <br />
         <label htmlFor='difficulty'>Dificultad:</label>
-      <Radio.Group   >
-          <Radio name={difficulty} value="alta" onChange={onChange}>Alta</Radio>
-          <Radio  name={difficulty} value="baja" onChange={onChange}>Baja</Radio>
+      <Radio.Group   onChange={(e) => setFormData(prevState=>({...prevState,difficulty: e.target.value}))} >
+          <Radio name={difficulty} value="alta" >Alta</Radio>
+          <Radio  name={difficulty} value="baja" >Baja</Radio>
         </Radio.Group>
         <br />
         <label htmlFor='transport'>Transporte:</label>
-      <Radio.Group   >
-          <Radio name={transport} value="a pie" onChange={onChange}>A pie</Radio>
-          <Radio  name={transport} value="bicicleta" onChange={onChange}>Bicicleta</Radio>
+      <Radio.Group  onChange={(e) => setFormData(prevState=>({...prevState,transport: e.target.value}))}  >
+          <Radio name={transport} value="a pie" >A pie</Radio>
+          <Radio  name={transport} value="bicicleta" >Bicicleta</Radio>
         </Radio.Group>
-     
+     <input type="submit" />
     </form>
     </div>
 
