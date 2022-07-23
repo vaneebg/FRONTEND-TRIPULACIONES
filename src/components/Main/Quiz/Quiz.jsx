@@ -50,9 +50,9 @@ const dispatch=useDispatch()
 
   };
   return (
-<div className="containerQuiz">
-    <form className='form' onSubmit={onSubmit}>
-    <span className='titleForm'>Formulario:</span>
+<div className='register-container'>
+    <form className='form-register-container' onSubmit={onSubmit}>
+    <h2 className='register-title'>Formulario:</h2>
       <label htmlFor='age'>Edad:</label>
       <Input
         type='number'
