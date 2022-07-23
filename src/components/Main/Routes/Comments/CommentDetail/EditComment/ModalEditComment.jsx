@@ -41,10 +41,10 @@ const ModalEditComment = ({ commentId }) => {
   return (
     <>
       <Button type="primary" onClick={() => setVisible(true)}>
-        Editar Usuario
+        Editar Comentario
       </Button>
       <Modal
-        title="Editar usuario"
+        title="Editar comentario"
         visible={visible}
         width={1000}
         onCancel={() => setVisible(false)}

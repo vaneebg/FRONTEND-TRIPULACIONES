@@ -22,7 +22,7 @@ const CommentDetail = () => {
   const [formData, setFormData] = useState(initialState);
   const { imageComment, body } = formData;
   const { user } = useSelector((state) => state.auth);
-  const { comments, eraseComment } = useSelector((state) => state.comments);
+  const { comments, eraseComment, commentUpdated } = useSelector((state) => state.comments);
   const [comment, setComment] = useState([]);
   const { _id } = useParams();
   const dispatch = useDispatch();
@@ -51,6 +51,11 @@ const CommentDetail = () => {
   useEffect(() => {
     dispatch(getAll());
   }, [eraseComment]);
+
+  useEffect(() => {
+    dispatch(getAll());
+  }, [commentUpdated]);
+
 
   console.log("hola");
 
