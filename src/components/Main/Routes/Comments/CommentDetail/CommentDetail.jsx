@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Avatar, Comment, Button } from "antd";
+import { Avatar, Comment, Button, Tooltip } from "antd";
+import moment from "moment";
 
 import React, { useState } from "react";
 import {
@@ -22,7 +23,9 @@ const CommentDetail = () => {
   const [formData, setFormData] = useState(initialState);
   const { imageComment, body } = formData;
   const { user } = useSelector((state) => state.auth);
-  const { comments, eraseComment, commentUpdated } = useSelector((state) => state.comments);
+  const { comments, eraseComment, commentUpdated } = useSelector(
+    (state) => state.comments
+  );
   const [comment, setComment] = useState([]);
   const { _id } = useParams();
   const dispatch = useDispatch();
@@ -56,7 +59,6 @@ const CommentDetail = () => {
     dispatch(getAll());
   }, [commentUpdated]);
 
-
   console.log("hola");
 
   const onChange = (e) => {
@@ -67,6 +69,8 @@ const CommentDetail = () => {
   };
 
   const commentUser = comments.map((element) => {
+
+    console.log(element)
     return (
       <>
         {_id === element.routeId ? (
@@ -92,6 +96,11 @@ const CommentDetail = () => {
                     ></img>
                   </>
                 }
+                datetime={
+                  <Tooltip title={moment().format("YYYY-MM-DD HH:mm:ss")}>
+                    <span>{element.createdAt.slice(0,10)}</span>
+                  </Tooltip>
+                }
               />
               {element.userId._id === user._id ? (
                 <>
@@ -103,7 +112,7 @@ const CommentDetail = () => {
                   >
                     Borrar Comentario
                   </Button>
-                  <ModalEditComment commentId = {element._id} />
+                  <ModalEditComment commentId={element._id} />
                 </>
               ) : (
                 ""
