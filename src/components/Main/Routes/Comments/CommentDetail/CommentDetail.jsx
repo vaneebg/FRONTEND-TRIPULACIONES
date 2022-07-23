@@ -9,8 +9,6 @@ import {
   destroyComment,
   getAll,
 } from "../../../../../features/comments/commentsSlice";
-import { getById, reset } from "../../../../../features/routes/routesSlice";
-import { myInfo } from "../../../../../features/auth/authSlice";
 
 const URL = process.env.REACT_APP_URL;
 
@@ -22,20 +20,18 @@ const CommentDetail = () => {
 
   const [formData, setFormData] = useState(initialState);
   const { imageComment, body } = formData;
-  const { newComment, eraseComment } = useSelector((state) => state.comments);
-  const { isLoading, route } = useSelector((state) => state.routes);
+  const { user } = useSelector((state) => state.auth);
+  const { comments, eraseComment } = useSelector((state) => state.comments);
   const [comment, setComment] = useState([]);
   const { _id } = useParams();
   const dispatch = useDispatch();
 
-  console.log(route);
-
-  useEffect(() => {
-    if (isLoading) {
-      <h1>Cargando...</h1>;
-    }
-    dispatch(reset());
-  }, [isLoading]);
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     <h1>Cargando...</h1>;
+  //   }
+  //   dispatch(reset());
+  // }, [isLoading]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -48,15 +44,19 @@ const CommentDetail = () => {
     editedData.set("body", e.target.body.value);
     let data = { editedData, routeId: _id };
     await dispatch(createComment(data));
-    await dispatch(getById(_id));
+    await dispatch(getAll());
     setTimeout(() => {
       setComment([...comment]);
     }, 1000);
   };
 
-  const destroy = (_id) => {
-    dispatch(destroyComment(_id));
+  const destroy = async (_id) => {
+    await dispatch(destroyComment(_id));
   };
+
+  useEffect(() => {
+    dispatch(getAll());
+  }, [eraseComment]);
 
   console.log("hola");
 
@@ -67,49 +67,58 @@ const CommentDetail = () => {
     }));
   };
 
-  const commentUser = route.commentsId?.map((element) => {
+  const commentUser = comments.map((element) => {
     return (
       <>
-        <div className="animate__animated animate__fadeIn" key={element._id}>
-          <Comment
-            author={<a>{element.userId?.name}</a>}
-            avatar={
-              <Avatar
-                src={URL + "/users/" + element.userId?.imagepath}
-                alt=""
+        {_id === element.routeId ? (
+          <>
+            <div
+              className="animate__animated animate__fadeIn"
+              key={element._id}
+            >
+              <Comment
+                author={<a>{element.userId?.name}</a>}
+                avatar={
+                  <Avatar
+                    src={URL + "/users/" + element.userId?.imagepath}
+                    alt=""
+                  />
+                }
+                content={
+                  <>
+                    <p>{element.body}</p>
+                    <img
+                      alt=""
+                      src={URL + "/comments/" + element?.imagepath}
+                    ></img>
+                  </>
+                }
               />
-            }
-            content={
-              <>
-                <p>{element.body}</p>
-                <img alt="" src={URL + "/comments/" + element?.imagepath}></img>
-              </>
-            }
-          />
-          <Button
-            type="danger"
-            onClick={() => {
-              destroy(element._id);
-            }}
-          >
-            Borrar Post
-          </Button>
-        </div>
-        <hr></hr>
+              {element.userId._id === user._id ? (
+                <Button
+                  type="danger"
+                  onClick={() => {
+                    destroy(element._id);
+                  }}
+                >
+                  Borrar Post
+                </Button>
+              ) : (
+                ""
+              )}
+            </div>
+            <hr></hr>
+          </>
+        ) : (
+          ""
+        )}
       </>
     );
   });
 
-  useEffect(() => {
-    dispatch(getAll());
-  }, [newComment]);
-
-  useEffect(() => {
-    dispatch(myInfo());
-  }, []);
-
   return (
     <>
+      {/* {comments} */}
       <ul>{commentUser}</ul>
       <form onSubmit={onSubmit} className="form-comment-container">
         <textarea

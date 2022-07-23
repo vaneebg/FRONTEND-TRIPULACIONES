@@ -4,7 +4,7 @@ import commentsService from "./commentsService";
 const initialState = {
     comments: [],
     newComment:{},
-    eraseComment:[],
+    eraseComment:{},
     numberComments:0,
     isLoading: false,
     isError: false,
@@ -74,8 +74,8 @@ export const commentsSlice = createSlice({
         state.comments = action.payload.comments
       })
       .addCase(destroyComment.fulfilled,(state,action)=>{
-        state.eraseComment= action.payload
         // state.comments = state.comments.comments.filter((comment) => comment._id !== action.payload.comment._id) 
+        state.eraseComment = action.payload.comment
         state.isSuccess = true;
         state.message = action.payload.message;
       })
