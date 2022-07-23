@@ -1,7 +1,8 @@
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { createQuiz } from '../../../features/quiz/quizSlice';
-import { Input, Radio } from 'antd';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { createQuiz,reset } from '../../../features/quiz/quizSlice';
+import { Input, Radio, notification } from 'antd';
 import './Quiz.scss';
 
 const Quiz = () => {
@@ -15,6 +16,18 @@ const Quiz = () => {
     companions: '',
     transport: ''
   };
+  const { isError, isSuccess, message} = useSelector(state => state.quiz);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isError) {
+      notification.error({ message: 'Error', description: message });
+    }
+    if (isSuccess) {
+      notification.success({ message: 'Éxito', description: message });
+    }
+    dispatch(reset());
+  }, [isError, isSuccess, message]);
 
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch()
