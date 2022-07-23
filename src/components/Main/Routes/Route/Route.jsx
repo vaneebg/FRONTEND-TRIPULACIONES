@@ -1,16 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
-import "./Route.scss";
-import { Pagination } from "antd";
 import { dislike, getAll, like } from "../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../features/auth/authSlice";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { Pagination } from "antd";
+import "./Route.scss";
 
 const Route = ({ pageC, functionPage }) => {
+
   const { routes, numberRoutes } = useSelector((state) => state.routes);
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+
   const onChange = (page) => {
     functionPage(page);
     dispatch(getAll(page));
@@ -29,8 +31,6 @@ const Route = ({ pageC, functionPage }) => {
             <div className="card-header">
               <div className="card-header-left">
                 <img src={el.image} alt="" className="picture-title" />
-
-                {/* <span className='card-title user'>{el?.name}</span> */}
               </div>
               <div className="dropdown">
                 <span className="simbol-right dropbtn">

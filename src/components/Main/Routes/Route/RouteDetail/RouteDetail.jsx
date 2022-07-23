@@ -1,26 +1,19 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Skeleton } from 'antd';
 import { useParams } from 'react-router-dom';
 import { getById } from '../../../../../features/routes/routesSlice';
+import Comments from '../../Comments/Comments';
+import Scores from './Scores/Scores';
+import Score from './Scores/Score/Score';
 import {
   MapContainer,
   TileLayer,
   Marker,
   Popup,
-  Polyline,
-  Circle,
 } from 'react-leaflet';
-import Comments from '../../Comments/Comments';
-import Scores from './Scores/Scores';
-import Score from './Scores/Score/Score';
-import { getAll } from '../../../../../features/comments/commentsSlice';
+import { Timeline } from 'antd';
 import './RouteDetail.scss';
 
-import { SmileOutlined } from '@ant-design/icons';
-import { Timeline } from 'antd';
-
-const Options = { color: 'rgb(127, 168, 255)' };
 
 const RouteDetail = () => {
   const { _id } = useParams();
@@ -46,8 +39,6 @@ const RouteDetail = () => {
   const pointsInfo = route.poi?.map(point => {
     return (
       <div key={point._id} className='poiDesc'>
-        {/* <span>Punto: {point?.name}</span> <br />
-        <span>Descripción: {point?.description_es}</span> */}
         <Timeline>
           <Timeline.Item color='red'>{point?.name}</Timeline.Item>
           <Timeline.Item color='green'>{point?.description_es}</Timeline.Item>
@@ -55,14 +46,13 @@ const RouteDetail = () => {
       </div>
     );
   });
+
   return (
     <>
       <div className='routeDetail'>
         <h3>{route?.name}</h3>
         <div className='hola'>
           <img className='imgRouteDetail' src={route?.image} alt='' />
-          {/* <p>{route?.dificulty}</p>
-        <p>{route?.duration}</p> */}
           <p>{route?.description_es}</p>
         </div>
         <p>{route?.startingPoint}</p>
@@ -78,7 +68,6 @@ const RouteDetail = () => {
               url={'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png'}
             />
             {pointsMap}
-            {/* <Polyline pathOptions={Options} positions={pointsLine} /> */}
           </MapContainer>
         </div>
         <>

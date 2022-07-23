@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   createScore,
   reset,
@@ -8,6 +7,7 @@ import {
 import { Input, notification } from 'antd';
 
 const Score = ({ routeId }) => {
+
   const initialState = {
     score: 1,
   };

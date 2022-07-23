@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { resetPassword, updateUser } from "../../../../features/auth/authSlice";
 import { Modal, Input, Button } from "antd";
-import { UserOutlined, MailOutlined, LockOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 const ModalEditUser = () => {
   const [visible, setVisible] = useState(false);

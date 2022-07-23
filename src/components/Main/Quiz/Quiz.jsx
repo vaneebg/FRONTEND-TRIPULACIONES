@@ -1,8 +1,8 @@
-import { Button, Input, Form, Radio } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import './Quiz.scss';
 import { createQuiz } from '../../../features/quiz/quizSlice';
+import { Input, Radio } from 'antd';
+import './Quiz.scss';
 
 const Quiz = () => {
   const initialState = {

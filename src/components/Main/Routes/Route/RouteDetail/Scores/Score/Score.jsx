@@ -1,22 +1,19 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import React from 'react';
 import {
   getAllScores,
   reset,
   deleteScore,
 } from '../../../../../../../features/scores/scoresSlice';
-
+import { myInfo } from '../../../../../../../features/auth/authSlice';
 import { Avatar, Popconfirm } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
-import { myInfo } from '../../../../../../../features/auth/authSlice';
 
 const URL = process.env.REACT_APP_URL;
 
 const Score = () => {
+
   const dispatch = useDispatch();
-  const { _id } = useParams();
   const { scores, newScore } = useSelector(state => state.scores);
   const { route } = useSelector(state => state.routes);
 

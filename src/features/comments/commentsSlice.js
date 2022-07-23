@@ -37,7 +37,6 @@ export const getAll = createAsyncThunk(
   }
 );
 
-
 export const destroyComment = createAsyncThunk(
   "comments/destroyComment",
   async(_id)=>{

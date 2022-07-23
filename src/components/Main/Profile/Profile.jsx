@@ -7,15 +7,13 @@ import {
   logout,
   deleteUser,
 } from '../../../features/auth/authSlice';
+import ModalEditUser from './ModalEditUser/ModalEditUser';
 import { Tooltip, Popconfirm } from 'antd';
 import {
   PoweroffOutlined,
   HomeFilled,
-  FastBackwardOutlined,
 } from '@ant-design/icons';
-import ModalEditUser from './ModalEditUser/ModalEditUser';
 import './Profile.scss';
-import pic from '../../../assets/route_login2.png';
 
 const URL = process.env.REACT_APP_URL;
 

@@ -1,16 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Avatar, Comment, Button, Tooltip } from 'antd';
-import moment from 'moment';
-import { DeleteOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
 import {
   createComment,
   destroyComment,
   getAll,
 } from '../../../../../features/comments/commentsSlice';
 import ModalEditComment from './EditComment/ModalEditComment';
+import { Avatar, Comment, Button, Tooltip } from 'antd';
+import moment from 'moment';
+import { DeleteOutlined } from '@ant-design/icons';
 
 const URL = process.env.REACT_APP_URL;
 

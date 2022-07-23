@@ -9,8 +9,8 @@ const createComment = async (data) => {
     const res = await axios.post(URL + "/comments/route/" + routeId, editedData, {
       headers: {
         authorization: user?.token,
-      },        
-});
+      }      
+})
 return res.data;
 }
 

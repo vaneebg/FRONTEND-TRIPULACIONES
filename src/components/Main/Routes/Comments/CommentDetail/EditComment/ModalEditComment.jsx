@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { Modal, Input, Button } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
 import {
   setCommentToEdit,
   updateComment,
 } from '../../../../../../features/comments/commentsSlice';
+import { Modal, Input, Button } from 'antd';
+import { EditOutlined } from '@ant-design/icons';
 
 const ModalEditComment = ({ commentId }) => {
+
   const [visible, setVisible] = useState(false);
   const { comments, commentToEdit } = useSelector(state => state.comments);
   const dispatch = useDispatch();
