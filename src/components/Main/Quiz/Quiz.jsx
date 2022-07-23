@@ -35,16 +35,7 @@ const dispatch=useDispatch()
   const onSubmit = e => {
     e.preventDefault();
   console.log(formData)
-    setFormData('age', e.target.age.value);
-    setFormData('gender', e.target.gender.value);
-    setFormData('time', e.target.time.value);
-    setFormData('route_type', e.target.route_type.value);
-    setFormData('price', e.target.price.value);
-    setFormData('difficulty', e.target.difficulty.value);
-    setFormData('companions', e.target.companions.value);
-    setFormData('transport', e.target.transport.value);
       // dispatch(quiz(formData));
-      setFormData(initialState);
     
 
   };
