@@ -1,19 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Modal, Input, Button } from "antd";
-import { updateComment } from "../../../../../../features/comments/commentsSlice";
+import { setCommentToEdit, updateComment } from "../../../../../../features/comments/commentsSlice";
+
 
 const ModalEditComment = ({ commentId }) => {
   const [visible, setVisible] = useState(false);
-  const { commentUpdated } = useSelector((state) => state.comments);
+  const { comments, commentToEdit } = useSelector((state) => state.comments);
   const dispatch = useDispatch();
+console.log(comments)
+    const getId = ()=>{
+    setVisible(true)
+    const editComment = comments.filter((e)=> e._id === commentId)
+    dispatch(setCommentToEdit(editComment))
+}
 
   const initialState = {
     body: "",
     imageComment: "",
   };
   const [formData, setFormData] = useState(initialState);
-  const { body, imageComment } = formData;
+  
+  const { body, imageComment } = formData || {}
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -35,12 +43,12 @@ const ModalEditComment = ({ commentId }) => {
   };
 
   useEffect(() => {
-    setFormData(commentUpdated);
-  }, [commentUpdated]);
+    setFormData(commentToEdit[0]);
+  }, [commentToEdit]);
 
   return (
     <>
-      <Button type="primary" onClick={() => setVisible(true)}>
+      <Button type="primary" onClick={() => getId() }>
         Editar Comentario
       </Button>
       <Modal
@@ -58,7 +66,6 @@ const ModalEditComment = ({ commentId }) => {
             onChange={onChange}
             required
           />
-          <label htmlFor="genre">Género:</label>
           <input
             onChange={onChange}
             type="file"

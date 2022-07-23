@@ -14,6 +14,7 @@ import {
 import Comments from "../../Comments/Comments";
 import Scores from "./Scores/Scores";
 import Score from "./Scores/Score/Score"
+import { getAll } from "../../../../../features/comments/commentsSlice";
 const styles = {
   wrapper: {
     height: 400,
@@ -26,7 +27,7 @@ const styles = {
   },
 };
 
-const Options = { color:'rgb(127, 168, 255)' };
+const Options = { color: 'rgb(127, 168, 255)' };
 
 
 const RouteDetail = () => {
@@ -42,25 +43,25 @@ const RouteDetail = () => {
 
   const pointsMap = route.poi?.map((point) => {
     return (
-      <Marker  position={[ point?.longitude, point?.latitude]}>
+      <Marker position={[point?.longitude, point?.latitude]}>
         <Popup>
           {point?.name} <br />
         </Popup>
       </Marker>
     );
   });
-  const pointsLine = route.poi?.map((point) => {
-    return (
-     
-      [ point?.longitude, point?.latitude]
-      
-    );
-  });
+  // const pointsLine = route.poi?.map((point) => {
+  //   return (
+
+  //     [point?.longitude, point?.latitude]
+
+  //   );
+  // });
   const pointsInfo = route.poi?.map((point) => {
     return (<div key={point._id} className='poiDesc'>
-     <span>Punto: {point?.name}</span> <br />
-     <span>Descripción: {point?.description_es}</span>
-     </div>
+      <span>Punto: {point?.name}</span> <br />
+      <span>Descripción: {point?.description_es}</span>
+    </div>
     );
   });
   return (
@@ -84,15 +85,15 @@ const RouteDetail = () => {
               url={"https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png"}
             />
             {pointsMap}
-            <Polyline pathOptions={Options} positions={pointsLine} />
+            {/* <Polyline pathOptions={Options} positions={pointsLine} /> */}
           </MapContainer>
         </div>
         <>
-        {pointsInfo}
-        <Scores routeId={route._id}/>
-       <Score/>
-      <Comments />
-      </>
+          {pointsInfo}
+          <Scores routeId={route._id} />
+          <Score />
+          <Comments />
+        </>
       </div>
 
     </>
