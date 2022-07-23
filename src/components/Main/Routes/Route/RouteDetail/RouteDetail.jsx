@@ -13,6 +13,7 @@ import {
 import Comments from "../../Comments/Comments";
 import Scores from "./Scores/Scores";
 import Score from "./Scores/Score/Score"
+import { getAll } from "../../../../../features/comments/commentsSlice";
 const styles = {
   wrapper: {
     height: 400,

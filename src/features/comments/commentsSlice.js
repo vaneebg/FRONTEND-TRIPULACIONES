@@ -6,6 +6,7 @@ const initialState = {
     newComment:{},
     eraseComment:{},
     commentUpdated:{},
+    commentToEdit:{},
     numberComments:0,
     isLoading: false,
     isError: false,
@@ -70,9 +71,9 @@ export const commentsSlice = createSlice({
       state.isSuccess = false;
       state.message = "";
     },
-    choosePage: (state) => {
-        state.page = false;
-      },
+    setCommentToEdit: (state, action) =>{
+      state.commentToEdit = action.payload
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(createComment.fulfilled, (state, action) => {
@@ -97,5 +98,5 @@ export const commentsSlice = createSlice({
     },
 });
 
-export const { resetC } = commentsSlice.actions;
+export const { resetC, setCommentToEdit } = commentsSlice.actions;
 export default commentsSlice.reducer;
