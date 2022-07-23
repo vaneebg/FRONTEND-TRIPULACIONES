@@ -68,7 +68,7 @@ const Register = () => {
   return (
     <div className='register-container'>
       <form onSubmit={onSubmit} className='form-register-container'>
-        <h2 className='register-title'>Rout'opic</h2>
+        <h1 className='register-title'>Rout'opic</h1>
         <div className='question'>
           <label htmlFor='name'>Nombre:</label>
           <Input
@@ -104,6 +104,9 @@ const Register = () => {
             </option>
             <option value='women' onChange={onChange}>
               Mujer
+            </option>
+            <option value='other' onChange={onChange}>
+              Otro
             </option>
           </select>
         </div>
