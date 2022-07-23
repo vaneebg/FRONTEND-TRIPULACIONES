@@ -31,19 +31,19 @@ const Score = () => {
   }, []);
 
   const scoresPint = scores.scores?.map((el,i) => {
-    if (route._id === el.routeId) {
+    if (route?._id === el?.routeId) {
       return (
         <div key={i} className='score-div'>
           <Avatar src={URL + '/users/' + el.userId?.imagepath} alt='' />
-          <span>{el.userId.name}</span>
-          <span>{el.score}</span>
-          {el.userId._id === user._id ? (
+          <span>{el?.userId?.name}</span>
+          <span>{el?.score}</span>
+          {el?.userId?._id === user?._id ? (
             <>
               {' '}
               <Popconfirm
                 placement='rightTop'
                 title='Seguro que quieres borrar esta puntuación?'
-                onConfirm={() => dispatch(deleteScore(el._id))}
+                onConfirm={() => dispatch(deleteScore(el?._id))}
                 okText='Yes'
                 cancelText='No'
               >
