@@ -12,8 +12,6 @@ const createQuiz = async (data) => {
         },  
     }
 );
-
-console.log("resdata",res.data)
 return res.data;
 }
 

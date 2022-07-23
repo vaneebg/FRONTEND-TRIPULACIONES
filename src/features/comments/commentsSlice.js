@@ -77,7 +77,6 @@ export const commentsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(createComment.fulfilled, (state, action) => {
-      console.log(action.payload.comment)
         state.newComment = action.payload.comment
         state.isSuccess = true;
         state.message = action.payload.message;
@@ -86,7 +85,6 @@ export const commentsSlice = createSlice({
         state.comments = action.payload.comments
       })
       .addCase(destroyComment.fulfilled,(state,action)=>{
-        // state.comments = state.comments.comments.filter((comment) => comment._id !== action.payload.comment._id) 
         state.eraseComment = action.payload.comment
         state.isSuccess = true;
         state.message = action.payload.message;

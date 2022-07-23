@@ -33,10 +33,7 @@
   border-radius: 1rem;
   width: 11rem;
   height: 11rem;
-  // background-position: center;
-  // background-size: cover;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
-  // border: 1px solid red;
   object-fit: cover;
 }
 .profile-info {
@@ -52,10 +49,7 @@
   font-size: 12px;
   background: lightgrey;
   color: black;
-  // background-color: lightcoral;
-  // border: none;
-  // border-radius: 5px;
-  // padding: 4px 10px;
+
 }
 
 ant-btn-primary:hover {
@@ -100,7 +94,6 @@ ant-btn-primary:hover {
   gap: 20px;
 
   width: auto;
-  // margin-left: -5em;
 
   img {
     width: 40px;

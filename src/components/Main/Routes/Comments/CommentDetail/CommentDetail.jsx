@@ -33,7 +33,6 @@ const CommentDetail = () => {
   const onSubmit = async e => {
     e.preventDefault();
     if (!e) return;
-    console.log(e.target.myFile);
     const editedData = new FormData();
     if (e.target.imageComment.files[0]) {
       editedData.set('imageComment', e.target.imageComment.files[0]);
@@ -59,7 +58,6 @@ const CommentDetail = () => {
     dispatch(getAll());
   }, [commentUpdated]);
 
-  console.log('hola');
 
   const onChange = e => {
     setFormData(prevState => ({
@@ -69,7 +67,6 @@ const CommentDetail = () => {
   };
 
   const commentUser = comments.map(element => {
-    console.log(element);
     return (
       <>
         {_id === element.routeId ? (

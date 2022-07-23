@@ -67,7 +67,6 @@
   justify-content: center;
   align-items: center;
   gap: 0.5em;
-  // flex-direction: column;
 }
 
 .ant-btn-danger {
@@ -82,14 +81,12 @@
 
 .comment-detail-route {
   display: flex;
-  // text-indent: -30px;
-  // text-indent: 30pt;
+
   text-align: left;
   hyphens: auto;
   word-wrap: break-word;
   word-break: break-word;
 
-  // justify-content: center;
 }
 .comment-detail-route-prof {
   display: flex;

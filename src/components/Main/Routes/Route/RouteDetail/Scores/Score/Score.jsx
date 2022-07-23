@@ -26,7 +26,6 @@ const Score = () => {
     dispatch(reset());
   };
 
-  console.log('user', user);
   useEffect(() => {
     getScoresAndReset();
   }, [getAllScores, newScore]);

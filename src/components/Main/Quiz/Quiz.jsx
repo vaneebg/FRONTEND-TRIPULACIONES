@@ -28,7 +28,6 @@ const Quiz = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(formData)
     dispatch(createQuiz(formData));
   };
 

@@ -21,7 +21,6 @@ const Route = ({ pageC, functionPage }) => {
   }, []);
 
   const route = routes?.map((el) => {
-    console.log(el)
     const isAlreadyLiked = el.likes?.includes(user?._id);
     return (
       <section key={el._id} className="wrapper-ok">

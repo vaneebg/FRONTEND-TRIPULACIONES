@@ -42,13 +42,7 @@ const RouteDetail = () => {
       </Marker>
     );
   });
-  // const pointsLine = route.poi?.map((point) => {
-  //   return (
 
-  //     [point?.longitude, point?.latitude]
-
-  //   );
-  // });
   const pointsInfo = route.poi?.map(point => {
     return (
       <div key={point._id} className='poiDesc'>

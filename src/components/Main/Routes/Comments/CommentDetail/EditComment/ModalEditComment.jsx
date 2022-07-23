@@ -11,7 +11,6 @@ const ModalEditComment = ({ commentId }) => {
   const [visible, setVisible] = useState(false);
   const { comments, commentToEdit } = useSelector(state => state.comments);
   const dispatch = useDispatch();
-  console.log(comments);
   const getId = () => {
     setVisible(true);
     const editComment = comments.filter(e => e._id === commentId);
@@ -38,7 +37,6 @@ const ModalEditComment = ({ commentId }) => {
     await dispatch(updateComment(generalData));
   };
   const onChange = e => {
-    console.log(e.target.value);
     setFormData(prevState => ({
       ...prevState,
       [e.target.name]: e.target.value,

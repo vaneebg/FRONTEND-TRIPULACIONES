@@ -21,7 +21,6 @@ const URL = process.env.REACT_APP_URL;
 
 const Profile = () => {
   const { user, userUpdated } = useSelector(state => state.auth);
-  // console.log('user', user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onLogout = () => {
@@ -39,7 +38,6 @@ const Profile = () => {
   }, [userUpdated]);
 
   const likedRoutes = user?.likes?.map(likedRoute => {
-    console.log('quiero saber esto', likedRoute);
     return (
       <div key={likedRoute._id} className='prof-top-cont-routes'>
         <div className='route-profile-fav'>

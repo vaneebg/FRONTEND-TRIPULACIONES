@@ -11,8 +11,6 @@ const createComment = async (data) => {
         authorization: user?.token,
       },        
 });
-
-console.log(res.data)
 return res.data;
 }
 
