@@ -91,9 +91,12 @@ ant-btn-primary:hover {
 }
 .route-profile-fav {
   display: flex;
-  justify-content: baseline;
+  justify-content: center;
   align-items: center;
   gap: 20px;
+
+  width: auto;
+  // margin-left: -5em;
 
   img {
     width: 40px;
@@ -103,5 +106,14 @@ ant-btn-primary:hover {
   }
 }
 .col-fav-1 {
+  display: flex;
   margin-bottom: 5px;
+  flex: 1.4;
+  justify-content: flex-end;
+}
+.col-fav-2 {
+  display: flex;
+
+  flex: 2;
+  justify-content: flex-start;
 }
