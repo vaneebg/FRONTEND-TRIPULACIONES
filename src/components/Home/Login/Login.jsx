@@ -58,6 +58,7 @@ const Login = () => {
         </div>
         <div className='col-2'>
           <form onSubmit={onSubmit} className='form-login-container'>
+          <h1 className='register-title'>Rout'opic</h1>
             <label htmlFor='email'>Correo:</label>
             <Input
               prefix={<MailOutlined />}
