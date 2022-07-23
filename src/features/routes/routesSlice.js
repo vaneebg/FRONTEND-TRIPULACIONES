@@ -85,6 +85,7 @@ export const dislike = createAsyncThunk("routes/dislike", async (_id) => {
             return route;
           });
           state.routes = routes;
+          state.route = routes
         })
     }})
 

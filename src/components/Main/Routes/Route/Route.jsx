@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import './Route.scss';
 import { Pagination } from 'antd';
 import { dislike, getAll, like } from '../../../../features/routes/routesSlice';
+import { myInfo } from '../../../../features/auth/authSlice';
 
 const Route = ({ pageC, functionPage }) => {
   const { routes, numberRoutes } = useSelector(state => state.routes);
@@ -14,10 +16,16 @@ const Route = ({ pageC, functionPage }) => {
     dispatch(getAll(page));
   };
 
+  useEffect(() => {
+    dispatch(myInfo())  
+  }, [])
+
+  console.log('hola')
+  
+
   const route = routes?.map(el => {
+
     const isAlreadyLiked = el.likes?.includes(user?._id);
-    console.log(el.likes)
-    console.log(user._id)
     return (
       <section key={el._id} className='wrapper-ok'>
         <div className='main-card'>
@@ -43,7 +51,7 @@ const Route = ({ pageC, functionPage }) => {
                       className='heart'
                       onClick={() => dispatch(dislike(el._id))}
                       style={{ color: '#FF0000' }}
-                      text={el.likes?.length}
+                      text={el?.likes?.length}
                     />
                   ) : (
                     <HeartOutlined
@@ -51,7 +59,7 @@ const Route = ({ pageC, functionPage }) => {
                       onClick={() => dispatch(like(el._id))}
                     />
                   )}
-                  <span>{el?.likes.length}</span>
+                  <span>{el?.likes?.length}</span>
                 </div>
                 <div className='bottom-icon-left'>
                   <svg
