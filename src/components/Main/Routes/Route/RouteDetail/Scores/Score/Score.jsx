@@ -16,6 +16,8 @@ const Score = () => {
   const dispatch = useDispatch();
   const { _id } = useParams();
   const { scores, newScore } = useSelector((state) => state.scores);
+  const { route } = useSelector((state) => state.routes);
+
   const { user } = useSelector((state) => state.auth)
   const getScoresAndReset = async () => {
     await dispatch(getAllScores());
@@ -31,10 +33,10 @@ const Score = () => {
     dispatch(myInfo());
   }, []);
 
-
-  const scoresPint = scores.scores?.map(el => {   
+  const scoresPint = scores.scores?.map(el => {  
+if(route._id===el.routeId) {
     return (
-      <div>
+      <div key={el._id}>
         <span>Puntuación:{el.score}</span>
         <span>Hecha por:{el.userId.name}</span>
         <Avatar src={URL + "/users/" + el.userId?.imagepath} alt="" />
@@ -49,6 +51,10 @@ const Score = () => {
         </Popconfirm> </> : null}
       </div>
     )
+        }else{
+          return( <div></div>)
+        
+        }
   })
 
   return (

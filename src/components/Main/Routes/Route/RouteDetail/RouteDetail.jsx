@@ -52,7 +52,7 @@ const RouteDetail = () => {
     );
   });
   const pointsInfo = route.poi?.map((point) => {
-    return (<div className='poiDesc'>
+    return (<div key={point._id} className='poiDesc'>
      <span>Punto: {point?.name}</span> <br />
      <span>Descripción: {point?.description_es}</span>
      </div>

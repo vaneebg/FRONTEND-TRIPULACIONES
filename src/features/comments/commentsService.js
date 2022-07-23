@@ -27,7 +27,6 @@ const getAll = async() =>{
 }
 
 const destroyComment = async(_id) =>{
-  console.log(_id)
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.delete(URL+"/comments/comment/" +_id, {
     headers:{
@@ -37,10 +36,23 @@ const destroyComment = async(_id) =>{
   return res.data
 }
 
+const updateComment = async(data) =>{ 
+  const {editedData, commentId} = data
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(URL+"/comments/comment/"+commentId , editedData, {
+    headers:{
+      authorization: user?.token
+    }
+  })
+  return res.data
+}
+
+
 const commentsService = {
     createComment,
     getAll,
-    destroyComment
+    destroyComment,
+    updateComment
   };
 
 export default commentsService;

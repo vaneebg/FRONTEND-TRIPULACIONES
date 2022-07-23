@@ -9,6 +9,7 @@ import {
   destroyComment,
   getAll,
 } from "../../../../../features/comments/commentsSlice";
+import ModalEditComment from "./EditComment/ModalEditComment";
 
 const URL = process.env.REACT_APP_URL;
 
@@ -21,17 +22,10 @@ const CommentDetail = () => {
   const [formData, setFormData] = useState(initialState);
   const { imageComment, body } = formData;
   const { user } = useSelector((state) => state.auth);
-  const { comments, eraseComment } = useSelector((state) => state.comments);
+  const { comments, eraseComment, commentUpdated } = useSelector((state) => state.comments);
   const [comment, setComment] = useState([]);
   const { _id } = useParams();
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (isLoading) {
-  //     <h1>Cargando...</h1>;
-  //   }
-  //   dispatch(reset());
-  // }, [isLoading]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -57,6 +51,11 @@ const CommentDetail = () => {
   useEffect(() => {
     dispatch(getAll());
   }, [eraseComment]);
+
+  useEffect(() => {
+    dispatch(getAll());
+  }, [commentUpdated]);
+
 
   console.log("hola");
 
@@ -95,14 +94,17 @@ const CommentDetail = () => {
                 }
               />
               {element.userId._id === user._id ? (
-                <Button
-                  type="danger"
-                  onClick={() => {
-                    destroy(element._id);
-                  }}
-                >
-                  Borrar Post
-                </Button>
+                <>
+                  <Button
+                    type="danger"
+                    onClick={() => {
+                      destroy(element._id);
+                    }}
+                  >
+                    Borrar Comentario
+                  </Button>
+                  <ModalEditComment commentId = {element._id} />
+                </>
               ) : (
                 ""
               )}
@@ -118,7 +120,6 @@ const CommentDetail = () => {
 
   return (
     <>
-      {/* {comments} */}
       <ul>{commentUser}</ul>
       <form onSubmit={onSubmit} className="form-comment-container">
         <textarea
