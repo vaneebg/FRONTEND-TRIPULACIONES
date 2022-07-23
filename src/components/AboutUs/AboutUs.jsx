@@ -10,7 +10,7 @@ const AboutUs = () => {
   return (
     <div className="aboutUs">
       <div className="text">
-        <h2>Aplicación creada por:</h2>
+        <h2>Aplicación creada por</h2>
       </div>
 
       <div className="about">
