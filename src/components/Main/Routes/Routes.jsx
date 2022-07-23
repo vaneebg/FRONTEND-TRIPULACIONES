@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getAll, reset } from "../../../features/routes/routesSlice";
 import { Skeleton } from "antd";
+import { Link, animateScroll } from "react-scroll";
+
 import './Routes.scss'
 
 const Routes = () => {
@@ -27,8 +29,15 @@ const Routes = () => {
   }
   return (
     <div className="main">
-      <h2>Rutas</h2>
+      <h2 id="h2">Rutas</h2>
       <Route pageC={current} functionPage={setCurrent} />
+      <div className="barra-nav">
+        <button className="up"><Link  activeClass="active"
+    spy={true}
+    smooth={true}
+    duration={800}
+    to="h2"> ⋘ Subir</Link></button>
+    </div>
     </div>
   )
 }
