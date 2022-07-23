@@ -98,3 +98,14 @@
 h4 {
   font-weight: bolder;
 }
+.bottom-adds {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  span {
+    font-weight: bold;
+    background-color: lightgray;
+    padding: 5px;
+    border-radius: 10px;
+  }
+}
