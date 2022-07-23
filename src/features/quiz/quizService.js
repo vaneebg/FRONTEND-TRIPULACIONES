@@ -17,6 +17,10 @@ console.log("resdata",res.data)
 return res.data;
 }
 
+const getQuiz = async() =>{
+  const res = await axios.get(URL+"/quiz/" )
+  return res.data
+}
 
 
 const quizService = {
