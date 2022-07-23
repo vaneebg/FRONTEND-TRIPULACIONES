@@ -26,9 +26,21 @@ const getAll = async() =>{
   return res.data
 }
 
+const destroyComment = async(_id) =>{
+  console.log(_id)
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.delete(URL+"/comments/comment/" +_id, {
+    headers:{
+      authorization: user?.token
+    }
+  })
+  return res.data
+}
+
 const commentsService = {
     createComment,
-    getAll
+    getAll,
+    destroyComment
   };
 
 export default commentsService;

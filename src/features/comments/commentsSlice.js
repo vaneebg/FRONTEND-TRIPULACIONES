@@ -4,6 +4,7 @@ import commentsService from "./commentsService";
 const initialState = {
     comments: [],
     newComment:{},
+    eraseComment:{},
     numberComments:0,
     isLoading: false,
     isError: false,
@@ -11,6 +12,7 @@ const initialState = {
     message: "",
     page: 1,
 };
+
 
 export const createComment = createAsyncThunk(
   "comments/createComment",
@@ -32,7 +34,20 @@ export const getAll = createAsyncThunk(
       console.error(error)
     }
   }
-)
+);
+
+
+export const destroyComment = createAsyncThunk(
+  "comments/destryoComment",
+  async(_id)=>{
+    try {
+      return await commentsService.destroyComment(_id);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+);
+
 
 export const commentsSlice = createSlice({
   name: "comments",
@@ -56,9 +71,13 @@ export const commentsSlice = createSlice({
         state.message = action.payload.message;
       })
       .addCase(getAll.fulfilled,(state, action)=>{
-        console.log(action.payload)
-        // state.numberComments = action.payload.numberComments
         state.comments = action.payload.comments
+      })
+      .addCase(destroyComment.fulfilled,(state,action)=>{
+        // state.comments = state.comments.comments.filter((comment) => comment._id !== action.payload.comment._id) 
+        state.eraseComment = action.payload.comment
+        state.isSuccess = true;
+        state.message = action.payload.message;
       })
     },
 });

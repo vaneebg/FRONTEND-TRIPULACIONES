@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import React from 'react'
 import { getAllScores, reset, deleteScore } from '../../../../../../../features/scores/scoresSlice';
@@ -13,6 +14,7 @@ const URL = process.env.REACT_APP_URL;
 
 const Score = () => {
   const dispatch = useDispatch();
+  const { _id } = useParams();
   const { scores, newScore } = useSelector((state) => state.scores);
   const { user } = useSelector((state) => state.auth)
   const getScoresAndReset = async () => {
@@ -29,8 +31,8 @@ const Score = () => {
     dispatch(myInfo());
   }, []);
 
-  const scoresPint = scores.scores?.map(el => {
-    console.log("el del score", el.userId._id)
+
+  const scoresPint = scores.scores?.map(el => {   
     return (
       <div>
         <span>Puntuación:{el.score}</span>

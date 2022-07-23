@@ -40,7 +40,7 @@ const ModalEditUser = () => {
 
   useEffect(() => {
     setFormData(user);
-    // dispatch(resetPassword())
+    dispatch(resetPassword())
   }, [user]);
 
   return (

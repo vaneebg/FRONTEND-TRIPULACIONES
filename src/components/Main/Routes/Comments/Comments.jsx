@@ -10,10 +10,9 @@ import { notification } from "antd";
 const Comments = () => {
     const dispatch = useDispatch();
   const { comment } = useSelector((state) => state.comments);
-  const [current, setCurrent] = useState(1);
 
   const getRoutesAndReset = async () => {
-    await dispatch(getAll(current));
+    await dispatch(getAll());
     dispatch(resetC())
   };
 
@@ -36,7 +35,7 @@ const Comments = () => {
 
   return (
     <div>
-    <CommentDetail pageC={current} functionPage={setCurrent}/>
+    <CommentDetail/>
     </div>
   )
 }
