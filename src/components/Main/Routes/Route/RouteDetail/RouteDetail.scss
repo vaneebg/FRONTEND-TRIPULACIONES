@@ -1,10 +1,24 @@
 .styleWrapper{
-    height: 100vh;
+    height: 20vh;
     width: 50%;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
   
 }
 .stylesMap{
     flex: 1;
+}
+.routeDetail{
+   display: flex;
+   flex-direction: column;
+}
+.imgRouteDetail{
+    width:5em;
+}
+@media screen and (max-width: 420px) {
+    .styleWrapper{
+        height: 20vh;
+        width: 30%;
+      
+    }
 }
