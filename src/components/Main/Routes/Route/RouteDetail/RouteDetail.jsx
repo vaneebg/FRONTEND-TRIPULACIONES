@@ -9,6 +9,7 @@ import {
   Marker,
   Popup,
   Polyline,
+  Circle
 } from "react-leaflet";
 import Comments from "../../Comments/Comments";
 import Scores from "./Scores/Scores";
@@ -24,12 +25,10 @@ const styles = {
     flex: 1,
   },
 };
-const polyline = [
-  [39.48, -0.36],
-  [39.4894, -0.364],
-  [39.47, -0.369],
-];
-const blackOptions = { color: "black" };
+
+const Options = { color: "blue" };
+const fillBlueOptions = { fillColor: 'blue' }
+
 
 const RouteDetail = () => {
   const { _id } = useParams();
@@ -49,6 +48,13 @@ const RouteDetail = () => {
           {point?.name} <br />
         </Popup>
       </Marker>
+    );
+  });
+  const pointsLine = route.poi?.map((point) => {
+    return (
+     
+      [ point?.longitude, point?.latitude]
+      
     );
   });
   const pointsInfo = route.poi?.map((point) => {
@@ -73,13 +79,14 @@ const RouteDetail = () => {
             style={styles.map}
             center={[39.46975, -0.37739]}
             zoom={13}
+            scrollWheelZoom={false}
           >
             <TileLayer
               url={"https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png"}
             />
             {pointsMap}
-
-            <Polyline pathOptions={blackOptions} positions={polyline} />
+            {/* <Circle center={[39.46975, -0.37739]} pathOptions={fillBlueOptions} radius={1500} /> */}
+            <Polyline pathOptions={Options} positions={pointsLine} />
           </MapContainer>
         </div>
         <>
