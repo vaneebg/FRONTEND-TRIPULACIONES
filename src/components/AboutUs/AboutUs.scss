@@ -1,21 +1,71 @@
-.about{
-    display:flex;
-}
-
-.target{
+.aboutUs {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border:3px solid blue;
-    width:30%;
-    margin:1em;
-}
-.svg{
-    color:black;
-    font-size: 3em;
-    
-}
-.imgAuth{
-    border-radius: 100px;
-}
+    width: 100vw;
+    height: 100vh;
 
+    .text {
+        margin-top: 1em;
+    }
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 85vh;
+
+        .target {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 90vw;
+            height: 20vh;
+            padding: 1em;
+
+            .img {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                height: 18vh;
+
+                .imgAuth {
+                    width: 6em;
+                    height: 6em;
+                    border-radius: 100%;
+                }
+            }
+
+            .data {
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 18vh;
+
+                .name{
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    height: 9vh;
+                    margin: 0;
+                }
+
+                .iconsSocial{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 9vh;
+                    gap: 1em;
+                    
+                    .svg {
+                        color: black;
+                        font-size: 3em;
+                    }
+                }
+            }
+        }
+    }
+}
