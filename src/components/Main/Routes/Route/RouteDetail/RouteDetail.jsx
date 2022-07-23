@@ -39,7 +39,7 @@ const RouteDetail = () => {
 
   useEffect(() => {
     dispatch(getById(_id));
-  }, []);
+  }, [getById]);
 
   const pointsMap = route.poi?.map((point) => {
     return (
@@ -68,7 +68,7 @@ const RouteDetail = () => {
     <>
       <div className="routeDetail">
         <h3>{route?.name}</h3>
-        <img src={route?.image} alt="" />
+        <img className="imgRouteDetail" src={route?.image} alt="" />
         <p>{route?.dificulty}</p>
         <p>{route?.duration}</p>
         <p>{route?.description_es}</p>
