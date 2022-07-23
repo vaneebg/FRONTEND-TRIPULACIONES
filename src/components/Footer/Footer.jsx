@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router';
+
 import './Footer.scss'
 
 const Footer = () => {
+  const { pathname } = useLocation();
+  if (pathname === '/' || pathname === '/register') return null;
   return (
     <div className='footerContainer'>
       <Link to='/profile'>Perfil</Link>
