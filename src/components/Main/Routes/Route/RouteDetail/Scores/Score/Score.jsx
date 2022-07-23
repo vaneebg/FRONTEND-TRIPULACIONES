@@ -33,12 +33,10 @@ const Score = () => {
     dispatch(myInfo());
   }, []);
 
-  console.log("route",route._id)
   const scoresPint = scores.scores?.map(el => {  
-console.log("scores",el.routeId) 
 if(route._id===el.routeId) {
     return (
-      <div>
+      <div key={el._id}>
         <span>Puntuación:{el.score}</span>
         <span>Hecha por:{el.userId.name}</span>
         <Avatar src={URL + "/users/" + el.userId?.imagepath} alt="" />
