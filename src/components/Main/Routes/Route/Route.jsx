@@ -24,7 +24,7 @@ const Route = ({ pageC, functionPage }) => {
               <div className='card-header-left'>
                 <img src={el.image} alt='' className='picture-title' />
 
-                <span className='card-title user'>{el?.name}</span>
+                {/* <span className='card-title user'>{el?.name}</span> */}
               </div>
               <div className='dropdown'>
                 <span className='simbol-right dropbtn'>
@@ -74,9 +74,15 @@ const Route = ({ pageC, functionPage }) => {
                 </div>
               </div>
               <div className='bottom-text-card'>
-                <span>Descripción: {el?.description_es}</span> <br />
-                <span>Dificultad: {el?.difficulty}</span> <br />
-                <span>Duración del trayecto: {el?.duration}</span>
+                <span>{el?.description_es}</span> <br />
+                <div className='bottom-adds'>
+                  <p>
+                    <span>Dificultad:</span> {el?.difficulty}
+                  </p>{' '}
+                  <p>
+                    <span>Duración:</span> {el?.duration}'
+                  </p>
+                </div>
               </div>
             </div>
           </div>
