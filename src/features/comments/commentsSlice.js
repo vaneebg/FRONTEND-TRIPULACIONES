@@ -5,6 +5,7 @@ const initialState = {
     comments: [],
     newComment:{},
     eraseComment:{},
+    commentUpdated:{},
     numberComments:0,
     isLoading: false,
     isError: false,
@@ -12,7 +13,6 @@ const initialState = {
     message: "",
     page: 1,
 };
-
 
 export const createComment = createAsyncThunk(
   "comments/createComment",
@@ -38,10 +38,21 @@ export const getAll = createAsyncThunk(
 
 
 export const destroyComment = createAsyncThunk(
-  "comments/destryoComment",
+  "comments/destroyComment",
   async(_id)=>{
     try {
       return await commentsService.destroyComment(_id);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+);
+
+export const updateComment = createAsyncThunk(
+  "comments/updateComment",
+  async(data, commentId)=>{
+    try {
+      return await commentsService.updateComment(data, commentId);
     } catch (error) {
       console.error(error)
     }
@@ -77,6 +88,10 @@ export const commentsSlice = createSlice({
         // state.comments = state.comments.comments.filter((comment) => comment._id !== action.payload.comment._id) 
         state.eraseComment = action.payload.comment
         state.isSuccess = true;
+        state.message = action.payload.message;
+      })
+      .addCase(updateComment.fulfilled, (state, action) =>{
+        state.commentUpdated = action.payload;
         state.message = action.payload.message;
       })
     },
