@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useState } from 'react';
 import './Quiz.scss'
+import { createQuiz } from '../../../features/quiz/quizSlice';
 
 const Quiz = () => {
   const initialState = {
@@ -35,7 +36,7 @@ const dispatch=useDispatch()
   const onSubmit = e => {
     e.preventDefault();
   console.log(formData)
-      // dispatch(quiz(formData));
+      dispatch(createQuiz(formData));
     
 
   };
