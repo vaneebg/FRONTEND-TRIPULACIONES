@@ -4,7 +4,7 @@ import { Input, notification } from 'antd';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { login, reset } from '../../../features/auth/authSlice';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import pic from '../../../assets/route_login.png';
+import pic from '../../../assets/route_login2.png';
 import './Login.scss';
 
 const Login = () => {
