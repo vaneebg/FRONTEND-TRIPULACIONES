@@ -7,21 +7,18 @@ import {
   logout,
   deleteUser,
 } from '../../../features/auth/authSlice';
+import ModalEditUser from './ModalEditUser/ModalEditUser';
 import { Tooltip, Popconfirm } from 'antd';
 import {
   PoweroffOutlined,
   HomeFilled,
-  FastBackwardOutlined,
 } from '@ant-design/icons';
-import ModalEditUser from './ModalEditUser/ModalEditUser';
 import './Profile.scss';
-import pic from '../../../assets/route_login2.png';
 
 const URL = process.env.REACT_APP_URL;
 
 const Profile = () => {
   const { user, userUpdated } = useSelector(state => state.auth);
-  // console.log('user', user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onLogout = () => {
@@ -39,7 +36,6 @@ const Profile = () => {
   }, [userUpdated]);
 
   const likedRoutes = user?.likes?.map(likedRoute => {
-    console.log('quiero saber esto', likedRoute);
     return (
       <div key={likedRoute._id} className='prof-top-cont-routes'>
         <div className='route-profile-fav'>

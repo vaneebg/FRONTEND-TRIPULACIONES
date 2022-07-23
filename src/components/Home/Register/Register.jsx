@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { register, reset } from '../../../features/auth/authSlice';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   UserOutlined,
   MailOutlined,
-  ContactsOutlined,
   LockOutlined,
 } from '@ant-design/icons';
 import { notification, Input } from 'antd';
-import { register, reset } from '../../../features/auth/authSlice';
-import { Navigate, useNavigate, Link } from 'react-router-dom';
 import './Register.scss';
 
 const Register = () => {

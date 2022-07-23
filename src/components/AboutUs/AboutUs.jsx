@@ -1,17 +1,17 @@
 
-import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons"
-import './AboutUs.scss'
 import imgVane from '../../assets/vane.jpg'
 import imgRebeca from '../../assets/OriolHome.jpeg'
 import imgGerman from '../../assets/Marisa.webp'
 import imgVincent from '../../assets/Vicenta.webp'
+import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons"
+import './AboutUs.scss'
 
 const AboutUs = () => {
   return (
     <div className="mainContainer">
       <div className="aboutUs">
         <div className="text">
-          <h2>Aplicación creada por</h2>
+          <h2> Aplicación creada por</h2>
         </div>
 
         <div className="about">

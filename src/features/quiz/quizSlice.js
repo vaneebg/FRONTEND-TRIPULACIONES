@@ -2,26 +2,28 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import quizService from "./quizService";
 
 const initialState = {
-    quiz: [],
-  
+  quiz: [],
+  isError: false,
+  isSuccess: false,
+  message: '',
 };
 
 export const createQuiz = createAsyncThunk("quiz/createQuiz", async (data) => {
-    try {
-      return await quizService.createQuiz(data);
-    } catch (error) {
-      console.error(error);
-    }
+  try {
+    return await quizService.createQuiz(data);
+  } catch (error) {
+    console.error(error);
   }
+}
 );
 
-export const getQuiz = createAsyncThunk("quiz/getQuiz", async()=>{
-    try {
-      return await quizService.getQuiz();
-    } catch (error) {
-      console.error(error)
-    }
+export const getQuiz = createAsyncThunk("quiz/getQuiz", async () => {
+  try {
+    return await quizService.getQuiz();
+  } catch (error) {
+    console.error(error)
   }
+}
 )
 
 
@@ -29,17 +31,24 @@ export const quizSlice = createSlice({
   name: "quiz",
   initialState,
   reducers: {
-
+    reset: state => {
+      state.isError = false;
+      state.isSuccess = false;
+      state.message = '';
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(createQuiz.fulfilled, (state, action) => {
+      state.quiz = action.payload.quiz
+      state.isSuccess=true
+      state.message=action.payload.message
+    })
+      .addCase(getQuiz.fulfilled, (state, action) => {
         state.quiz = action.payload
-     
       })
-      .addCase(getQuiz.fulfilled,(state, action)=>{
-        state.quiz = action.payload
-      })
-    },
+  },
 });
+export const { reset} = quizSlice.actions;
+
 
 export default quizSlice.reducer;

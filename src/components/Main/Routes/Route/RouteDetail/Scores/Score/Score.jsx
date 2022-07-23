@@ -1,67 +1,66 @@
-import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import React from 'react'
-import { getAllScores, reset, deleteScore } from '../../../../../../../features/scores/scoresSlice';
-
-import { Avatar, Popconfirm } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getAllScores,
+  reset,
+  deleteScore,
+} from '../../../../../../../features/scores/scoresSlice';
 import { myInfo } from '../../../../../../../features/auth/authSlice';
-
+import { Avatar, Popconfirm } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 
 const URL = process.env.REACT_APP_URL;
 
-
 const Score = () => {
-  const dispatch = useDispatch();
-  const { _id } = useParams();
-  const { scores, newScore } = useSelector((state) => state.scores);
-  const { route } = useSelector((state) => state.routes);
 
-  const { user } = useSelector((state) => state.auth)
+  const dispatch = useDispatch();
+  const { scores, newScore } = useSelector(state => state.scores);
+  const { route } = useSelector(state => state.routes);
+
+  const { user } = useSelector(state => state.auth);
   const getScoresAndReset = async () => {
     await dispatch(getAllScores());
-    dispatch(reset())
+    dispatch(reset());
   };
 
-  console.log("user", user)
   useEffect(() => {
     getScoresAndReset();
-
   }, [getAllScores, newScore]);
   useEffect(() => {
     dispatch(myInfo());
   }, []);
 
-  const scoresPint = scores.scores?.map(el => {  
-if(route._id===el.routeId) {
-    return (
-      <div key={el._id}>
-        <span>Puntuación:{el.score}</span>
-        <span>Hecha por:{el.userId.name}</span>
-        <Avatar src={URL + "/users/" + el.userId?.imagepath} alt="" />
-        {el.userId._id === user._id ? <>  <Popconfirm
-          placement="rightTop"
-          title="Seguro que quieres borrar esta puntuación?"
-          onConfirm={() => dispatch(deleteScore(el._id))}
-          okText="Yes"
-          cancelText="No"
-        >
-          <button className="btnModalC"><DeleteOutlined /></button>
-        </Popconfirm> </> : null}
-      </div>
-    )
-        }else{
-          return( <div></div>)
-        
-        }
-  })
+  const scoresPint = scores.scores?.map((el,i) => {
+    if (route._id === el.routeId) {
+      return (
+        <div key={i} className='score-div'>
+          <Avatar src={URL + '/users/' + el.userId?.imagepath} alt='' />
+          <span>{el.userId.name}</span>
+          <span>{el.score}</span>
+          {el.userId._id === user._id ? (
+            <>
+              {' '}
+              <Popconfirm
+                placement='rightTop'
+                title='Seguro que quieres borrar esta puntuación?'
+                onConfirm={() => dispatch(deleteScore(el._id))}
+                okText='Yes'
+                cancelText='No'
+              >
+                <button className='btnModalC'>
+                  <DeleteOutlined />
+                </button>
+              </Popconfirm>{' '}
+            </>
+          ) : null}
+        </div>
+      );
+    } else {
+      return <div key={i}></div>;
+    }
+  });
 
-  return (
-    <>
-      {scoresPint}
-    </>
-  )
-}
+  return <>{scoresPint}</>;
+};
 
-export default Score
+export default Score;

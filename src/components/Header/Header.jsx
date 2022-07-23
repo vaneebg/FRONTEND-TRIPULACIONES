@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
   UserOutlined,
   MenuUnfoldOutlined,
@@ -6,17 +9,15 @@ import {
   UsergroupAddOutlined,
 } from '@ant-design/icons';
 import { Menu } from 'antd';
-import React, { useState } from 'react';
-import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
 import './Header.scss';
+
+
 const Header = () => {
   const rootSubmenuKeys = ['sub1'];
   const [openKeys, setOpenKeys] = useState(['sub1']);
 
   const onOpenChange = keys => {
     const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1);
-
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       setOpenKeys(keys);
     } else {

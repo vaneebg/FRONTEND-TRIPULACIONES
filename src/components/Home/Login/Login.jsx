@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { login, reset } from '../../../features/auth/authSlice';
+import { Link, useNavigate } from 'react-router-dom';
+import pic from '../../../assets/route_login2.png';
 import { Input, notification } from 'antd';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import { login, reset } from '../../../features/auth/authSlice';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import pic from '../../../assets/route_login2.png';
 import './Login.scss';
 
 const Login = () => {
@@ -17,9 +17,9 @@ const Login = () => {
   const { email, password } = formData;
 
   const dispatch = useDispatch();
-  const { isError, isSuccess, message, messageLogout, messageDelete } =
-    useSelector(state => state.auth);
+  const { isError, isSuccess, message, messageLogout, messageDelete } = useSelector(state => state.auth);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (messageLogout) {
       notification.success({ message: 'Éxito', description: messageLogout });

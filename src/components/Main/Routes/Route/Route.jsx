@@ -1,16 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
-import "./Route.scss";
-import { Pagination } from "antd";
 import { dislike, getAll, like } from "../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../features/auth/authSlice";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { Pagination } from "antd";
+import "./Route.scss";
 
 const Route = ({ pageC, functionPage }) => {
+
   const { routes, numberRoutes } = useSelector((state) => state.routes);
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+
   const onChange = (page) => {
     functionPage(page);
     dispatch(getAll(page));
@@ -21,7 +23,6 @@ const Route = ({ pageC, functionPage }) => {
   }, []);
 
   const route = routes?.map((el) => {
-    console.log(el)
     const isAlreadyLiked = el.likes?.includes(user?._id);
     return (
       <section key={el._id} className="wrapper-ok">
@@ -30,8 +31,6 @@ const Route = ({ pageC, functionPage }) => {
             <div className="card-header">
               <div className="card-header-left">
                 <img src={el.image} alt="" className="picture-title" />
-
-                {/* <span className='card-title user'>{el?.name}</span> */}
               </div>
               <div className="dropdown">
                 <span className="simbol-right dropbtn">
@@ -73,9 +72,9 @@ const Route = ({ pageC, functionPage }) => {
                       fill="none"
                       points="20 21 12 13.44 4 21 4 3 20 3 20 21"
                       stroke="black"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                     ></polygon>
                   </svg>
                 </div>

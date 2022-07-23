@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import CommentDetail from './CommentDetail/CommentDetail'
-import React from 'react'
 import { getAll, resetC } from '../../../../features/comments/commentsSlice';
 import { notification } from "antd";
 
