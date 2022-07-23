@@ -15,9 +15,10 @@ import Comments from "../../Comments/Comments";
 import Scores from "./Scores/Scores";
 import Score from "./Scores/Score/Score"
 import { getAll } from "../../../../../features/comments/commentsSlice";
+import './RouteDetail.scss'
 const styles = {
   wrapper: {
-    height: 400,
+    height: 100,
     width: "80%",
     margin: "0 auto",
     display: "flex",
@@ -26,7 +27,6 @@ const styles = {
     flex: 1,
   },
 };
-
 const Options = { color: 'rgb(127, 168, 255)' };
 
 
@@ -74,9 +74,9 @@ const RouteDetail = () => {
         <p>{route?.description_es}</p>
         <p>{route?.startingPoint}</p>
         <p>{route?.endingPoint}</p>
-        <div style={styles.wrapper}>
-          <MapContainer
-            style={styles.map}
+        <div className="styleWrapper" >
+          <MapContainer className="stylesMap"
+            
             center={[39.46975, -0.37739]}
             zoom={13}
             scrollWheelZoom={false}
