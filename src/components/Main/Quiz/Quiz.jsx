@@ -53,7 +53,7 @@ const dispatch=useDispatch()
 <div className='register-container'>
     <form className='form-register-container' onSubmit={onSubmit}>
     <h2 className='register-title'>Formulario:</h2>
-      <label htmlFor='age'>Edad:</label>
+      <label htmlFor='age'>Año de nacimiento:</label>
       <Input
         type='number'
         className='numberIn'
@@ -96,7 +96,7 @@ const dispatch=useDispatch()
           <Radio name={companions} value="solo" onChange={onChange}>Solo</Radio>
           <Radio  name={companions} value="pareja" onChange={onChange}>En pareja</Radio>
           <Radio  name={companions} value="familia" onChange={onChange}>En familia</Radio>
-          <Radio  name={companions} value="amigos" onChange={onChange}>Otros</Radio>
+          <Radio  name={companions} value="amigos" onChange={onChange}>Amigos</Radio>
 
         </Radio.Group>
         <br />
