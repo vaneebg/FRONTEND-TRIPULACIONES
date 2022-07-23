@@ -6,10 +6,9 @@ import { setCommentToEdit, updateComment } from "../../../../../../features/comm
 
 const ModalEditComment = ({ commentId }) => {
   const [visible, setVisible] = useState(false);
-  const { commentUpdated , comments, commentToEdit } = useSelector((state) => state.comments);
-  console.log(comments)
+  const { comments, commentToEdit } = useSelector((state) => state.comments);
   const dispatch = useDispatch();
-
+console.log(comments)
     const getId = ()=>{
     setVisible(true)
     const editComment = comments.filter((e)=> e._id === commentId)
@@ -67,7 +66,6 @@ const ModalEditComment = ({ commentId }) => {
             onChange={onChange}
             required
           />
-          <label htmlFor="genre">Género:</label>
           <input
             onChange={onChange}
             type="file"
