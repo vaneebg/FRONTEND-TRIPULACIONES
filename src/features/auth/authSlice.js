@@ -124,7 +124,7 @@ export const authSlice = createSlice({
       })
       .addCase(updateUser.fulfilled, (state, action) =>{
         state.userUpdated = action.payload;
-        state.messageUpdated = action.payload.message;
+        state.message = action.payload.message;
       })
   },
 });
