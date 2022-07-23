@@ -29,19 +29,6 @@ const AboutUs = () => {
 
         <div className="target">
           <div className="img">
-            <img className="imgAuth" src={imgVincent} alt="Vincent" />
-          </div>
-          <div className="data">
-            <h2 className="name">Vicente BC</h2>
-            <div className="iconsSocial">
-              <a href="https://www.linkedin.com/in/vibarcar/"><LinkedinOutlined className='svg' /></a>
-              <a href="https://github.com/Vincecoorp21"><GithubOutlined className='svg' /></a>
-            </div>
-          </div>
-        </div>
-
-        <div className="target">
-          <div className="img">
             <img className="imgAuth" src={imgRebeca} alt="Oriol" />
           </div>
           <div className="data">
@@ -62,6 +49,19 @@ const AboutUs = () => {
             <div className="iconsSocial">
               <a href="https://www.linkedin.com/in/vanesa-bg/"><LinkedinOutlined className='svg' /></a>
               <a href="https://github.com/vaneebg"><GithubOutlined className='svg' /></a>
+            </div>
+          </div>
+        </div>
+
+        <div className="target">
+          <div className="img">
+            <img className="imgAuth" src={imgVincent} alt="Vincent" />
+          </div>
+          <div className="data">
+            <h2 className="name">Vicente BC</h2>
+            <div className="iconsSocial">
+              <a href="https://www.linkedin.com/in/vibarcar/"><LinkedinOutlined className='svg' /></a>
+              <a href="https://github.com/Vincecoorp21"><GithubOutlined className='svg' /></a>
             </div>
           </div>
         </div>
