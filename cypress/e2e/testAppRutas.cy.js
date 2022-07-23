@@ -141,6 +141,7 @@ describe("Test para editar comentario y borrar puntuacion y comentario", () => {
     cy.get(
       ".ant-modal > .ant-modal-content > .ant-modal-body > form > .loginBt"
     ).click();
+    cy.get('[data-icon = "delete"]').click()
     cy.wait(3000)
   });
 });
