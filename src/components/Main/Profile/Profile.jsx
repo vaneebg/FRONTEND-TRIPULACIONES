@@ -42,16 +42,16 @@ const Profile = () => {
     console.log('quiero saber esto', likedRoute);
     return (
       <div key={likedRoute._id} className='prof-top-cont-routes'>
-        <Link to={'/routes/route/' + likedRoute._id}>
-          <div className='route-profile-fav'>
-            <div className='col-fav-1'>
-              <img src={likedRoute.image} alt='' />
-            </div>
-            <div className='col-fav-2'>
-              <p>{likedRoute.name}</p>
-            </div>
+        <div className='route-profile-fav'>
+          <div className='col-fav-1'>
+            <img src={likedRoute.image} alt='' />
           </div>
-        </Link>
+          <div className='col-fav-2'>
+            <Link to={'/routes/route/' + likedRoute._id}>
+              <p>{likedRoute.name}</p>
+            </Link>
+          </div>
+        </div>
       </div>
     );
   });
