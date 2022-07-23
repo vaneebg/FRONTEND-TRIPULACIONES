@@ -21,7 +21,7 @@ const URL = process.env.REACT_APP_URL;
 
 const Profile = () => {
   const { user, userUpdated } = useSelector(state => state.auth);
-  console.log('user', user);
+  // console.log('user', user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onLogout = () => {
@@ -39,10 +39,18 @@ const Profile = () => {
   }, [userUpdated]);
 
   const likedRoutes = user?.likes?.map(likedRoute => {
+    console.log('quiero saber esto', likedRoute);
     return (
-      <div key={likedRoute._id}>
+      <div key={likedRoute._id} className='prof-top-cont-routes'>
         <Link to={'/routes/route/' + likedRoute._id}>
-          <p>{likedRoute.name}</p>
+          <div className='route-profile-fav'>
+            <div className='col-fav-1'>
+              <img src={likedRoute.image} alt='' />
+            </div>
+            <div className='col-fav-2'>
+              <p>{likedRoute.name}</p>
+            </div>
+          </div>
         </Link>
       </div>
     );
@@ -89,9 +97,7 @@ const Profile = () => {
               okText='Yes'
               cancelText='No'
             >
-              <button  className='btn-profile'>
-                Borrar cuenta
-              </button>
+              <button className='btn-profile'>Borrar cuenta</button>
             </Popconfirm>
           </div>
           <br />
