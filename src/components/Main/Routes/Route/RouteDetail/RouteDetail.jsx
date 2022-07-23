@@ -26,8 +26,7 @@ const styles = {
   },
 };
 
-const Options = { color: "blue" };
-const fillBlueOptions = { fillColor: 'blue' }
+const Options = { color:'rgb(127, 168, 255)' };
 
 
 const RouteDetail = () => {
@@ -43,7 +42,7 @@ const RouteDetail = () => {
 
   const pointsMap = route.poi?.map((point) => {
     return (
-      <Marker position={[ point?.longitude, point?.latitude]}>
+      <Marker  position={[ point?.longitude, point?.latitude]}>
         <Popup>
           {point?.name} <br />
         </Popup>
@@ -85,7 +84,6 @@ const RouteDetail = () => {
               url={"https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png"}
             />
             {pointsMap}
-            {/* <Circle center={[39.46975, -0.37739]} pathOptions={fillBlueOptions} radius={1500} /> */}
             <Polyline pathOptions={Options} positions={pointsLine} />
           </MapContainer>
         </div>
