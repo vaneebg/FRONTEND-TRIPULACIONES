@@ -9,7 +9,6 @@
   all: unset;
   writing-mode: vertical-rl;
   letter-spacing: 0.3em;
-  font-family: 'Rubik Glitch', cursive;
  
   font-size: 2.5em;
   padding: 2px;
@@ -25,5 +24,13 @@
 @media screen and (max-width: 420px) {
     .main {
       margin-left: 0;
+    }
+    .up a {
+      letter-spacing: 0;
+      font-size: 1.8em;
+    }
+    .barra-nav{
+      right:0;
+      top:70vh;
     }
 }
