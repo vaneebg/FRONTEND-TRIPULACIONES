@@ -70,74 +70,85 @@ const Register = () => {
     <div className='register-container'>
       <form onSubmit={onSubmit} className='form-register-container'>
         <h2 className='register-title'>Rout'opic</h2>
-
-        <label htmlFor='name'>Nombre de usuario:</label>
-        <Input
-          prefix={<UserOutlined />}
-          placeholder='pepito'
-          type='text'
-          name='name'
-          value={name}
-          onChange={onChange}
-          required
-        />
-        <label htmlFor='email'>Correo: </label>
-        <Input
-          prefix={<MailOutlined />}
-          placeholder='pepito@gmail.com'
-          type='email'
-          name='email'
-          value={email}
-          onChange={onChange}
-          required
-        />
-        <label htmlFor='genre'>Género:</label>
-
-        <select name='genre'>
-          <option disabled selected value>
-            Selecciona
-          </option>
-          <option value='men' onChange={onChange}>
-            Hombre
-          </option>
-          <option value='women' onChange={onChange}>
-            Mujer
-          </option>
-        </select>
-
-        <label htmlFor='password'>Introduce tu contraseña:</label>
-        <Input
-          prefix={<LockOutlined />}
-          type='password'
-          name='password'
-          placeholder='*******'
-          value={password}
-          onChange={onChange}
-          required
-        />
-        <label htmlFor='password2'>Introduce de nuevo tu contraseña:</label>
-        <Input
-          prefix={<LockOutlined />}
-          type='password'
-          name='password2'
-          placeholder='*******'
-          value={password2}
-          onChange={onChange}
-          required
-        />
-        <input
-          onChange={onChange}
-          type='file'
-          value={imageUser}
-          name='imageUser'
-        />
-        <input className='loginBt' type='submit' />
+        <div className='question'>
+          <label htmlFor='name'>Nombre:</label>
+          <Input
+            prefix={<UserOutlined />}
+            placeholder='pepito'
+            type='text'
+            name='name'
+            value={name}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className='question'>
+          <label htmlFor='email'>Correo:</label>
+          <Input
+            prefix={<MailOutlined />}
+            placeholder='pepito@gmail.com'
+            type='email'
+            name='email'
+            value={email}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className='question'>
+          <label htmlFor='genre'>Género:</label>
+          <select name='genre'>
+            <option disabled selected value>
+              Selecciona
+            </option>
+            <option value='men' onChange={onChange}>
+              Hombre
+            </option>
+            <option value='women' onChange={onChange}>
+              Mujer
+            </option>
+          </select>
+        </div>
+        <div className='question'>
+          <label htmlFor='password'>Introduce tu contraseña:</label>
+          <Input
+            prefix={<LockOutlined />}
+            type='password'
+            name='password'
+            placeholder='*******'
+            value={password}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className='question'>
+          <label htmlFor='password2'>Introduce de nuevo tu contraseña:</label>
+          <Input
+            prefix={<LockOutlined />}
+            type='password'
+            name='password2'
+            placeholder='*******'
+            value={password2}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className='question'>
+          <input
+            onChange={onChange}
+            type='file'
+            value={imageUser}
+            name='imageUser'
+          />
+        </div>
+        <div>
+          <input className='loginBt' type='submit' />
+        </div>
         <span>
-          Si ya tienes una cuenta, <Link to='/'>Login</Link>
+          Si ya tienes una cuenta, haz <Link to='/'>Login</Link>
         </span>
       </form>
     </div>
   );
 };
 
-export default Register;
+export default Register

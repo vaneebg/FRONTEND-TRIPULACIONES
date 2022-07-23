@@ -51,11 +51,12 @@
                   border: 1px solid white;
                   cursor: pointer;
                   background-color: lightgrey;
-                  
+
                }
-               .button:hover{
-                     background-color: #227BD9;
-                     color: white;
+
+               .button:hover {
+                  background-color: #227BD9;
+                  color: white;
                }
             }
          }
@@ -70,7 +71,8 @@
       align-items: center;
       width: 100vw;
       height: 100vh;
-      .quizzCard{
+
+      .quizzCard {
          .form-register-container {
             width: 40em;
             padding: 2em 5em;
