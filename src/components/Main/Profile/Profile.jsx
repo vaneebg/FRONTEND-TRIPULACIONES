@@ -103,7 +103,7 @@ const Profile = () => {
         <br />
         <div className='rutas'>
           <h3 className='prof-h3'>Rutas favoritas</h3>
-          <div>{likedRoutes}</div>
+          <div className='likeRoutes'>{likedRoutes}</div>
         </div>
       </div>
     </div>

@@ -76,8 +76,9 @@
   margin: 10px 20px;
 }
 
-.star {
+.star, .fa-solid {
   font-size: 25px;
+  color:green;
   margin-right: 10px;
 }
 
@@ -102,7 +103,7 @@ h4 {
 
   span {
     font-weight: bold;
-    // background-color: lightgray;
+    background-color: lightgray;
     padding: 5px;
     border-radius: 10px;
   }
