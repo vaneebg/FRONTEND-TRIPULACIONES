@@ -1,52 +1,52 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import {
   createComment,
   destroyComment,
   getAll,
-} from '../../../../../features/comments/commentsSlice';
-import ModalEditComment from './EditComment/ModalEditComment';
-import { Avatar, Comment, Button, Tooltip } from 'antd';
-import moment from 'moment';
-import { DeleteOutlined } from '@ant-design/icons';
+} from "../../../../../features/comments/commentsSlice";
+import ModalEditComment from "./EditComment/ModalEditComment";
+import { Avatar, Comment, Button, Tooltip, Popconfirm } from "antd";
+import moment from "moment";
+import { DeleteOutlined } from "@ant-design/icons";
 
 const URL = process.env.REACT_APP_URL;
 
 const CommentDetail = () => {
   const initialState = {
-    body: '',
-    imageComment: '',
+    body: "",
+    imageComment: "",
   };
 
   const [formData, setFormData] = useState(initialState);
   const { imageComment, body } = formData;
-  const { user } = useSelector(state => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const { comments, eraseComment, commentUpdated } = useSelector(
-    state => state.comments
+    (state) => state.comments
   );
   const [comment, setComment] = useState([]);
   const { _id } = useParams();
   const dispatch = useDispatch();
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!e) return;
     const editedData = new FormData();
     if (e.target.imageComment.files[0]) {
-      editedData.set('imageComment', e.target.imageComment.files[0]);
+      editedData.set("imageComment", e.target.imageComment.files[0]);
     }
-    editedData.set('body', e.target.body.value);
+    editedData.set("body", e.target.body.value);
     let data = { editedData, routeId: _id };
     await dispatch(createComment(data));
     await dispatch(getAll());
-    setFormData(initialState)
+    setFormData(initialState);
     setTimeout(() => {
       setComment([...comment]);
     }, 1000);
   };
 
-  const destroy = async _id => {
+  const destroy = async (_id) => {
     await dispatch(destroyComment(_id));
   };
 
@@ -58,48 +58,47 @@ const CommentDetail = () => {
     dispatch(getAll());
   }, [commentUpdated]);
 
-
-  const onChange = e => {
-    setFormData(prevState => ({
+  const onChange = (e) => {
+    setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const commentUser = comments.map(element => {
+  const commentUser = comments.map((element) => {
     return (
       <>
         {_id === element.routeId ? (
           <>
             <div
-              className='animate__animated animate__fadeIn'
+              className="animate__animated animate__fadeIn"
               key={element._id}
             >
-              <div className='comment-detail-route-prof'>
+              <div className="comment-detail-route-prof">
                 <Comment
                   author={<a>{element.userId?.name}</a>}
                   avatar={
                     <Avatar
-                      src={URL + '/users/' + element.userId?.imagepath}
-                      alt=''
+                      src={URL + "/users/" + element.userId?.imagepath}
+                      alt=""
                     />
                   }
                   content={
                     <>
-                      <div className='comment-detail-route'>
+                      <div className="comment-detail-route">
                         <p>{element.body}</p>
                       </div>
                       {element.imagepath ? (
-                      <img
-                        alt=''
-                        src={URL + '/comments/' + element?.imagepath}
-                        className='comment-img'
-                      ></img>
-                      ) : (null) }
+                        <img
+                          alt=""
+                          src={URL + "/comments/" + element?.imagepath}
+                          className="comment-img"
+                        ></img>
+                      ) : null}
                     </>
                   }
                   datetime={
-                    <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+                    <Tooltip title={moment().format("YYYY-MM-DD HH:mm:ss")}>
                       <span>{element.createdAt.slice(0, 10)}</span>
                     </Tooltip>
                   }
@@ -107,25 +106,28 @@ const CommentDetail = () => {
               </div>
               {element.userId._id === user._id ? (
                 <>
-                  <div className='comment-btn'>
-                    <Button
-                      type='danger'
-                      onClick={() => {
-                        destroy(element._id);
-                      }}
+                  {/* <div className="comment-btn"> */}
+                    <Popconfirm
+                      placement="rightTop"
+                      title="Seguro que quieres borrar este comentario?"
+                      onConfirm={() => dispatch(destroy(element._id))}
+                      okText="Yes"
+                      cancelText="No"
                     >
-                      <DeleteOutlined />
-                    </Button>
-                    <ModalEditComment commentId={element._id} />
-                  </div>
+                      <Button type="danger">
+                        <DeleteOutlined />
+                      </Button>
+                    </Popconfirm>{" "}
+                  {/* </div> */}
+                  <ModalEditComment commentId={element._id} />
                 </>
               ) : (
-                ''
+                ""
               )}
             </div>
           </>
         ) : (
-          ''
+          ""
         )}
       </>
     );
@@ -134,22 +136,22 @@ const CommentDetail = () => {
   return (
     <>
       <ul>{commentUser}</ul>
-      <form onSubmit={onSubmit} className='form-comment-container'>
+      <form onSubmit={onSubmit} className="form-comment-container">
         <textarea
           onChange={onChange}
           value={body}
-          name='body'
-          rows='4'
-          cols='20'
+          name="body"
+          rows="4"
+          cols="20"
         ></textarea>
         <input
           onChange={onChange}
-          type='file'
-          name='imageComment'
+          type="file"
+          name="imageComment"
           value={imageComment}
-          className='input-file-comment'
+          className="input-file-comment"
         />
-        <input className='loginBt comment-detail-bt' type='submit' />
+        <input className="loginBt comment-detail-bt" type="submit" />
       </form>
     </>
   );
