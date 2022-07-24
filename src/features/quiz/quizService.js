@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const URL = process.env.REACT_APP_URL;
-
+console.log("url",URL)
 const createQuiz = async (data) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.post(URL + "/quiz/", data, {
