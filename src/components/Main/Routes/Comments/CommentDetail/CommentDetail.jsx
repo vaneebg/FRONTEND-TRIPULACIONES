@@ -66,7 +66,6 @@ const CommentDetail = () => {
   };
 
   const commentUser = comments.map(element => {
-    console.log(element)
     return (
       <>
         {_id === element.routeId ? (
@@ -95,11 +94,7 @@ const CommentDetail = () => {
                         src={URL + '/comments/' + element?.imagepath}
                         className='comment-img'
                       ></img>
-                      ) : ( <img
-                        alt=''
-                        src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
-                        className='comment-img'
-                      ></img>)}
+                      ) : (null) }
                     </>
                   }
                   datetime={
