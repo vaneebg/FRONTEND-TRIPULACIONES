@@ -23,6 +23,12 @@
 height:11em;
 overflow: scroll;
 }
+::-webkit-scrollbar {
+  display: none;
+}
+::-moz-scrollbar {
+  display: none;
+}
 .profile-title {
   font-size: 2rem;
   color:white;
