@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Roboto:wght@300;400;500;900&display=swap");
+h1 {
+  font-family: 'Playfair';
+}
+
+.mainContainer .quizzCard .form-register-container {
+  padding: 2em;
+  border: 1px solid lightgray;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
+  margin: 2em;
+  background-color: rgba(255, 255, 255, 0.904);
+}
+
+.mainContainer .quizzCard .form-register-container .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainContainer .quizzCard .form-register-container .quizz .question {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 0.5em;
+}
+
+.mainContainer .quizzCard .form-register-container .quizz .question label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  height: 2em;
+}
+
+.mainContainer .quizzCard .form-register-container .quizz .question Input {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.mainContainer .quizzCard .form-register-container .quizz .question .RadioGroup {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.mainContainer .quizzCard .form-register-container .quizz .buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainContainer .quizzCard .form-register-container .quizz .buttonContainer .button {
+  border-radius: 10px;
+  padding: 4px 8px;
+  border: 1px solid white;
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.mainContainer .quizzCard .form-register-container .quizz .buttonContainer .button:hover {
+  background-color: #227bd9;
+  color: white;
+}
+
+@media (min-width: 450px) {
+  .mainContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  .mainContainer .quizzCard .form-register-container {
+    width: 40em;
+    padding: 2em 5em;
+  }
+}
+/*# sourceMappingURL=Quiz.css.map */

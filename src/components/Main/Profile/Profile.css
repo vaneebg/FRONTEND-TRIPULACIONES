@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Roboto:wght@300;400;500;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.profile-container {
+  height: 110vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("../../../assets/fondo_ruta.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  margin-bottom: 3em;
+}
+
+.likeRoutes {
+  height: 11em;
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-moz-scrollbar {
+  display: none;
+}
+
+.profile-title {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 2rem;
+  font-family: 'Playfair';
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+}
+
+.profile-card {
+  width: 80%;
+  padding: 3rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.904);
+}
+
+.profile-image {
+  top: -60px;
+  border-radius: 1rem;
+  width: 11rem;
+  height: 11rem;
+  -webkit-box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile-info {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.ant-btn-primary {
+  border-radius: 10px;
+  padding: 4px 8px;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 12px;
+  background: lightgrey;
+  color: black;
+}
+
+ant-btn-primary:hover {
+  background-color: lightgrey;
+}
+
+.btn-profile {
+  border-radius: 5px;
+  padding: 6px 11px;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 13px;
+  background-color: lightgrey;
+}
+
+.btn-profile:hover {
+  background-color: red;
+  color: white;
+}
+
+.but-profile-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+
+.logo-prof {
+  color: black;
+  font-size: 20px;
+}
+
+.top-prof-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+.prof-h3 {
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+.route-profile-fav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  width: auto;
+}
+
+.route-profile-fav img {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.col-fav-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+  -webkit-box-flex: 1.4;
+      -ms-flex: 1.4;
+          flex: 1.4;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.col-fav-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+/*# sourceMappingURL=Profile.css.map */

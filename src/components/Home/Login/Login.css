@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Roboto:wght@300;400;500;900&display=swap");
+h1 {
+  font-family: 'Playfair';
+}
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  padding-bottom: 2em;
+}
+
+.col-1 img {
+  width: 100%;
+  display: block;
+}
+
+.form-login-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+}
+
+.form-login-container .input-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form-login-container button {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid white;
+  outline: none;
+  display: block;
+  width: 100%;
+  margin: 18px 0 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.form-login-container button:hover {
+  background-color: #227bd9;
+  color: white;
+  border: 0;
+}
+
+@media (min-width: 450px) {
+  .login-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 5em;
+    background-image: url("../../../assets/fondo_ruta.jpg");
+    background-size: cover;
+  }
+  .login-container .login-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: rgba(255, 255, 255, 0.904);
+    border-radius: 10px;
+    padding: 1em;
+    gap: 10px;
+  }
+  .login-container .login-box .col-1 {
+    width: 50%;
+    max-width: 60%;
+  }
+  .login-container .login-box .col-1 img {
+    border-radius: 20px;
+  }
+  .login-container .login-box .col-2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+/*# sourceMappingURL=Login.css.map */

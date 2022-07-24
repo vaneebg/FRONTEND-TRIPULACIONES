@@ -1,0 +1,218 @@
+.styleWrapper {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid green;
+  height: 500px;
+  margin-bottom: 29em;
+}
+
+.stylesMap {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 500px;
+}
+
+.routeDetail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.imgRouteDetail {
+  width: 5em;
+}
+
+.hola {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.hola img {
+  display: block;
+  border-radius: 5em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  padding: 3em;
+  max-width: 70%;
+}
+
+.puntos-estilo {
+  overflow: scroll;
+  height: 200px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5em;
+}
+
+.form-route-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-route-detail input {
+  width: 50px;
+}
+
+.form-route-detail input[type='submit'] {
+  border-radius: 10px;
+  padding: 4px 8px;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 12px;
+  background-color: lightgrey;
+}
+
+.score-div {
+  margin-top: 1.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5em;
+}
+
+.ant-btn-danger {
+  border-radius: 10px;
+  padding: 4px 8px;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 12px;
+  background: lightgrey;
+  color: black;
+}
+
+.comment-detail-route {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.comment-detail-route-prof {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.comment-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  margin-top: 0.5em;
+}
+
+.ant-comment {
+  border: 1px dotted black;
+  border-radius: 10px;
+  padding: 0px 5em;
+  max-width: 300px;
+  margin-top: 0.5em;
+}
+
+.comment-img {
+  width: 20%;
+  height: 20%;
+  margin-top: 0.5em;
+}
+
+.form-comment-container {
+  margin-bottom: 3em;
+}
+
+@media screen and (max-width: 430px) {
+  .styleWrapper {
+    height: 20vh;
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .styleWrapper {
+    margin-bottom: 3em;
+  }
+  .form-comment-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  textarea {
+    padding: -3em;
+    margin: 0 5em;
+  }
+  .input-file-comment {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+  .comment-detail-bt {
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 1em;
+  }
+  .ant-comment {
+    border: 1px dotted black;
+    min-width: 90%;
+  }
+}
+/*# sourceMappingURL=RouteDetail.css.map */

@@ -1,0 +1,10 @@
+.menu {
+  background-color: #FAFAFA;
+}
+
+@media screen and (max-width: 430px) {
+  .menu {
+    display: none;
+  }
+}
+/*# sourceMappingURL=Header.css.map */

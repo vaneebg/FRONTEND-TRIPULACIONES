@@ -1,0 +1,34 @@
+.footerContainer {
+  background-color: #1f72cc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 3em;
+  display: none;
+}
+
+.footerContainer a {
+  padding: 10px;
+  color: black;
+}
+
+.footerContainer a:hover {
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .footerContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+/*# sourceMappingURL=Footer.css.map */
