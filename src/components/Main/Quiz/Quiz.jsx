@@ -49,8 +49,10 @@ const Quiz = () => {
       <div className='quizzCard'>
         <form className='form-register-container' onSubmit={onSubmit}>
           <div className='text'>
-            <h2 className='register-title'>Cuestionario</h2>
+            <h1 className='register-title'>Cuestionario</h1>
+            <p>Rellena este cuestionario para descubrir cuál es tu ruta ideal ;)</p>
           </div>
+          <br />
           <div className='quizz'>
             <div className='question'>
               <label htmlFor='age'>Año de nacimiento:</label>

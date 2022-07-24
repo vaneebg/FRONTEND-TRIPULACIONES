@@ -42,23 +42,23 @@ const Header = () => {
     getItem('', 'sub1', <MenuUnfoldOutlined />, [
       getItem(
         '',
-        '1',
-        <Link to='/profile'>
-          <UserOutlined /> Perfil
+        '3',
+        <Link to='/main'>
+          <HomeOutlined /> Rutas
         </Link>
       ),
       getItem(
         '',
         '2',
         <Link to='/quiz'>
-          <ReconciliationOutlined /> Cuestionario
+          <ReconciliationOutlined /> Recomendación
         </Link>
       ),
       getItem(
         '',
-        '3',
-        <Link to='/main'>
-          <HomeOutlined /> Principal
+        '1',
+        <Link to='/profile'>
+          <UserOutlined /> Perfil
         </Link>
       ),
       getItem(

@@ -8,9 +8,9 @@ const Footer = () => {
   if (pathname === '/' || pathname === '/register') return null;
   return (
     <div className='footerContainer'>
+      <Link to='/main'>Rutas</Link>
+      <Link to='/quiz'>Recomendación</Link>
       <Link to='/profile'>Perfil</Link>
-      <Link to='/quiz'>Cuestionario</Link>
-      <Link to='/main'>Principal</Link>
       <Link to='/aboutUs'>Sobre nosotros</Link>
     </div>
   )
