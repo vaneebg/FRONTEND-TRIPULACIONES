@@ -17,7 +17,7 @@
 .barra-nav {
   position: fixed;
   right: 0px;
-  top: 91vh;
+  top: 80vh;
 }
 
 @media screen and (max-width: 420px) {
@@ -29,7 +29,7 @@
     font-size: 1.8em;
   }
   .barra-nav {
-    right: 0;
-    top: 70vh;
+    right: -0.5em;
+    top: 80vh;
   }
 }
