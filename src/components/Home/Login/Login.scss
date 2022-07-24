@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Roboto:wght@300;400;500;900&display=swap');
 
-h1{
+h1 {
   font-family: 'Playfair';
 }
 .login-container {
-   width: 100vw;
+  width: 100vw;
   padding-bottom: 2em;
 }
 
@@ -37,13 +37,13 @@ h1{
   }
 
   button:hover {
-    background-color: #227BD9;
+    background-color: #227bd9;
     color: white;
     border: 0;
   }
 }
 
-@media (min-width:450px) {
+@media (min-width: 450px) {
   .login-container {
     display: flex;
     flex-direction: column;
@@ -51,18 +51,22 @@ h1{
     padding: 5em;
 
     .login-box {
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid green;
+      gap: 10px;
       .col-1 {
-        display: none;
+        width: 50%;
+        max-width: 60%;
+        img {
+          border-radius: 20px;
+        }
       }
 
       .col-2 {
         display: flex;
         justify-content: center;
-
-        .form-login-container {
-          width: 40em;
-        }
       }
     }
   }

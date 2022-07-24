@@ -40,6 +40,7 @@ const CommentDetail = () => {
     let data = { editedData, routeId: _id };
     await dispatch(createComment(data));
     await dispatch(getAll());
+    setFormData(initialState)
     setTimeout(() => {
       setComment([...comment]);
     }, 1000);
