@@ -26,25 +26,25 @@ const Route = ({ pageC, functionPage }) => {
     let icon;
     switch (el?.type) {
       case 'Històrica':
-        
-        icon =  <Tooltip color="brown" title="ruta histórica">
-        <span> <i className="fa-solid fa-building-columns"></i></span>
-      </Tooltip> 
+
+        icon = <Tooltip color="brown" placement="bottom" title="ruta histórica">
+          <span> <i className="fa-solid fa-building-columns"></i></span>
+        </Tooltip>
         break;
       case 'Turística':
-        icon = <Tooltip color="brown" title="ruta turística">
-        <span> <i className="fa-solid fa-mountain-sun"></i></span>
-      </Tooltip> 
+        icon = <Tooltip color="brown" placement="bottom" title="ruta turística">
+          <span> <i className="fa-solid fa-mountain-sun"></i></span>
+        </Tooltip>
         break;
       case 'Patrimonial':
-        icon = <Tooltip color="brown" title="ruta Patrimonial">
-        <span><i className="fa-solid fa-vihara"></i></span>
-      </Tooltip> 
+        icon = <Tooltip color="brown" placement="bottom" title="ruta Patrimonial">
+          <span><i className="fa-solid fa-vihara"></i></span>
+        </Tooltip>
         break;
       case 'Literària':
-        icon =  <Tooltip color="brown" title="ruta Literaria">
-        <span><i class="fa-solid fa-book-open-reader"></i></span>
-      </Tooltip> 
+        icon = <Tooltip color="brown" placement="bottom" title="ruta Literaria">
+          <span><i class="fa-solid fa-book-open-reader"></i></span>
+        </Tooltip>
         break;
       default:
         icon = "no se qué soy"
@@ -83,9 +83,9 @@ const Route = ({ pageC, functionPage }) => {
                   <span className='fav-text-icon'>{el?.likes?.length} fav</span>
                 </div>
                 <div className='bottom-icon-left'>
-                  {el?.transport === 'peu' ? <Tooltip color="green" title="ruta a pie">
+                  {el?.transport === 'peu' ? <Tooltip color="green" title="A pie">
                     <span> <i className="fa-solid fa-person-walking"></i></span>
-                  </Tooltip> : <Tooltip color="green" title="ruta en bici">
+                  </Tooltip> : <Tooltip color="green" title="En bici">
                     <i className="fa-solid fa-bicycle"></i>
                   </Tooltip>
 
