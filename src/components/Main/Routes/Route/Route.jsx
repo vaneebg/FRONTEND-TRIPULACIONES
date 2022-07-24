@@ -54,7 +54,7 @@ const Route = ({ pageC, functionPage }) => {
                       onClick={() => dispatch(like(el._id))}
                     />
                   )}
-                  <span>{el?.likes?.length}</span>
+                  <span className='fav-text-icon'>{el?.likes?.length} fav</span>
                 </div>
                 <div className='bottom-icon-left'></div>
               </div>
