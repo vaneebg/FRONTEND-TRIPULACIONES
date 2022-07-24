@@ -1,15 +1,19 @@
 .wrapper-ok {
   margin: 0 auto;
 }
+
 .main-card {
   margin: 30px auto;
   border: 1px solid rgb(222, 222, 222);
   width: 80%;
+  border-radius: 10px;
 }
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
+
 .panel {
   background-color: white;
 }
@@ -25,6 +29,7 @@
   display: flex;
   align-items: center;
 }
+
 .picture-title-nav {
   width: 30px;
   height: 30px;
@@ -36,12 +41,15 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid transparent; /*2*/
+  border: 2px solid transparent;
+  /*2*/
   background: linear-gradient(45deg, red, blue) border-box;
 }
+
 .card-title {
   margin-left: 20px;
 }
+
 .user {
   font-weight: bolder;
   font-size: 15px;
@@ -52,9 +60,11 @@
 .dropdown {
   position: relative;
 }
+
 .simbol-right {
   cursor: pointer;
 }
+
 .main-picture {
   width: 100%;
 }
@@ -65,26 +75,42 @@
   justify-content: space-between;
   margin: 10px 20px;
 }
+
 .star {
   font-size: 25px;
   margin-right: 10px;
 }
-.bottom-text-card > span {
-  margin-top: 5px;
-  font-size: 10px;
-  letter-spacing: 0.8px;
+
+.bottom-text-card {
+  padding: 1em;
+
+  span {
+    margin-top: 5px;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+  }
 }
+
 h4 {
   font-weight: bolder;
 }
+
 .bottom-adds {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+
   span {
     font-weight: bold;
-    background-color: lightgray;
+    // background-color: lightgray;
     padding: 5px;
     border-radius: 10px;
+  }
+}
+
+@media (min-width:450px) {
+  .wrapper-ok {
+    width: 40em;
+    padding: 2em 5em;
   }
 }
