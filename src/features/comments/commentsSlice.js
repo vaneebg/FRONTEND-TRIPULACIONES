@@ -90,6 +90,7 @@ export const commentsSlice = createSlice({
       })
       .addCase(updateComment.fulfilled, (state, action) =>{
         state.commentUpdated = action.payload;
+        state.isSuccess = true;
         state.message = action.payload.message;
       })
     },
