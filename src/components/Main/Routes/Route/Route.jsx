@@ -83,7 +83,7 @@ const Route = ({ pageC, functionPage }) => {
                 <span>{el?.description_es}</span> <br />
                 <div className="bottom-adds">
                   <p>
-                    <span>Dificultad:</span> {el?.difficulty}
+                   {el?.difficulty!=='NaN' ? <><span>Dificultad:</span> {el?.difficulty} </>: <span>Dificultad no estipulada</span> } 
                   </p>{" "}
                   <p>
                     <span>Duración:</span> {el?.duration}'
