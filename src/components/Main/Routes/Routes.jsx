@@ -28,7 +28,7 @@ const Routes = () => {
   }
   return (
     <div className='main'>
-      <h2 id='h2'>Rutas</h2>
+      <h1 id='h2'>Rutas</h1>
       <Route pageC={current} functionPage={setCurrent} />
       <div className='barra-nav'>
         <button className='up'>
@@ -48,7 +48,7 @@ const Routes = () => {
         </button>
       </div>
     </div>
-  );
+  )
 };
 
-export default Routes;
+export default Routes

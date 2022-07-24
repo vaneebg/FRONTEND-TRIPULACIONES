@@ -1,5 +1,5 @@
 .footerContainer{
-    background-color: #227bd9;
+    background-color: #FAFAFA;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -10,13 +10,13 @@
     display:none;
     a{
       padding:10px;
-      color:white
+      color:black
 
     }
     a:hover{
-      background-color: #227bd9;
+      // background-color: #227bd9;
       // border-radius: 30px;
-      color:black;
+      color:#227bd9;
     }
     
 }
