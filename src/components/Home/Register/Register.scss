@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Roboto:wght@300;400;500;900&display=swap');
 
-h1{
+h1 {
   font-family: 'Playfair';
 }
 
 .register-container {
   width: 100vw;
   padding-bottom: 2em;
+  background-image: url('../../../assets/fondo_ruta.jpg');
 
   .form-register-container {
     display: flex;
     flex-direction: column;
     gap: 2em;
     padding: 2em;
+    background-color: rgba(255, 255, 255, 0.904);
+    border-radius: 10px;
     .question {
       display: flex;
       flex-direction: column;
@@ -32,14 +35,14 @@ h1{
     }
 
     .loginBt:hover {
-      background-color: #227BD9;
+      background-color: #227bd9;
       color: white;
       border: 0;
     }
   }
 }
 
-@media (min-width:450px) {
+@media (min-width: 450px) {
   .register-container {
     display: flex;
     flex-direction: column;
