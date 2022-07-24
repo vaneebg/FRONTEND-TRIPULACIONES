@@ -130,10 +130,7 @@ describe("Test para realizar una puntuación y dejar un comentario", () => {
 
 describe("Test para editar comentario y borrar puntuacion y comentario", () => {
   it("editar y borrar", () => {
-    cy.get(
-      ".animate__animated > .comment-btn > .ant-btn-primary > .anticon > svg"
-    ).click();
-
+    cy.get('[data-icon = "edit"]').click()
     cy.get(
       ".ant-modal > .ant-modal-content > .ant-modal-body > form > .ant-input"
     ).click().type('NO TENGO NADA QUE HACER');
@@ -141,12 +138,13 @@ describe("Test para editar comentario y borrar puntuacion y comentario", () => {
     cy.get(
       ".ant-modal > .ant-modal-content > .ant-modal-body > form > .loginBt"
     ).click();
+    cy.wait(3000);
     cy.get('[data-icon = "delete"]').click()
-    cy.wait(3000)
+    // cy.get('.ant-popover-inner > .ant-popover-inner-content > .ant-popover-buttons > .ant-btn-primary > span').click()
   });
 });
 describe("Test para eliminar usuario", () => {
-  it(" borrarado", () => {
+  it(" borrado", () => {
     cy.get('[data-icon = "user"]').click({ force: true });
     cy.get(
       ".profile-container > .profile-card > .profile-info > .but-profile-div > .btn-profile"

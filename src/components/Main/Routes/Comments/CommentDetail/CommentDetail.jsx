@@ -107,17 +107,17 @@ const CommentDetail = () => {
               {element.userId._id === user._id ? (
                 <>
                   {/* <div className="comment-btn"> */}
-                    <Popconfirm
-                      placement="rightTop"
-                      title="Seguro que quieres borrar este comentario?"
-                      onConfirm={() => dispatch(destroy(element._id))}
-                      okText="Yes"
-                      cancelText="No"
-                    >
-                      <Button type="danger">
-                        <DeleteOutlined />
-                      </Button>
-                    </Popconfirm>{" "}
+                  <Popconfirm
+                    placement="rightTop"
+                    title="Seguro que quieres borrar este comentario?"
+                    onConfirm={() => dispatch(destroy(element._id))}
+                    okText="Yes"
+                    cancelText="No"
+                  >
+                    <Button type="danger">
+                      <DeleteOutlined />
+                    </Button>
+                  </Popconfirm>{" "}
                   {/* </div> */}
                   <ModalEditComment commentId={element._id} />
                 </>
