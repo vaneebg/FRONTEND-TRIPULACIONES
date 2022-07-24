@@ -42,6 +42,8 @@ const Routes = () => {
           >
             {' '}
             <CaretUpOutlined />
+            <CaretUpOutlined />
+            <CaretUpOutlined />
           </Link>
         </button>
       </div>
