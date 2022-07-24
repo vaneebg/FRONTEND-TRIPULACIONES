@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { dislike, getAll, like } from '../../../../features/routes/routesSlice';
 import { myInfo } from '../../../../features/auth/authSlice';
 import { StarOutlined, StarFilled } from '@ant-design/icons';
-import { Pagination } from 'antd';
+import { Pagination, Tooltip } from 'antd';
 import './Route.scss';
 
 const Route = ({ pageC, functionPage }) => {
@@ -56,9 +56,15 @@ const Route = ({ pageC, functionPage }) => {
                       onClick={() => dispatch(like(el._id))}
                     />
                   )}
+
                   <span className='fav-text-icon'>{el?.likes?.length} fav</span>
                 </div>
                 <div className='bottom-icon-left'></div>
+                {el?.transport === 'peu' ? <Tooltip color="green" title="ruta a pie">
+                  <span> <i className="fa-solid fa-person-walking"></i></span>
+                </Tooltip> : <Tooltip color="green" title="ruta en bici">
+                  <i className="fa-solid fa-bicycle"></i>
+                </Tooltip>}
               </div>
               <div className='bottom-text-card'>
                 <span>{el?.description_es}</span> <br />
