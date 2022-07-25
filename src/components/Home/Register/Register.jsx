@@ -2,11 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { register, reset } from '../../../features/auth/authSlice';
 import { useNavigate, Link } from 'react-router-dom';
-import {
-  UserOutlined,
-  MailOutlined,
-  LockOutlined,
-} from '@ant-design/icons';
+import { UserOutlined, MailOutlined, LockOutlined } from '@ant-design/icons';
 import { notification, Input } from 'antd';
 import './Register.scss';
 
@@ -68,7 +64,7 @@ const Register = () => {
   return (
     <div className='register-container'>
       <form onSubmit={onSubmit} className='form-register-container'>
-        <h1 className='register-title'>Rout'opic</h1>
+        <h1 className='register-title'>Routopic</h1>
         <div className='question'>
           <label htmlFor='name'>Nombre:</label>
           <Input
@@ -153,4 +149,4 @@ const Register = () => {
   );
 };
 
-export default Register
+export default Register;
