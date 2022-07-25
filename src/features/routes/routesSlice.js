@@ -98,6 +98,7 @@ export const searchByType =createAsyncThunk("routes/searchByType", async (type)=
           state.routeDisliked = routes
         })
         .addCase(searchByType.fulfilled, (state, action) => {
+          state.numberRoutes = action.payload.numberRoutes;
           state.isSuccess = true;
           state.routes = action.payload.routes;
           state.isLoading = false
