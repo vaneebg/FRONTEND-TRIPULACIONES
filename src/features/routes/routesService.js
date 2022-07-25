@@ -48,7 +48,7 @@ const dislike = async(_id) => {
 const getByTransport = async(data) => {
   const {type, page} = data
   const user = JSON.parse(localStorage.getItem('user'));
-  const res = await axios.get(URL + '/routes/search/' + type +'?page='+ page, {
+  const res = await axios.get(URL + '/routes/search/' + type, {
       headers: {
           authorization: user.token,
       }
