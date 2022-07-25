@@ -28,10 +28,12 @@ const Route = ({ pageC, functionPage }) => {
   const route = routes?.map((el) => { 
     const punt = el?.scoresId.map(score => { return (score?.score) })
     let sum
+    let div
     if (punt?.length !== 0) {
       sum = punt.reduce((a, b) => a + b)
+      div = sum/(punt.length)
     } else {
-     <span>holi</span>
+     <span></span>
     }
     const isAlreadyLiked = el.likes?.includes(user?._id);
     let icon;
@@ -92,7 +94,7 @@ const Route = ({ pageC, functionPage }) => {
                   )}
 
                   <span className="fav-text-icon">{el?.likes?.length} fav</span>
-                  <span> {sum}</span>
+                  <span> {sum} Division: {div}</span>
                 </div>
                 <div className='bottom-icon-left'>
                   {el?.transport === 'peu' ? <Tooltip color="green" title="A pie">
