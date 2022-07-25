@@ -32,7 +32,6 @@ const getRecommended = async (userId) => {
     },
   }
   );
-  console.log("service",res.data)
   return res.data;
 }
 
