@@ -1,14 +1,15 @@
-import Route from './Route/Route';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAll, reset } from '../../../features/routes/routesSlice';
-import { Skeleton } from 'antd';
-import { CaretUpOutlined } from '@ant-design/icons';
-import { Link } from 'react-scroll';
-import './Routes.scss';
+import Route from "./Route/Route";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAll, reset } from "../../../features/routes/routesSlice";
+import { Skeleton } from "antd";
+import { CaretUpOutlined } from "@ant-design/icons";
+import { Link } from "react-scroll";
+import "./Routes.scss";
+import Filter from "./Route/Filter/Filter";
 
 const Routes = () => {
-  const { isLoading } = useSelector(state => state.routes);
+  const { isLoading } = useSelector((state) => state.routes);
 
   const dispatch = useDispatch();
 
@@ -21,26 +22,28 @@ const Routes = () => {
 
   useEffect(() => {
     getRoutesAndReset();
-  }, [getAll]);
+  }, []);
 
   if (isLoading) {
     return <Skeleton active paragraph={{ rows: 20 }} />;
   }
   return (
-    <div className='main'>
-      <h1 id='h2'>Rutas</h1>
+    <div className="main">
+      <h1 id="h2">Rutas</h1>
+      <h3>Filtrar por: </h3>
+      <div> <Filter/> </div>
       <Route pageC={current} functionPage={setCurrent} />
-      <div className='barra-nav'>
-        <button className='up'>
+      <div className="barra-nav">
+        <button className="up">
           <Link
-            activeClass='active'
+            activeClass="active"
             spy={true}
             smooth={true}
             duration={800}
-            to='h2'
-            title='Sube al menú'
+            to="h2"
+            title="Sube al menú"
           >
-            {' '}
+            {" "}
             <CaretUpOutlined />
             <CaretUpOutlined />
             <CaretUpOutlined />
@@ -48,7 +51,7 @@ const Routes = () => {
         </button>
       </div>
     </div>
-  )
+  );
 };
 
-export default Routes
+export default Routes;

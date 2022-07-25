@@ -1,14 +1,26 @@
-import FilterDetail from "./FilterDetail.jsx/FilterDetail";
-import React, { useState } from "react";
+import { useEffect} from 'react';
+import { useDispatch  } from 'react-redux';
+import { getByTransport } from '../../../../../features/routes/routesSlice';
+import { Button } from "antd"
+
+
+
 
 const Filter = () => {
-    const [current, setCurrent] = useState(1);
+ 
 
+  const dispatch = useDispatch()
+ 
+  useEffect(() => {
+    getByTransport()
+  },[])
+ 
   return (
     <div>
-        <FilterDetail pageC={current} functionPage={setCurrent} />
+       <Button onClick={() => dispatch(getByTransport("bicicleta"))}>Bici</Button>
+        <Button onClick={() => dispatch(getByTransport("peu"))}>A pie</Button>
     </div>
-  );
-};
+  )
+}
 
-export default Filter;
+export default Filter

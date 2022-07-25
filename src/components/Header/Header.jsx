@@ -10,7 +10,8 @@ import {
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import "./Header.scss";
-import Filter from "../Main/Routes/Route/Filter/Filter";
+
+
 
 const Header = () => {
   const rootSubmenuKeys = ["sub1"];
@@ -72,10 +73,8 @@ const Header = () => {
     ]),
   ];
 
- 
 
   return (
-    <div className="generalMenu">
       <div className="menu">
         <Menu
           mode="inline"
@@ -88,9 +87,7 @@ const Header = () => {
           }}
           items={items}
         />
-        <Filter/>
       </div>
-    </div>
   );
 };
 

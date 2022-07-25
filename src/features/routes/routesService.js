@@ -10,6 +10,7 @@ const getAll = async (page)=> {
         authorization: user?.user.tokens[0]
       }
     });
+    console.log('soy todos paginado',res.data)
     return res.data
 };
 
@@ -44,11 +45,24 @@ const dislike = async(_id) => {
   return res.data;
 };
 
+const getByTransport = async(data) => {
+  const {type, page} = data
+  const user = JSON.parse(localStorage.getItem('user'));
+  const res = await axios.get(URL + '/routes/search/' + type +'?page='+ page, {
+      headers: {
+          authorization: user.token,
+      }
+  });
+  console.log('soy el filtrado',res.data)
+  return res.data;
+};
+
   const routesService = {
     getAll,
     getById,
     like,
-    dislike
+    dislike,
+    getByTransport
   };
   
   export default routesService
