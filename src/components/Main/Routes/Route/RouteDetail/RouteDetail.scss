@@ -86,7 +86,6 @@
   hyphens: auto;
   word-wrap: break-word;
   word-break: break-word;
-
 }
 .comment-detail-route-prof {
   display: flex;
@@ -114,6 +113,26 @@
 }
 .form-comment-container {
   margin-bottom: 3em;
+}
+.race-point {
+  font-size: 20px;
+  margin-right: 8px;
+}
+.routeDet-title {
+  margin-top: 1em;
+  margin-bottom: 0;
+  letter-spacing: 3px;
+}
+.route-detail-tit {
+  letter-spacing: 3px;
+  // text-decoration: underline;
+  background-color: rgba(211, 211, 211, 0.329);
+}
+.route-detail-tit-last {
+  letter-spacing: 3px;
+  // text-decoration: underline;
+  background-color: rgba(211, 211, 211, 0.329);
+  margin-top: 1em;
 }
 
 @media screen and (max-width: 430px) {

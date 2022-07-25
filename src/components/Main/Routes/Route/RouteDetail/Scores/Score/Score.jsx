@@ -12,7 +12,6 @@ import { DeleteOutlined } from '@ant-design/icons';
 const URL = process.env.REACT_APP_URL;
 
 const Score = () => {
-
   const dispatch = useDispatch();
   const { scores, newScore } = useSelector(state => state.scores);
   const { route } = useSelector(state => state.routes);
@@ -30,7 +29,7 @@ const Score = () => {
     dispatch(myInfo());
   }, []);
 
-  const scoresPint = scores.scores?.map((el,i) => {
+  const scoresPint = scores.scores?.map((el, i) => {
     if (route?._id === el?.routeId) {
       return (
         <div key={i} className='score-div'>
@@ -60,7 +59,12 @@ const Score = () => {
     }
   });
 
-  return <>{scoresPint}</>;
+  return (
+    <>
+      <span>Valoraciones anteriores</span>
+      {scoresPint}
+    </>
+  );
 };
 
 export default Score;
