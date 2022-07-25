@@ -2,11 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import quizService from "./quizService";
 
 const initialState = {
-  quiz: [],
+  quiz: {},
   isError: false,
   isSuccess: false,
   message: '',
-  userId:[]
+  userId:{},
+  routeRecommended:{}
 };
 
 export const createQuiz = createAsyncThunk("quiz/createQuiz", async (data) => {
@@ -25,7 +26,15 @@ export const createQuizData = createAsyncThunk("quiz/createQuizData", async (dat
     console.error(error)
   }
 }
-)
+);
+
+export const getRecommended=createAsyncThunk("quiz/getRecommended", async(userId)=>{
+  try {
+    return await quizService.getRecommended(userId)
+  } catch (error) {
+    console.error(error)
+  }
+})
 
 
 export const quizSlice = createSlice({
@@ -46,9 +55,10 @@ export const quizSlice = createSlice({
     })
       .addCase(createQuizData.fulfilled, (state, action) => {
         state.isSuccess=true
-        state.userId=action.payload
-
-
+        state.userId=action.payload.user_id
+      })
+      .addCase(getRecommended.fulfilled, (state,action) =>{
+        state.routeRecommended=action.payload
       })
   },
 });

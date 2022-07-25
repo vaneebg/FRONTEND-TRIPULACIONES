@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { createQuiz,createQuizData,reset } from '../../../features/quiz/quizSlice';
+import { createQuiz,createQuizData,getRecommended,reset } from '../../../features/quiz/quizSlice';
 import { Input, Radio, notification } from 'antd';
 import './Quiz.scss';
 
@@ -16,7 +16,7 @@ const Quiz = () => {
     companions: '',
     transport: ''
   };
-  const { isError, isSuccess, message} = useSelector(state => state.quiz);
+  const { isError, isSuccess, message, userId} = useSelector(state => state.quiz);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,10 +38,13 @@ const Quiz = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
   const onSubmit = e => {
+    console.log(userId)
     e.preventDefault();
     dispatch(createQuizData(formData));
+    setTimeout(() => {
+      navigate('/routeRecommended')
+    },2000);
   };
 
   return (
