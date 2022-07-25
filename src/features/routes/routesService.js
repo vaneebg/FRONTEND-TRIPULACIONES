@@ -44,16 +44,24 @@ const dislike = async(_id) => {
   });
   return res.data;
 };
+const searchByType = async (type)=> {
+  const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.get(URL+"/routes/searchByType/"+type, {
+      headers: {
+        authorization: user?.user.tokens[0]
+      }
+    });
+    return res.data
+};
 
 const getByTransport = async(data) => {
-  const {type, page} = data
   const user = JSON.parse(localStorage.getItem('user'));
-  const res = await axios.get(URL + '/routes/search/' + type, {
+  const res = await axios.get(URL + '/routes/search/' + data, {
       headers: {
           authorization: user.token,
       }
   });
-  console.log('soy el filtrado',res.data)
+
   return res.data;
 };
 
@@ -62,7 +70,8 @@ const getByTransport = async(data) => {
     getById,
     like,
     dislike,
-    getByTransport
+    getByTransport,
+    searchByType
   };
   
   export default routesService

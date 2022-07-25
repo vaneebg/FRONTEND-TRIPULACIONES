@@ -1,11 +1,12 @@
-import Route from "./Route/Route";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAll, reset } from "../../../features/routes/routesSlice";
-import { Skeleton } from "antd";
-import { CaretUpOutlined } from "@ant-design/icons";
-import { Link } from "react-scroll";
-import "./Routes.scss";
+import Route from './Route/Route';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAll, reset } from '../../../features/routes/routesSlice';
+import { Skeleton } from 'antd';
+import { CaretUpOutlined } from '@ant-design/icons';
+import { Link } from 'react-scroll';
+import './Routes.scss';
+import FilterType from './FilterType/FilterType';
 import Filter from "./Route/Filter/Filter";
 
 const Routes = () => {
@@ -28,10 +29,10 @@ const Routes = () => {
     return <Skeleton active paragraph={{ rows: 20 }} />;
   }
   return (
-    <div className="main">
-      <h1 id="h2">Rutas</h1>
-      <h3>Filtrar por: </h3>
-      <div> <Filter/> </div>
+    <div className='main'>
+      <h1 id='h2'>Rutas</h1>
+      <Filter/>
+      <FilterType/>
       <Route pageC={current} functionPage={setCurrent} />
       <div className="barra-nav">
         <button className="up">
