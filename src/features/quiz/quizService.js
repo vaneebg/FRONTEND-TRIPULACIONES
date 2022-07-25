@@ -14,15 +14,22 @@ const createQuiz = async (data) => {
   return res.data;
 }
 
-const getQuiz = async () => {
-  const res = await axios.get(URL + "/quiz/")
-  return res.data
+const createQuizData = async (data) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.post('https://api-routes-data.herokuapp.com/postUser/', data, {
+    headers: {
+      authorization: user?.user.tokens[0],
+    },
+  }
+  );
+  console.log(res.data)
+  return res.data;
 }
 
 
 const quizService = {
   createQuiz,
-  getQuiz,
+  createQuizData
 };
 
 export default quizService;

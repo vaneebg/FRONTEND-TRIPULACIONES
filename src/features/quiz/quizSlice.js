@@ -17,9 +17,9 @@ export const createQuiz = createAsyncThunk("quiz/createQuiz", async (data) => {
 }
 );
 
-export const getQuiz = createAsyncThunk("quiz/getQuiz", async () => {
+export const createQuizData = createAsyncThunk("quiz/createQuizData", async (data) => {
   try {
-    return await quizService.getQuiz();
+    return await quizService.createQuizData(data);
   } catch (error) {
     console.error(error)
   }
@@ -43,9 +43,9 @@ export const quizSlice = createSlice({
       state.isSuccess=true
       state.message=action.payload.message
     })
-      .addCase(getQuiz.fulfilled, (state, action) => {
-        state.quiz = action.payload
-      })
+      // .addCase(createQuizData.fulfilled, (state, action) => {
+      //   state.quiz = action.payload
+      // })
   },
 });
 export const { reset} = quizSlice.actions;
