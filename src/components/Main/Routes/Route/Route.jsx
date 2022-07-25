@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { dislike, getAll, like } from "../../../../features/routes/routesSlice";
 import { myInfo } from "../../../../features/auth/authSlice";
-import { StarOutlined, StarFilled } from "@ant-design/icons";
-import { Pagination, Tooltip } from "antd";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { Pagination, Tooltip,Rate } from "antd";
+
 import "./Route.scss";
 
 const Route = ({ pageC, functionPage }) => {
@@ -28,10 +29,13 @@ const Route = ({ pageC, functionPage }) => {
   const route = routes?.map((el) => { 
     const punt = el?.scoresId.map(score => { return (score?.score) })
     let sum
-    let div
+    let diff
+    let length
     if (punt?.length !== 0) {
+      length=punt?.length
       sum = punt.reduce((a, b) => a + b)
-      div = sum/(punt.length)
+      diff = sum/(punt.length)
+      console.log(sum)
     } else {
      <span></span>
     }
@@ -56,7 +60,7 @@ const Route = ({ pageC, functionPage }) => {
         break;
       case 'Literària':
         icon = <Tooltip color="brown" placement="bottom" title="ruta Literaria">
-          <span><i class="fa-solid fa-book-open-reader"></i></span>
+          <span><i className="fa-solid fa-book-open-reader"></i></span>
         </Tooltip>
         break;
       default:
@@ -80,22 +84,23 @@ const Route = ({ pageC, functionPage }) => {
               <div className="icon-container">
                 <div className="bottom-icon-right">
                   {isAlreadyLiked ? (
-                    <StarFilled
+                    <HeartFilled
                       className="star"
                       onClick={() => dispatch(dislike(el._id))}
-                      style={{ color: "gold" }}
+                      style={{ color: "red" }}
                       text={el?.likes?.length}
                     />
                   ) : (
-                    <StarOutlined
+                    <HeartOutlined
                       className="star"
+                      style={{ color: "red" }}
                       onClick={() => dispatch(like(el._id))}
                     />
                   )}
 
                   <span className="fav-text-icon">{el?.likes?.length} fav</span>
-                  <span> {sum} Division: {div}</span>
                 </div>
+                {el.scoresId.length!==0 ?<span><Rate disabled defaultValue={diff} /> {diff}/{length}</span>: null }  
                 <div className='bottom-icon-left'>
                   {el?.transport === 'peu' ? <Tooltip color="green" title="A pie">
                     <span> <i className="fa-solid fa-person-walking"></i></span>
