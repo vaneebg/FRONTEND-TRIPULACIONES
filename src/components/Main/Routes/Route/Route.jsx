@@ -21,13 +21,6 @@ const Route = ({ pageC, functionPage }) => {
     dispatch(myInfo());
   }, []);
 
-<<<<<<< HEAD
-  const route = routes?.map((el) => {
-    const punt = el?.scoresId.map(score => { return (score?.score) })
-    let sum
-    let diff
-    let length
-=======
   const route = routes?.map(el => {
     const punt = el?.scoresId.map(score => {
       return score?.score;
@@ -35,7 +28,6 @@ const Route = ({ pageC, functionPage }) => {
     let sum;
     let diff;
     let length;
->>>>>>> d3059dba601ad3d2e8f6a1f6d22921bd7d040a04
     if (punt?.length !== 0) {
       length = +punt?.length
       sum = +punt.reduce((a, b) => a + b)
