@@ -13,4 +13,8 @@
     button:active{
         background-color: green;
     }
+    button:focus{
+        color:green;
+        border:2px solid green;
+    }
 }
