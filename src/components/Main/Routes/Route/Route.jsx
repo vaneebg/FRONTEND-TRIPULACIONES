@@ -23,8 +23,6 @@ const Route = ({ pageC, functionPage }) => {
     dispatch(myInfo());
   }, []);
 
-
-
   const route = routes?.map((el) => {
     const punt = el?.scoresId.map(score => { return (score?.score) })
     let sum
