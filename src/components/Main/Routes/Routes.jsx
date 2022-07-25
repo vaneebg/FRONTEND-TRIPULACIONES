@@ -2,7 +2,7 @@ import Route from './Route/Route';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAll, reset } from '../../../features/routes/routesSlice';
-import { Skeleton } from 'antd';
+import { Skeleton, Button } from 'antd';
 import { CaretUpOutlined } from '@ant-design/icons';
 import { Link } from 'react-scroll';
 import './Routes.scss';
@@ -35,6 +35,7 @@ const Routes = () => {
       <h3>Filtros búsqueda:</h3>
       <Filter/>
       <FilterType/>
+      <Button onClick={() => dispatch(getAll())}>Limpiar filtros</Button>
       </div>
       <Route pageC={current} functionPage={setCurrent} />
       <div className="barra-nav">
