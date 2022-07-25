@@ -33,16 +33,13 @@ const Route = ({ pageC, functionPage }) => {
     if (punt?.length !== 0) {
       length = punt?.length
       sum = punt.reduce((a, b) => a + b)
-      const division = sum / (punt.length).toFixed(2)
+      const division = sum / (punt.length)
       diff = division.toFixed(2)
-    } else {
-      <span></span>
     }
     const isAlreadyLiked = el.likes?.includes(user?._id);
     let icon;
     switch (el?.type) {
       case 'Històrica':
-
         icon = <Tooltip color="brown" placement="bottom" title="ruta histórica">
           <span> <i className="fa-solid fa-building-columns"></i></span>
         </Tooltip>
@@ -63,7 +60,7 @@ const Route = ({ pageC, functionPage }) => {
         </Tooltip>
         break;
       default:
-        icon = "no se qué soy"
+        icon = "no hay"
     }    return (
       <section key={el._id} className='wrapper-ok'>
         <div className='main-card'>
