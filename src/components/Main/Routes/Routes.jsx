@@ -6,6 +6,7 @@ import { Skeleton } from 'antd';
 import { CaretUpOutlined } from '@ant-design/icons';
 import { Link } from 'react-scroll';
 import './Routes.scss';
+import FilterType from './FilterType/FilterType';
 
 const Routes = () => {
   const { isLoading } = useSelector(state => state.routes);
@@ -29,6 +30,7 @@ const Routes = () => {
   return (
     <div className='main'>
       <h1 id='h2'>Rutas</h1>
+      <FilterType/>
       <Route pageC={current} functionPage={setCurrent} />
       <div className='barra-nav'>
         <button className='up'>

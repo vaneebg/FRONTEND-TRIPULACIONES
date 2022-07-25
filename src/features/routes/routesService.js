@@ -43,12 +43,22 @@ const dislike = async(_id) => {
   });
   return res.data;
 };
+const searchByType = async (type)=> {
+  const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.get(URL+"/routes/searchByType/"+type, {
+      headers: {
+        authorization: user?.user.tokens[0]
+      }
+    });
+    return res.data
+};
 
   const routesService = {
     getAll,
     getById,
     like,
-    dislike
+    dislike,
+    searchByType
   };
   
   export default routesService
