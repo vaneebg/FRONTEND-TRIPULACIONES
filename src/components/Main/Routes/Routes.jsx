@@ -31,8 +31,11 @@ const Routes = () => {
   return (
     <div className='main'>
       <h1 id='h2'>Rutas</h1>
+      <div className="filters">
+      <h3>Filtros búsqueda:</h3>
       <Filter/>
       <FilterType/>
+      </div>
       <Route pageC={current} functionPage={setCurrent} />
       <div className="barra-nav">
         <button className="up">
