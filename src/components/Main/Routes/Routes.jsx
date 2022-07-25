@@ -7,10 +7,10 @@ import { CaretUpOutlined } from '@ant-design/icons';
 import { Link } from 'react-scroll';
 import './Routes.scss';
 import FilterType from './FilterType/FilterType';
-import Filter from "./Route/Filter/Filter";
+import Filter from './Route/Filter/Filter';
 
 const Routes = () => {
-  const { isLoading } = useSelector((state) => state.routes);
+  const { isLoading } = useSelector(state => state.routes);
 
   const dispatch = useDispatch();
 
@@ -31,24 +31,24 @@ const Routes = () => {
   return (
     <div className='main'>
       <h1 id='h2'>Rutas</h1>
-      <div className="filters">
-      <h3>Filtros búsqueda:</h3>
-      <Filter/>
-      <FilterType/>
-      <Button onClick={() => dispatch(getAll())}>Limpiar filtros</Button>
+      <div className='filters'>
+        <h3>Filtros búsqueda:</h3>
+        <Filter />
+        <FilterType />
+        <Button onClick={() => dispatch(getAll())}>Limpiar filtros</Button>
       </div>
       <Route pageC={current} functionPage={setCurrent} />
-      <div className="barra-nav">
-        <button className="up">
+      <div className='barra-nav'>
+        <button className='up'>
           <Link
-            activeClass="active"
+            activeClass='active'
             spy={true}
             smooth={true}
             duration={800}
-            to="h2"
-            title="Sube al menú"
+            to='h2'
+            title='Sube al menú'
           >
-            {" "}
+            {' '}
             <CaretUpOutlined />
             <CaretUpOutlined />
             <CaretUpOutlined />
