@@ -112,9 +112,23 @@ h4 {
   }
 }
 
+.versionPc{
+  display:none;
+}
+
+
 @media (min-width:450px) {
   .wrapper-ok {
     width: 80%;
     padding: 2em 5em;
   }
+  .versionPc{
+    display:flex;
+    align-items: center;
+  }
+  .versionMobile{
+    display:none
+  }
+
+  
 }

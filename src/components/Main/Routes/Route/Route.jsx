@@ -100,7 +100,7 @@ const Route = ({ pageC, functionPage }) => {
 
                   <span className="fav-text-icon">{el?.likes?.length} fav</span>
                 </div>
-                {el.scoresId.length!==0 ?<span><Rate disabled defaultValue={diff} /> {diff}/{length}</span>: null }  
+                {el.scoresId.length!==0 ?<span className='versionPc'><Rate disabled defaultValue={diff} /> {diff}/{length}</span>: null }  
                 <div className='bottom-icon-left'>
                   {el?.transport === 'peu' ? <Tooltip color="green" title="A pie">
                     <span> <i className="fa-solid fa-person-walking"></i></span>
@@ -114,6 +114,7 @@ const Route = ({ pageC, functionPage }) => {
               </div>
               <div className="bottom-text-card">
                 <span>{el?.description_es}</span> <br />
+                    {el.scoresId.length!==0 ?<span className='versionMobile'><Rate disabled defaultValue={diff} /> {diff}/{length}</span>: null } 
                 <div className="bottom-adds">
                   <p>
                     {el?.difficulty !== "NaN" ? (
