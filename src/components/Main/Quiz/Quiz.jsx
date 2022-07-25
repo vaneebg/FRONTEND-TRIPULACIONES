@@ -39,7 +39,6 @@ const Quiz = () => {
     }));
   };
   const onSubmit = e => {
-    console.log(userId)
     e.preventDefault();
     dispatch(createQuizData(formData));
     setTimeout(() => {

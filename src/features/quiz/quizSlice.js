@@ -58,6 +58,7 @@ export const quizSlice = createSlice({
         state.userId=action.payload.user_id
       })
       .addCase(getRecommended.fulfilled, (state,action) =>{
+        console.log(action.payload)
         state.routeRecommended=action.payload
       })
   },
