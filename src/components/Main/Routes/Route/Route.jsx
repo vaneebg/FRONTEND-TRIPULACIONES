@@ -31,12 +31,10 @@ const Route = ({ pageC, functionPage }) => {
     let diff
     let length
     if (punt?.length !== 0) {
-      length = punt?.length
-      sum = punt.reduce((a, b) => a + b)
-      const division = sum / (punt.length).toFixed(2)
+      length = +punt?.length
+      sum = +punt.reduce((a, b) => a + b)
+      const division = sum / (punt.length)
       diff = division.toFixed(2)
-    } else {
-      <span></span>
     }
     const isAlreadyLiked = el.likes?.includes(user?._id);
     let icon;
@@ -62,7 +60,7 @@ const Route = ({ pageC, functionPage }) => {
         </Tooltip>
         break;
       default:
-        icon = "no se qué soy"
+        icon = "no hay"
     }    return (
       <section key={el._id} className='wrapper-ok'>
         <div className='main-card'>
@@ -98,7 +96,7 @@ const Route = ({ pageC, functionPage }) => {
 
                   <span className="fav-text-icon">{el?.likes?.length} fav</span>
                 </div>
-                {el.scoresId.length !== 0 ? <span className='versionPc'><Rate disabled defaultValue={diff} /> {diff}/{length}</span> : null}
+                {el.scoresId.length !== 0 ? <span className='versionPc'><Rate allowHalf disabled defaultValue={diff} /> {diff}/{length}</span> : null}
                 <div className='bottom-icon-left'>
                   {el?.transport === 'peu' ? <Tooltip color="green" title="A pie">
                     <span> <i className="fa-solid fa-person-walking"></i></span>
@@ -112,7 +110,7 @@ const Route = ({ pageC, functionPage }) => {
               </div>
               <div className="bottom-text-card">
                 <span>{el?.description_es}</span> <br />
-                {el.scoresId.length !== 0 ? <span className='versionMobile'><Rate disabled defaultValue={diff} /> {diff}/{length}</span> : null}
+                {el.scoresId.length !== 0 ? <span className='versionMobile'><Rate disabled allowHalf defaultValue={diff} /> {diff}/{length}</span> : null}
                 <div className="bottom-adds">
                   <p>
                     {el?.difficulty !== "NaN" ? (
