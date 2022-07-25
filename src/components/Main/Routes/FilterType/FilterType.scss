@@ -2,14 +2,13 @@
     display:flex;
     justify-content: center;
     button{
-        all:unset;
         background-color: brown;
-        margin:1em;
         color:white;
-        padding:1em;
     }
     button:hover{
         cursor:pointer; 
+        color:brown;
+        border:1px solid brown;
     }
     button:active{
         background-color: red;
