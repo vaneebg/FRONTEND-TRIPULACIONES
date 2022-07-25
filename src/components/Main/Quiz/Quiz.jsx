@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { createQuiz,reset } from '../../../features/quiz/quizSlice';
+import { createQuiz,createQuizData,reset } from '../../../features/quiz/quizSlice';
 import { Input, Radio, notification } from 'antd';
 import './Quiz.scss';
 
@@ -41,7 +41,7 @@ const Quiz = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(createQuiz(formData));
+    dispatch(createQuizData(formData));
   };
 
   return (
