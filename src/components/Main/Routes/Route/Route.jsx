@@ -33,8 +33,8 @@ const Route = ({ pageC, functionPage }) => {
     if (punt?.length !== 0) {
       length = punt?.length
       sum = punt.reduce((a, b) => a + b)
-     const div = sum / (punt.length).toFixed(2)
-     diff=div.toFixed(2)
+      const division = sum / (punt.length).toFixed(2)
+      diff = division.toFixed(2)
     } else {
       <span></span>
     }
