@@ -3,7 +3,7 @@ import { useDispatch  } from 'react-redux';
 import { getByTransport } from '../../../../../features/routes/routesSlice';
 import { Button } from "antd"
 
-
+import './Filter.scss'
 
 
 const Filter = () => {
@@ -16,7 +16,7 @@ const Filter = () => {
   },[])
  
   return (
-    <div>
+    <div className="buttonTransport">
        <Button onClick={() => dispatch(getByTransport("bicicleta"))}>Bici</Button>
         <Button onClick={() => dispatch(getByTransport("peu"))}>A pie</Button>
     </div>
