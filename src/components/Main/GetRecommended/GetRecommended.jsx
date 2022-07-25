@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecommended } from '../../../features/quiz/quizSlice';
+import { getRecommended ,reset} from '../../../features/quiz/quizSlice';
+import { notification } from 'antd';
+
 
 const GetRecommended = () => {
     const { userId, routeRecommended } = useSelector(state => state.quiz);
@@ -12,6 +14,7 @@ const route=routeRecommended.recommended_route
     useEffect(() => {
         dispatch(getRecommended(userId))
     }, []);
+
     
     return (<>
         {route}

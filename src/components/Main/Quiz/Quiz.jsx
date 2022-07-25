@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { createQuiz,createQuizData,getRecommended,reset } from '../../../features/quiz/quizSlice';
+import { createQuizData, reset } from '../../../features/quiz/quizSlice';
 import { Input, Radio, notification } from 'antd';
 import './Quiz.scss';
 
@@ -16,15 +16,15 @@ const Quiz = () => {
     companions: '',
     transport: ''
   };
-  const { isError, isSuccess, message, userId} = useSelector(state => state.quiz);
+  const { isError, isSuccess, message} = useSelector(state => state.quiz);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isError) {
-      notification.error({ message: 'Error', description: message });
+      notification.error({placement:'top', message: 'Error', description: 'No se pudo enviar formulario' });
     }
     if (isSuccess) {
-      notification.success({ message: 'Éxito', description: message });
+      notification.success({placement:'top', message: 'Genial!',description: 'Redirigiendo a tu ruta recomendada' });
     }
     dispatch(reset());
   }, [isError, isSuccess, message]);

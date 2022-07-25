@@ -19,20 +19,24 @@ export const createQuiz = createAsyncThunk("quiz/createQuiz", async (data) => {
 }
 );
 
-export const createQuizData = createAsyncThunk("quiz/createQuizData", async (data) => {
+export const createQuizData = createAsyncThunk("quiz/createQuizData", async (data, thunkAPI) => {
   try {
     return await quizService.createQuizData(data);
   } catch (error) {
     console.error(error)
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
   }
 }
 );
 
-export const getRecommended=createAsyncThunk("quiz/getRecommended", async(userId)=>{
+export const getRecommended=createAsyncThunk("quiz/getRecommended", async(userId,thunkAPI)=>{
   try {
     return await quizService.getRecommended(userId)
   } catch (error) {
     console.error(error)
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
   }
 })
 
@@ -57,9 +61,14 @@ export const quizSlice = createSlice({
         state.isSuccess=true
         state.userId=action.payload.user_id
       })
+      .addCase(createQuizData.rejected, (state, action) => {
+        state.isError=true
+      })
       .addCase(getRecommended.fulfilled, (state,action) =>{
-        console.log(action.payload)
         state.routeRecommended=action.payload
+      })
+      .addCase(getRecommended.rejected, (state,action) =>{
+        state.isError=true
       })
   },
 });
