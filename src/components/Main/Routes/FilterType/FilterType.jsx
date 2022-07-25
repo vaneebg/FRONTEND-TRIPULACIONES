@@ -1,7 +1,7 @@
+import { useDispatch } from 'react-redux';
+import { useEffect} from 'react';
 import { searchByType } from '../../../../features/routes/routesSlice'
 import './FilterType.scss'
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
 
 
 const FilterType = () => {

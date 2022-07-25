@@ -9,7 +9,9 @@
         padding:1em;
     }
     button:hover{
-        cursor:pointer;
-        
+        cursor:pointer; 
+    }
+    button:active{
+        background-color: red;
     }
 }
