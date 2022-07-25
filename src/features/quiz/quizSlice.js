@@ -43,9 +43,10 @@ export const quizSlice = createSlice({
       state.isSuccess=true
       state.message=action.payload.message
     })
-      // .addCase(createQuizData.fulfilled, (state, action) => {
-      //   state.quiz = action.payload
-      // })
+      .addCase(createQuizData.fulfilled, (state, action) => {
+        state.isSuccess=true
+
+      })
   },
 });
 export const { reset} = quizSlice.actions;
