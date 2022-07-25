@@ -29,17 +29,25 @@ const Route = ({ pageC, functionPage }) => {
     let diff;
     let length;
     if (punt?.length !== 0) {
+<<<<<<< HEAD
       length = punt?.length;
       sum = punt.reduce((a, b) => a + b);
       const division = sum / punt.length.toFixed(2);
       diff = division.toFixed(2);
     } else {
       <span></span>;
+=======
+      length = +punt?.length
+      sum = +punt.reduce((a, b) => a + b)
+      const division = sum / (punt.length)
+      diff = division.toFixed(2)
+>>>>>>> develop
     }
     const isAlreadyLiked = el.likes?.includes(user?._id);
     let icon;
     switch (el?.type) {
       case 'Històrica':
+<<<<<<< HEAD
         icon = (
           <Tooltip color='brown' placement='bottom' title='ruta histórica'>
             <span>
@@ -48,6 +56,11 @@ const Route = ({ pageC, functionPage }) => {
             </span>
           </Tooltip>
         );
+=======
+        icon = <Tooltip color="brown" placement="bottom" title="ruta histórica">
+          <span> <i className="fa-solid fa-building-columns"></i></span>
+        </Tooltip>
+>>>>>>> develop
         break;
       case 'Turística':
         icon = (
@@ -78,9 +91,14 @@ const Route = ({ pageC, functionPage }) => {
         );
         break;
       default:
+<<<<<<< HEAD
         icon = 'no se qué soy';
     }
     return (
+=======
+        icon = "no hay"
+    }    return (
+>>>>>>> develop
       <section key={el._id} className='wrapper-ok'>
         <div className='main-card'>
           <div className='card panel'>
@@ -115,11 +133,15 @@ const Route = ({ pageC, functionPage }) => {
 
                   <span className='fav-text-icon'>{el?.likes?.length} fav</span>
                 </div>
+<<<<<<< HEAD
                 {el.scoresId.length !== 0 ? (
                   <span className='versionPc'>
                     <Rate disabled defaultValue={diff} /> {diff}/{length}
                   </span>
                 ) : null}
+=======
+                {el.scoresId.length !== 0 ? <span className='versionPc'><Rate allowHalf disabled defaultValue={diff} /> {diff}/{length}</span> : null}
+>>>>>>> develop
                 <div className='bottom-icon-left'>
                   {el?.transport === 'peu' ? (
                     <Tooltip color='green' title='A pie'>
@@ -138,12 +160,17 @@ const Route = ({ pageC, functionPage }) => {
               </div>
               <div className='bottom-text-card'>
                 <span>{el?.description_es}</span> <br />
+<<<<<<< HEAD
                 {el.scoresId.length !== 0 ? (
                   <span className='versionMobile'>
                     <Rate disabled defaultValue={diff} /> {diff}/{length}
                   </span>
                 ) : null}
                 <div className='bottom-adds'>
+=======
+                {el.scoresId.length !== 0 ? <span className='versionMobile'><Rate disabled allowHalf defaultValue={diff} /> {diff}/{length}</span> : null}
+                <div className="bottom-adds">
+>>>>>>> develop
                   <p>
                     {el?.difficulty !== 'NaN' ? (
                       <>

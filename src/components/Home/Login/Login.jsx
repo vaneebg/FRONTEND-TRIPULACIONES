@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, reset } from '../../../features/auth/authSlice';
 import { Link, useNavigate } from 'react-router-dom';
-import pic from '../../../assets/route_login2.png';
+import pic from '../../../assets/route_login2-overlay.png';
 import { Input, notification } from 'antd';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import './Login.scss';
@@ -17,7 +17,8 @@ const Login = () => {
   const { email, password } = formData;
 
   const dispatch = useDispatch();
-  const { isError, isSuccess, message, messageLogout, messageDelete } = useSelector(state => state.auth);
+  const { isError, isSuccess, message, messageLogout, messageDelete } =
+    useSelector(state => state.auth);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -58,7 +59,7 @@ const Login = () => {
         </div>
         <div className='col-2'>
           <form onSubmit={onSubmit} className='form-login-container'>
-          <h1 className='register-title'>Rout'opic</h1>
+            {/* <h1 className='register-title'>Rout'opic</h1> */}
             <label htmlFor='email'>Correo:</label>
             <Input
               prefix={<MailOutlined />}
