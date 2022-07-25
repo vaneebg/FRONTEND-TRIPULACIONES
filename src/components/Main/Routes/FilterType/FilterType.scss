@@ -1,0 +1,15 @@
+.buttonType{
+    display:flex;
+    justify-content: center;
+    button{
+        all:unset;
+        background-color: brown;
+        margin:1em;
+        color:white;
+        padding:1em;
+    }
+    button:hover{
+        cursor:pointer;
+        
+    }
+}
