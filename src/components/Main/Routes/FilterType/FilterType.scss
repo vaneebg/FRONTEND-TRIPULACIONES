@@ -1,6 +1,9 @@
 .buttonType{
     display:flex;
     justify-content: center;
+    padding: 1em;
+    padding-top: 0;
+    gap: 1em;
     button{
         background-color: brown;
         color:white;

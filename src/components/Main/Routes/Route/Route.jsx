@@ -42,7 +42,6 @@ const Route = ({ pageC, functionPage }) => {
     let icon;
     switch (el?.type) {
       case 'Històrica':
-
         icon = <Tooltip color="brown" placement="bottom" title="ruta histórica">
           <span> <i className="fa-solid fa-building-columns"></i></span>
         </Tooltip>
