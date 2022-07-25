@@ -45,6 +45,13 @@ export const dislike = createAsyncThunk("routes/dislike", async (_id) => {
     console.error(error);
   }
 });
+export const searchByType =createAsyncThunk("routes/searchByType", async (type)=> {
+  try {
+    return await routesService.searchByType(type);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
   export const routesSlice = createSlice({
     name: "routes",
@@ -89,6 +96,11 @@ export const dislike = createAsyncThunk("routes/dislike", async (_id) => {
           });
           state.routes = routes;
           state.routeDisliked = routes
+        })
+        .addCase(searchByType.fulfilled, (state, action) => {
+          state.isSuccess = true;
+          state.routes = action.payload.routes;
+          state.isLoading = false
         })
     }})
 
