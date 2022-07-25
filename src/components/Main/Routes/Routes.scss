@@ -7,6 +7,9 @@ h1 {
   flex-direction: column;
   height: 100%;
   padding-bottom: 5em;
+  .filters{
+    padding: 2em;
+  }
 }
 
 .up {
@@ -29,6 +32,12 @@ h1 {
   position: fixed;
   right: 0px;
   top: 80vh;
+}
+.filters {
+  Button {
+    border-radius: 30px;
+    margin-bottom: 0.3em;
+  }
 }
 
 @media screen and (min-width: 450px) {
