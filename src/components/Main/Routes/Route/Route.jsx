@@ -14,7 +14,6 @@ const Route = ({ pageC, functionPage }) => {
   const dispatch = useDispatch();
  
 
-  console.log(routes)
 
   const onChange = (page) => {
     functionPage(page);
@@ -23,8 +22,17 @@ const Route = ({ pageC, functionPage }) => {
   useEffect(() => {
     dispatch(myInfo());
   }, []);
-  console.log("soy el mapeo", routes);
-  const route = routes?.map((el) => {
+
+
+
+  const route = routes?.map((el) => { 
+    const punt = el?.scoresId.map(score => { return (score?.score) })
+    let sum
+    if (punt?.length !== 0) {
+      sum = punt.reduce((a, b) => a + b)
+    } else {
+     <span>holi</span>
+    }
     const isAlreadyLiked = el.likes?.includes(user?._id);
     let icon;
     switch (el?.type) {
@@ -84,6 +92,7 @@ const Route = ({ pageC, functionPage }) => {
                   )}
 
                   <span className="fav-text-icon">{el?.likes?.length} fav</span>
+                  <span> {sum}</span>
                 </div>
                 <div className='bottom-icon-left'>
                   {el?.transport === 'peu' ? <Tooltip color="green" title="A pie">

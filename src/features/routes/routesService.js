@@ -10,7 +10,6 @@ const getAll = async (page)=> {
         authorization: user?.user.tokens[0]
       }
     });
-    console.log('soy todos paginado',res.data)
     return res.data
 };
 
