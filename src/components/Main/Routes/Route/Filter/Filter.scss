@@ -1,22 +1,24 @@
-.buttonTransport{
-    display:flex;
-    justify-content: center;
-    gap: 1em;
-    padding: 1em;
-    button{
-        background-color: green;
-        color:white;
-    }
-    button:hover{
-        cursor:pointer; 
-        color:green;
-        border:1px solid green;
-    }
-    button:active{
-        background-color: green;
-    }
-    button:focus{
-        color:green;
-        border:2px solid green;
-    }
+.buttonTransport {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1em;
+
+  button {
+    background-color: green;
+    color: white;
+    border-radius: 30px;
+  }
+  button:hover {
+    cursor: pointer;
+    color: green;
+    border: 1px solid green;
+  }
+  button:active {
+    background-color: green;
+  }
+  button:focus {
+    color: green;
+    border: 2px solid green;
+  }
 }

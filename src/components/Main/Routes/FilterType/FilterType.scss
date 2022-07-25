@@ -1,23 +1,24 @@
-.buttonType{
-    display:flex;
-    justify-content: center;
-    padding: 1em;
-    padding-top: 0;
-    gap: 1em;
-    button{
-        background-color: brown;
-        color:white;
-    }
-    button:hover{
-        cursor:pointer; 
-        color:brown;
-        border:1px solid brown;
-    }
-    button:active{
-        background-color: brown;
-    }
-    button:focus{
-        color:brown;
-        border:2px solid brown;
-    }
+.buttonType {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  gap: 0.2em;
+
+  button {
+    background-color: brown;
+    color: white;
+    border-radius: 30px;
+  }
+  button:hover {
+    cursor: pointer;
+    color: brown;
+    border: 1px solid brown;
+  }
+  button:active {
+    background-color: brown;
+  }
+  button:focus {
+    color: brown;
+    border: 2px solid brown;
+  }
 }

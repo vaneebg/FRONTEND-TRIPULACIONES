@@ -1,7 +1,9 @@
 .wrapper-ok {
   margin: 0 auto;
 }
-
+.pag-ok {
+  margin-top: 1em;
+}
 .main-card {
   margin: 30px auto;
   border: 1px solid rgb(222, 222, 222);
@@ -77,13 +79,17 @@
   margin: 10px 20px;
 }
 
-.star, .fa-solid {
+.star,
+.fa-solid {
   font-size: 25px;
-  color:green;
+  color: green;
   margin-right: 10px;
 }
-.fa-building-columns, .fa-mountain-sun, .fa-vihara, .fa-book-open-reader{
-  color:brown;
+.fa-building-columns,
+.fa-mountain-sun,
+.fa-vihara,
+.fa-book-open-reader {
+  color: brown;
 }
 
 .bottom-text-card {
@@ -113,25 +119,20 @@ h4 {
   }
 }
 
-.versionPc{
-  display:none;
-}
-.versionMobile{
-  padding:1em;
+.versionPc {
+  display: none;
 }
 
-@media (min-width:450px) {
+@media (min-width: 450px) {
   .wrapper-ok {
     width: 80%;
     padding: 2em 5em;
   }
-  .versionPc{
-    display:flex;
+  .versionPc {
+    display: flex;
     align-items: center;
   }
-  .versionMobile{
-    display:none
+  .versionMobile {
+    display: none;
   }
-
-  
 }
