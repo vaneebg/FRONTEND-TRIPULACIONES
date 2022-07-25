@@ -6,6 +6,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   message: '',
+  userId:[]
 };
 
 export const createQuiz = createAsyncThunk("quiz/createQuiz", async (data) => {
@@ -45,6 +46,8 @@ export const quizSlice = createSlice({
     })
       .addCase(createQuizData.fulfilled, (state, action) => {
         state.isSuccess=true
+        state.userId=action.payload
+
 
       })
   },
