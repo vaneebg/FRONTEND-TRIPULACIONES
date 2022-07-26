@@ -89,7 +89,7 @@ export const getByTransport = createAsyncThunk("routes/getByTransport", async (d
       })
       .addCase(getAllNotPage.fulfilled, (state, action) => {
         state.isSuccess = true;
-        state.routes = action.payload;
+        state.routesCompleted = action.payload;
       })
         .addCase(getAll.pending, (state) => {
           state.isLoading = true;

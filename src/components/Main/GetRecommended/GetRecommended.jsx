@@ -1,27 +1,27 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRecommended ,reset} from '../../../features/quiz/quizSlice';
-import { getAll } from '../../../features/routes/routesSlice';
+import {  getAllNotPage } from '../../../features/routes/routesSlice';
 
 
 const GetRecommended = () => {
     const { userId, routeRecommended } = useSelector(state => state.quiz);
-    const { routes } = useSelector(state => state.routes);
+    const { routesCompleted } = useSelector(state => state.routes);
     const dispatch = useDispatch()
-console.log("rutas",routes)
-    console.log(routeRecommended)
-const route=routeRecommended.recommended_route_id
+const id=routeRecommended.recommended_route_id
 
+const routeFinal=routesCompleted[id-1]
+console.log(routeFinal)
     useEffect(() => {
         dispatch(getRecommended(userId))
         dispatch(reset())
-        dispatch(getAll())
+        dispatch(getAllNotPage())
     }, []);
 
     
     return (<>
     <h1>Tu ruta recomendada es...</h1>
-        {route}
+    {routeFinal.name}
         </>
     )
 }
