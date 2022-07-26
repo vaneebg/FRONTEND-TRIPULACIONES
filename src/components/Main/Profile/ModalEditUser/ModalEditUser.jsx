@@ -44,7 +44,7 @@ const ModalEditUser = () => {
 
   return (
     <>
-      <Button type="primary" onClick={() => setVisible(true)}>
+      <Button type="primary btn-profile2" onClick={() => setVisible(true)}>
         Editar Usuario
       </Button>
       <Modal

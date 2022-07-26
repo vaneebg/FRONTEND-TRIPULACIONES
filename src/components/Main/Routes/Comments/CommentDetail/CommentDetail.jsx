@@ -69,27 +69,27 @@ const CommentDetail = () => {
   const commentUser = comments.map((element) => {
     return (
       <>
-        {_id === element.routeId ? (
+        {_id === element?.routeId ? (
           <>
             <div
               className="animate__animated animate__fadeIn"
-              key={element._id}
+              key={element?._id}
             >
               <div className="comment-detail-route-prof">
                 <Comment
-                  author={<a>{element.userId?.name}</a>}
+                  author={<a>{element?.userId?.name}</a>}
                   avatar={
                     <Avatar
-                      src={URL + "/users/" + element.userId?.imagepath}
+                      src={URL + "/users/" + element?.userId?.imagepath}
                       alt=""
                     />
                   }
                   content={
                     <>
                       <div className="comment-detail-route">
-                        <p>{element.body}</p>
+                        <p>{element?.body}</p>
                       </div>
-                      {element.imagepath ? (
+                      {element?.imagepath ? (
                         <img
                           alt=""
                           src={URL + "/comments/" + element?.imagepath}
@@ -100,18 +100,18 @@ const CommentDetail = () => {
                   }
                   datetime={
                     <Tooltip title={moment().format("YYYY-MM-DD HH:mm:ss")}>
-                      <span>{element.createdAt.slice(0, 10)}</span>
+                      <span>{element?.createdAt.slice(0, 10)}</span>
                     </Tooltip>
                   }
                 />
               </div>
-              {element.userId?._id === user._id ? (
+              {element?.userId?._id === user?._id ? (
                 <>
                   {/* <div className="comment-btn"> */}
                   <Popconfirm
                     placement="rightTop"
                     title="Seguro que quieres borrar este comentario?"
-                    onConfirm={() => dispatch(destroy(element._id))}
+                    onConfirm={() => dispatch(destroy(element?._id))}
                     okText="Yes"
                     cancelText="No"
                   >
@@ -120,7 +120,7 @@ const CommentDetail = () => {
                     </Button>
                   </Popconfirm>{" "}
                   {/* </div> */}
-                  <ModalEditComment commentId={element._id} />
+                  <ModalEditComment commentId={element?._id} />
                 </>
               ) : (
                 ""

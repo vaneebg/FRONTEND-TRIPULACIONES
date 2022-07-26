@@ -8,7 +8,7 @@ import {
   deleteUser,
 } from '../../../features/auth/authSlice';
 import ModalEditUser from './ModalEditUser/ModalEditUser';
-import { Tooltip, Popconfirm } from 'antd';
+import { Tooltip, Popconfirm, Button } from 'antd';
 import {
   PoweroffOutlined,
   HomeFilled,
@@ -54,7 +54,6 @@ const Profile = () => {
 
   return (
     <div className='profile-container'>
-      <h2 className='profile-title'>Vista de Perfil</h2>
       <div className='profile-card'>
         <div className='profile-card-header'>
           <div className='profile-image2'>
@@ -71,9 +70,11 @@ const Profile = () => {
           <h2 className='profile-name'>{user?.name} </h2>
           <div className='top-prof-div'>
             <p>
+            <Tooltip placement='bottom' title='Desconectarse'>
               <Link to='/' onClick={onLogout}>
                 <PoweroffOutlined className='logo-prof' />
               </Link>
+              </Tooltip>
             </p>
             <p className='profile-desc'>{user?.email}</p>
             <p>
@@ -93,7 +94,7 @@ const Profile = () => {
               okText='Yes'
               cancelText='No'
             >
-              <button className='btn-profile'>Borrar cuenta</button>
+              <Button className='btn-profileRed'>Borrar cuenta</Button>
             </Popconfirm>
           </div>
           <br />
@@ -103,7 +104,7 @@ const Profile = () => {
         <br />
         <div className='rutas'>
           <h3 className='prof-h3'>Rutas favoritas</h3>
-          <div className='likeRoutes'>{likedRoutes}</div>
+         {likedRoutes?.length!==0 ? <div className='likeRoutes'>{likedRoutes}</div> : <span>Aún no tienes ninguna ruta en favoritos 😞</span>} 
         </div>
       </div>
     </div>
