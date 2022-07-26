@@ -1,4 +1,3 @@
-// Vista móvil
 .main {
   display: flex;
   flex-direction: column;
@@ -54,7 +53,6 @@
   }
 }
 
-// Vista escritorio
 @media screen and (min-width: 450px) {
   .main {
     display: flex;
