@@ -5,20 +5,20 @@
   margin-bottom: 1em;
 
   button {
-    background-color: green;
+    background-color: #33ac71;
     color: white;
     border-radius: 30px;
   }
   button:hover {
     cursor: pointer;
-    color: green;
-    border: 1px solid green;
+    color: #33ac71;
+    border: 1px solid #33ac71;
   }
   button:active {
-    background-color: green;
+    background-color: #33ac71;
   }
   button:focus {
-    color: green;
-    border: 2px solid green;
+    color: #33ac71;
+    border: 2px solid #33ac71;
   }
 }

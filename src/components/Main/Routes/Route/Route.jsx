@@ -139,22 +139,27 @@ const Route = ({ pageC, functionPage }) => {
                 <span>{el?.description_es}</span> <br />
                 {el.scoresId.length !== 0 ? (
                   <span className='versionMobile'>
-                    <Rate disabled allowHalf defaultValue={diff} /> {diff}/
-                    {length}
+                    <div className='stars'>
+                      <Rate disabled allowHalf defaultValue={diff} />
+                    </div>
+                    <div>
+                      {diff}
+                    </div>
+                    <p>({length} votos)</p>
                   </span>
                 ) : null}
                 <div className='bottom-adds'>
                   <p>
                     {el?.difficulty !== 'NaN' ? (
                       <>
-                        <span>Dificultad:</span> {el?.difficulty}{' '}
+                        <h4>Dificultad:</h4> {el?.difficulty}{' '}
                       </>
                     ) : (
-                      <span>Dificultad no estipulada</span>
+                      <h4>Dificultad no estipulada</h4>
                     )}
                   </p>{' '}
                   <p>
-                    <span>Duración:</span> {el?.duration}'
+                    <h4>Duración:</h4> {el?.duration}'
                   </p>
                 </div>
               </div>

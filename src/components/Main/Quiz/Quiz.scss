@@ -5,6 +5,11 @@ h1 {
 }
 
 .mainContainer {
+  background-image: url('../../../assets/fondo_ruta.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height:100%;
+  padding-bottom:2em;
   .quizzCard {
     .form-register-container {
       padding: 2em;
@@ -74,7 +79,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 
     .quizzCard {
       .form-register-container {
