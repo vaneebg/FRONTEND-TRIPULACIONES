@@ -109,8 +109,8 @@
 }
 .ant-comment-content-detail {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  background-color: red;
 }
 
 .comment-img {
@@ -140,12 +140,15 @@
   margin-top: 1em;
 }
 
-
+@media screen and (max-width: 430px) {
+  .styleWrapper {
+    height: 20vh;
+    width: 400px;
+  }
+}
 @media screen and (min-width: 430px) {
   .styleWrapper {
     margin-bottom: 3em;
-    height: 20vh;
-    width: 400px;
   }
   .form-comment-container {
     display: flex;
