@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRecommended, reset } from '../../../features/quiz/quizSlice';
 import { getAllNotPage } from '../../../features/routes/routesSlice';
 import { Link } from 'react-router-dom';
+import {  Tooltip } from 'antd';
 import './GetRecommended.scss';
-import { HeartOutlined, HeartFilled } from '@ant-design/icons';
-import { Pagination, Tooltip, Rate } from 'antd';
 
 const GetRecommended = () => {
   const { userId, routeRecommended } = useSelector(state => state.quiz);
@@ -14,8 +13,6 @@ const GetRecommended = () => {
   const id = routeRecommended?.recommended_route_id;
   const routeFinal = routesCompleted[id - 1];
 
-  console.log('Recomiendameeee', routeRecommended);
-  console.log('Soy iddd', id);
 
   useEffect(() => {
     dispatch(getRecommended(userId));
