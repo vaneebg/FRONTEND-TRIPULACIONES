@@ -1,0 +1,41 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  height: 20vh;
+}
+
+.textContainer {
+  height: 5vh;
+}
+
+.textContainer {
+  border: 2px solid purple;
+  display: flex;
+}
+
+.loginBt {
+  width: 15em;
+  height: 2.5em;
+  border-radius: 10px;
+  border-width: 1px;
+  background: #227bd9;
+  border-color: #227bd9;
+  color:white;
+  border: none;
+  -webkit-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.imgAndButtonContainer {
+  display: flex;
+  border: 2px solid yellow;
+}

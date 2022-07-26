@@ -5,8 +5,11 @@ import { createQuizData, reset } from '../../../features/quiz/quizSlice';
 import { Input, Radio, notification } from 'antd';
 import './Quiz.scss';
 
+
 const Quiz = () => {
+  const { isError, isSuccess, message} = useSelector(state => state.quiz);
   const initialState = {
+    userId: '',
     age: '',
     gender: '',
     time: '',
@@ -16,7 +19,7 @@ const Quiz = () => {
     companions: '',
     transport: ''
   };
-  const { isError, isSuccess, message} = useSelector(state => state.quiz);
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -124,6 +127,7 @@ const Quiz = () => {
               <label htmlFor='difficulty'>Dificultad:</label>
               <Radio.Group className='RadioGroup' onChange={(e) => setFormData(prevState => ({ ...prevState, difficulty: e.target.value }))} >
                 <Radio name={difficulty} value="alta" >Alta</Radio>
+                <Radio name={difficulty} value="media" >Media</Radio>
                 <Radio name={difficulty} value="baja" >Baja</Radio>
               </Radio.Group>
             </div>
