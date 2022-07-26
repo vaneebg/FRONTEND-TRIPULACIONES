@@ -1,9 +1,14 @@
 .wrapper-ok {
   margin: 0 auto;
 }
+
+.versionPc{
+  background-color: #33ac71; // me he quedado aquí
+}
 .pag-ok {
   margin-top: 1em;
 }
+
 .main-card {
   margin: 30px auto;
   border: 1px solid rgb(222, 222, 222);
@@ -25,12 +30,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .card-header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdown {
+    position: relative;
+  }
 }
 
-.card-header-left {
-  display: flex;
-  align-items: center;
-}
 
 .picture-title-nav {
   width: 30px;
@@ -59,9 +69,6 @@
 
 /*******DROPDOWN MENU***********/
 
-.dropdown {
-  position: relative;
-}
 
 .simbol-right {
   cursor: pointer;
@@ -82,14 +89,15 @@
 .star,
 .fa-solid {
   font-size: 25px;
-  color: green;
+  color: #33ac71;
   margin-right: 10px;
 }
+
 .fa-building-columns,
 .fa-mountain-sun,
 .fa-vihara,
 .fa-book-open-reader {
-  color: brown;
+  color: #FF6F9A;
 }
 
 .bottom-text-card {
@@ -112,8 +120,7 @@ h4 {
   margin-top: 20px;
 
   span {
-    font-weight: bold;
-    background-color: lightgray;
+    font-weight: 900;
     padding: 5px;
     border-radius: 10px;
   }
@@ -128,10 +135,12 @@ h4 {
     width: 80%;
     padding: 2em 5em;
   }
+
   .versionPc {
     display: flex;
     align-items: center;
   }
+
   .versionMobile {
     display: none;
   }
