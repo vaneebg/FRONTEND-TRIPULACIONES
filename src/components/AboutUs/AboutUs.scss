@@ -1,76 +1,85 @@
 .mainContainer {
-
   .aboutUs {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+   
 
-    .text {
-      margin-top: 1em;
-    }
+    .generalContainerAboutUs {
+      
+   
+      .text {
+        margin-bottom:5em;
+      }
 
-    .about {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      background-size: cover;
-
-      .target {
+      .about {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
-        width: 20em;
-        height: 10em;
-        padding: 1em;
-        border: 1px solid lightgray;
-        border-radius: 1rem;
-        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
-        padding-bottom: 3em;
-        margin: 2em;
-        background-color: rgba(255, 255, 255, 0.904);
-
-        .img {
-          flex: 1;
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
-          height: 18vh;
-
-          .imgAuth {
-            width: 6em;
-            height: 6em;
-            border-radius: 100%;
-            object-fit: cover;
-          }
-        }
-
-        .data {
-          flex: 2;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          height: 18vh;
-
-          .name {
+        background-size: cover;
+        // width:80%;
+        .groupCardContainer {
+          display:flex;
+          gap:15em;
+          .target {
             display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            height: 9vh;
-            margin: 0;
-          }
-
-          .iconsSocial {
-            display: flex;
-            justify-content: center;
+            flex-direction: row;
+            justify-content: space-around;
             align-items: center;
-            height: 9vh;
-            gap: 1em;
+            width: 20em;
+            height: 10em;
+            padding: 1em;
+            border: 1px solid lightgray;
+            border-radius: 1rem;
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
+            padding-bottom: 3em;
+            margin: 2em;
+            background-color: rgba(255, 255, 255, 0.904);
 
-            .svg {
-              color: black;
-              font-size: 3em;
+            .img {
+              flex: 1;
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              height: 18vh;
+
+              .imgAuth {
+                width: 6em;
+                height: 6em;
+                border-radius: 100%;
+                object-fit: cover;
+              }
+            }
+
+            .data {
+              flex: 2;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              height: 18vh;
+
+              .name {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                height: 9vh;
+                margin: 0;
+              }
+
+              .iconsSocial {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 9vh;
+                gap: 1em;
+
+                .svg {
+                  color: black;
+                  font-size: 3em;
+                }
+              }
             }
           }
         }
