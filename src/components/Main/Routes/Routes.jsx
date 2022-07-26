@@ -30,12 +30,16 @@ const Routes = () => {
   }
   return (
     <div className='main'>
-      <h1 id='h1' className='h1'>Rutopic</h1>
+      <h1 id='h1' className='register-title'>
+        Rutopic
+      </h1>
       <div className='filters'>
         <h3>Filtros</h3>
         <Filter />
         <FilterType />
-        <Button className='clearAll' onClick={() => dispatch(getAll())}>Limpiar filtros</Button>
+        <Button className='clearAll' onClick={() => dispatch(getAll())}>
+          Limpiar filtros
+        </Button>
       </div>
       <Route pageC={current} functionPage={setCurrent} />
       <div className='barra-nav'>

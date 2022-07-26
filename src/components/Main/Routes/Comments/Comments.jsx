@@ -1,32 +1,30 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import CommentDetail from './CommentDetail/CommentDetail'
+import { useDispatch, useSelector } from 'react-redux';
+import CommentDetail from './CommentDetail/CommentDetail';
 import { getAll, resetC } from '../../../../features/comments/commentsSlice';
-import { notification } from "antd";
-
-
+import { notification } from 'antd';
 
 const Comments = () => {
-    const dispatch = useDispatch();
-  const { comment } = useSelector((state) => state.comments);
+  const dispatch = useDispatch();
+  const { comment } = useSelector(state => state.comments);
 
   const getRoutesAndReset = async () => {
     await dispatch(getAll());
-    dispatch(resetC())
+    dispatch(resetC());
   };
 
   useEffect(() => {
     getRoutesAndReset();
   }, [getAll, comment]);
 
-  const { isError, isSuccess, message } = useSelector((state) => state.comments);
+  const { isError, isSuccess, message } = useSelector(state => state.comments);
 
   useEffect(() => {
     if (isError) {
-      notification.error({ message: "Error", description: message });
+      notification.error({ message: 'Error', description: message });
     }
     if (isSuccess) {
-      notification.success({ message: "Éxito", description: message });
+      notification.success({ message: 'Éxito', description: message });
     }
 
     dispatch(resetC());
@@ -34,9 +32,9 @@ const Comments = () => {
 
   return (
     <div>
-    <CommentDetail/>
+      <CommentDetail />
     </div>
-  )
-}
+  );
+};
 
-export default Comments
+export default Comments;
