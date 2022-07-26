@@ -92,7 +92,8 @@ describe("Test para comprobar el envío del formulario", () => {
     cy.get("[type='submit']").click();
     cy.get(
       "div > .ant-notification-notice > .ant-notification-notice-content > .ant-notification-notice-with-icon > .ant-notification-notice-message"
-    ).should("have.text", "Éxito");
+    ).should("have.text", "Genial!");
+    cy.get('.App > .containerRecommended > .recommendedRoute > .recommended > a').click()
   });
 });
 
@@ -133,7 +134,7 @@ describe("Test para editar comentario y borrar puntuacion y comentario", () => {
     cy.get('[data-icon = "edit"]').click()
     cy.get(
       ".ant-modal > .ant-modal-content > .ant-modal-body > form > .ant-input"
-    ).click().type('NO TENGO NADA QUE HACER');
+    ).click().clear().type('NO TENGO NADA QUE HACER');
     // cy.get("input[name=imageComment]").attachFile("radec.jpg");
     cy.get(
       ".ant-modal > .ant-modal-content > .ant-modal-body > form > .loginBt"
