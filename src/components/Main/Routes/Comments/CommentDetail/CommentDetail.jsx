@@ -10,6 +10,7 @@ import ModalEditComment from "./EditComment/ModalEditComment";
 import { Avatar, Comment, Button, Tooltip, Popconfirm } from "antd";
 import moment from "moment";
 import { DeleteOutlined } from "@ant-design/icons";
+import './CommentDetail.scss'
 
 const URL = process.env.REACT_APP_URL;
 
@@ -104,7 +105,7 @@ const CommentDetail = () => {
                   }
                 />
               </div>
-              {element.userId._id === user._id ? (
+              {element.userId?._id === user._id ? (
                 <>
                   {/* <div className="comment-btn"> */}
                   <Popconfirm

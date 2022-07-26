@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { resetPassword, updateUser } from "../../../../features/auth/authSlice";
 import { Modal, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-
 const ModalEditUser = () => {
   const [visible, setVisible] = useState(false);
   const { user } = useSelector((state) => state.auth);
@@ -95,7 +94,9 @@ const ModalEditUser = () => {
             name="imageUser"
             value={imageUser}
           />
+          <div>
           <input className="loginBt" type="submit" />
+          </div>
         </form>
       </Modal>
     </>
