@@ -10,10 +10,12 @@ const AboutUs = () => {
   return (
     <div className='mainContainer'>
       <div className='aboutUs'>
+        <div className= 'generalContainerAboutUs'>
         <div className='text'>
           <h2 className='register-title'> Aplicación creada por</h2>
         </div>
         <div className='about'>
+          <div className= 'groupCardContainer'>
           <div className='target'>
             <div className='img'>
               <img className='imgAuth' src={imgGerman} alt='German' />
@@ -47,7 +49,8 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-
+          </div>
+          <div className= 'groupCardContainer'>
           <div className='target'>
             <div className='img'>
               <img className='imgAuth' src={imgVane} alt='Vane' />
@@ -80,6 +83,8 @@ const AboutUs = () => {
                 </a>
               </div>
             </div>
+          </div>
+          </div>
           </div>
         </div>
       </div>
