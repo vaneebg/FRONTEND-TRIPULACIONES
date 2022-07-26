@@ -66,16 +66,6 @@ const GetRecommended = () => {
   }
 
   return (
-    // <div className='containerRecommended'>
-    //   <div className='recommendedRoute'>
-    //     <h1>Tu ruta recomendada es...</h1> <br />
-    //     <div className='recommended'>
-    //       <Link to={'/routes/route/' + routeFinal?._id}>
-    //         {routeFinal?.name}
-    //       </Link>
-    //     </div>
-    //   </div>
-    // </div>
     <section key={routeFinal?._id} className='wrapper-ok'>
       <h1 className='register-title'>Tu ruta recomendada es...</h1>
       <div className='main-card'>
