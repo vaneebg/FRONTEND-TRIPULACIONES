@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { resetPassword, updateUser } from "../../../../features/auth/authSlice";
 import { Modal, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import './ModalEditUser.scss'
 const ModalEditUser = () => {
   const [visible, setVisible] = useState(false);
   const { user } = useSelector((state) => state.auth);
@@ -39,7 +40,7 @@ const ModalEditUser = () => {
 
   useEffect(() => {
     setFormData(user);
-    dispatch(resetPassword())
+    dispatch(resetPassword());
   }, [user]);
 
   return (
@@ -54,7 +55,7 @@ const ModalEditUser = () => {
         onCancel={() => setVisible(false)}
         footer={null}
       >
-        <form onSubmit={onSubmit}>
+        <form className ='test' onSubmit={onSubmit}>
           <label htmlFor="name">Nombre de usuario:</label>
           <Input
             prefix={<UserOutlined />}
@@ -94,7 +95,7 @@ const ModalEditUser = () => {
             name="imageUser"
             value={imageUser}
           />
-          <div>
+          <div className='buttonEditUserContainer'>
           <input className="loginBt" type="submit" />
           </div>
         </form>
