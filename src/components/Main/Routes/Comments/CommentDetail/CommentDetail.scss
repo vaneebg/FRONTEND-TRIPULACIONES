@@ -8,4 +8,44 @@
     width:18em !important;
 
   }
+  .animate__animated{
+    display:flex;
+    justify-content: center;
   }
+  .comment-detail-route-prof{
+//   border:2px solid green;
+  width:60%;
+
+
+  }
+  .ant-comment{
+    // border:2px solid red !important;
+    justify-content: center;
+    width:100
+  }
+  .ant-comment-inner{
+    // border:2px solid black;
+    flex:1;
+  }
+  .ant-comment-content-detail{
+    padding:1em;
+    // border: 2px solid green;
+    justify-content: space-around;
+    
+  }
+  .textAndImageContainer{
+    display:flex;
+    // border:2px solid red;
+    justify-content: space-between;
+    width:100%;
+  }
+  .comment-detail-route{
+    // padding:1em;
+    // border: 2px solid purple;
+    flex:1;
+  }
+  .comment-img{
+    // border:2px solid cyan;
+  }
+  }
+

@@ -10,7 +10,7 @@ import ModalEditComment from "./EditComment/ModalEditComment";
 import { Avatar, Comment, Button, Tooltip, Popconfirm } from "antd";
 import moment from "moment";
 import { DeleteOutlined } from "@ant-design/icons";
-import './CommentDetail.scss'
+import "./CommentDetail.scss";
 
 const URL = process.env.REACT_APP_URL;
 
@@ -86,16 +86,18 @@ const CommentDetail = () => {
                   }
                   content={
                     <>
-                      <div className="comment-detail-route">
-                        <p>{element?.body}</p>
+                      <div className="textAndImageContainer">
+                        <div className="comment-detail-route">
+                          <p>{element?.body}</p>
+                        </div>
+                        {element?.imagepath ? (
+                          <img
+                            alt=""
+                            src={URL + "/comments/" + element?.imagepath}
+                            className="comment-img"
+                          ></img>
+                        ) : null}
                       </div>
-                      {element?.imagepath ? (
-                        <img
-                          alt=""
-                          src={URL + "/comments/" + element?.imagepath}
-                          className="comment-img"
-                        ></img>
-                      ) : null}
                     </>
                   }
                   datetime={
