@@ -13,7 +13,6 @@ const AboutUs = () => {
         <div className="text">
           <h2> Aplicación creada por</h2>
         </div>
-
         <div className="about">
           <div className="target">
             <div className="img">
