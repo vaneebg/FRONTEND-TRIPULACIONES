@@ -5,20 +5,20 @@
   gap: 0.2em;
 
   button {
-    background-color: #FF6F9A;
+    background-color: rgb(209, 77, 77);
     color: white;
     border-radius: 30px;
   }
   button:hover {
     cursor: pointer;
-    color: #FF6F9A;
-    border: 1px solid #FF6F9A;
+    color: rgb(209, 77, 77);
+    border: 1px solid rgb(209, 77, 77);
   }
   button:active {
-    background-color: #FF6F9A;
-  }
+    background-color: rgb(209, 77, 77);
   button:focus {
-    color: #FF6F9A;
-    border: 2px solid #FF6F9A;
+    color: rgb(209, 77, 77);
+    border: 2px solid rgb(209, 77, 77);
   }
+}
 }
