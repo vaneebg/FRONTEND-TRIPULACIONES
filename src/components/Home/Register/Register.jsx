@@ -28,9 +28,7 @@ const Register = () => {
   useEffect(() => {
     if (isSuccess) {
       notification.success({ message: 'Éxito register', description: message });
-      setTimeout(() => {
         navigate('/');
-      }, 1000);
     }
     if (isError) {
       notification.error({ message: 'Error register', description: message });
