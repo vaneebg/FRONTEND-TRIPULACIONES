@@ -2,9 +2,6 @@
   margin: 0 auto;
 }
 
-.versionPc{
-  background-color: #33ac71; // me he quedado aquí
-}
 .pag-ok {
   margin-top: 1em;
 }
@@ -30,17 +27,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  .card-header-left {
-    display: flex;
-    align-items: center;
-  }
-
-  .dropdown {
-    position: relative;
-  }
 }
 
+.card-header-left {
+  display: flex;
+  align-items: center;
+}
 
 .picture-title-nav {
   width: 30px;
@@ -69,6 +61,9 @@
 
 /*******DROPDOWN MENU***********/
 
+.dropdown {
+  position: relative;
+}
 
 .simbol-right {
   cursor: pointer;
@@ -89,7 +84,7 @@
 .star,
 .fa-solid {
   font-size: 25px;
-  color: #33ac71;
+  color: green;
   margin-right: 10px;
 }
 
@@ -120,7 +115,8 @@ h4 {
   margin-top: 20px;
 
   span {
-    font-weight: 900;
+    font-weight: bold;
+    background-color: lightgray;
     padding: 5px;
     border-radius: 10px;
   }
@@ -138,7 +134,13 @@ h4 {
 
   .versionPc {
     display: flex;
+    justify-content: space-around;
     align-items: center;
+    width: 50%;
+
+    .votos {
+      margin: 0;
+    }
   }
 
   .versionMobile {
