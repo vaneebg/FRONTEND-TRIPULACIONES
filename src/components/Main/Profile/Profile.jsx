@@ -104,7 +104,7 @@ const Profile = () => {
         <br />
         <div className='rutas'>
           <h3 className='prof-h3'>Rutas favoritas</h3>
-          <div className='likeRoutes'>{likedRoutes}</div>
+         {likedRoutes.length!==0 ? <div className='likeRoutes'>{likedRoutes}</div> : <span>Aún no tienes ninguna ruta en favoritos 😞</span>} 
         </div>
       </div>
     </div>
