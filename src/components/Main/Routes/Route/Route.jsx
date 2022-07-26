@@ -115,9 +115,14 @@ const Route = ({ pageC, functionPage }) => {
                 </div>
                 {el.scoresId.length !== 0 ? (
                   <span className='versionPc'>
-                    <Rate allowHalf disabled defaultValue={diff} /> {diff}/
-                    {length}
-                  </span>
+                  <div className='stars'>
+                    <Rate disabled allowHalf defaultValue={diff} />
+                  </div>
+                  <div className='media' >
+                    {diff}
+                  </div>
+                  <p className='votos' >({length} votos)</p>
+                </span>
                 ) : null}
                 <div className='bottom-icon-left'>
                   {el?.transport === 'peu' ? (
@@ -142,10 +147,10 @@ const Route = ({ pageC, functionPage }) => {
                     <div className='stars'>
                       <Rate disabled allowHalf defaultValue={diff} />
                     </div>
-                    <div>
+                    <div className='media' >
                       {diff}
                     </div>
-                    <p>({length} votos)</p>
+                    <p className='votos' >({length} votos)</p>
                   </span>
                 ) : null}
                 <div className='bottom-adds'>
