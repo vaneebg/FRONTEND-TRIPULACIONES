@@ -10,7 +10,7 @@ const GetRecommended = () => {
     const { userId, routeRecommended } = useSelector(state => state.quiz);
     const { routesCompleted } = useSelector(state => state.routes);
     const dispatch = useDispatch()
-const id=routeRecommended.recommended_route_id
+const id=routeRecommended?.recommended_route_id
 
 const routeFinal=routesCompleted[id-1]
 console.log(routeFinal)
@@ -23,7 +23,7 @@ console.log(routeFinal)
     
     return (<>
     <h1>Tu ruta recomendada es...</h1> <br />
-    <Link to={'/routes/route/' + routeFinal._id}>{routeFinal?.name}</Link>
+    <Link to={'/routes/route/' + routeFinal?._id}>{routeFinal?.name}</Link>
         </>
     )
 }

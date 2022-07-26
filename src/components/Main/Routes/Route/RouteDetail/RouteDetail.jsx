@@ -50,14 +50,15 @@ const RouteDetail = () => {
           <img className='imgRouteDetail' src={route?.image} alt='' />
           <p>{route?.description_es}</p>
         </div>
-        <p>
+          {route?.startingPoint!=='NaN' ?  <p>
           <PlaySquareOutlined className='race-point' />
           {route?.startingPoint}
-        </p>
-        <p>
+        </p> : null}
+        {route?.endingPoint!=='NaN' ? <p>
           <FlagOutlined className='race-point' />
           {route?.endingPoint}
-        </p>
+        </p> :null}
+       
         <div className='styleWrapper'>
           <MapContainer
             className='stylesMap'
