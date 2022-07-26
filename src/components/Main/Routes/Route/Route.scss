@@ -1,9 +1,11 @@
 .wrapper-ok {
   margin: 0 auto;
 }
+
 .pag-ok {
   margin-top: 1em;
 }
+
 .main-card {
   margin: 30px auto;
   border: 1px solid rgb(222, 222, 222);
@@ -85,15 +87,12 @@
   color: green;
   margin-right: 10px;
 }
+
 .fa-building-columns,
 .fa-mountain-sun,
 .fa-vihara,
 .fa-book-open-reader {
-<<<<<<< HEAD
-  color: brown;
-=======
   color: rgb(209, 77, 77);
->>>>>>> develop
 }
 
 .bottom-text-card {
@@ -132,10 +131,18 @@ h4 {
     width: 80%;
     padding: 2em 5em;
   }
+
   .versionPc {
     display: flex;
+    justify-content: space-around;
     align-items: center;
+    width: 50%;
+
+    .votos {
+      margin: 0;
+    }
   }
+
   .versionMobile {
     display: none;
   }
