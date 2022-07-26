@@ -56,7 +56,7 @@ afterEach(() => {
 
 describe("Test para testear confirmación y Login", () => {
   it("Comprobación de logueo", () => {
-    cy.request("get", "http://localhost:8080/users/confirmByCypress");
+    cy.request("get", "https://app-rutopic.herokuapp.com/users/confirmByCypress");
     cy.visit("http://localhost:3000");
     cy.get('input[name="email"]').click().type("radec@gmail.com");
     cy.get('input[name="password"]').click().type("123456");
@@ -92,7 +92,6 @@ describe("Test para comprobar el envío del formulario", () => {
       "div > .ant-notification-notice > .ant-notification-notice-content > .ant-notification-notice-with-icon > .ant-notification-notice-message"
     ).should("have.text", "Genial!");
     cy.wait(3000)
-    cy.get('.card > .card-header > .dropdown > .simbol-right > a').click()
   });
 });
 
