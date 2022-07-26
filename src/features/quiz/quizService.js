@@ -24,6 +24,7 @@ const createQuizData = async (data) => {
   return res.data;
 }
 const getRecommended = async (userId) => {
+  console.log('soy la id del usuario que me envia data',userId)
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.get('https://api-routes-data.herokuapp.com/getRecommendation/?id='+userId, {
     headers: {
@@ -31,6 +32,7 @@ const getRecommended = async (userId) => {
     },
   }
   );
+  console.log('soy el service de los de Data, traigo id de ruta recomendada',res.data)
   return res.data;
 }
 
