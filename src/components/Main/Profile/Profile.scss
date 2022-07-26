@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 .profile-container {
-  height: 110vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -16,19 +16,17 @@
   background-image: url('../../../assets/fondo_ruta.jpg');
   background-size: cover;
   background-attachment: fixed;
-  margin-bottom: 3em;
   
 }
 .likeRoutes{
-height:11em;
+height:9em;
 overflow: scroll;
+
 }
-::-webkit-scrollbar {
+::-webkit-scrollbar{
   display: none;
 }
-::-moz-scrollbar {
-  display: none;
-}
+
 .profile-title {
   font-size: 2rem;
   color:white;
@@ -40,7 +38,8 @@ overflow: scroll;
 .profile-card {
   width: 80%;
   padding: 3rem;
-  border: 1px solid black;
+  margin-bottom: 5em;
+  margin-top:2em;
   border-radius: 1rem;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
   background-color: rgba(255, 255, 255, 0.904);
@@ -71,17 +70,28 @@ ant-btn-primary:hover {
   background-color: lightgrey;
 }
 
-.btn-profile {
+.btn-profileRed {
   border-radius: 5px;
-  padding: 6px 11px;
   border: 1px solid white;
   cursor: pointer;
   font-size: 13px;
   background-color: lightgrey;
 }
-.btn-profile:hover {
-  background-color: red;
+.btn-profile2 {
+  border-radius: 5px;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 13px;
+  background-color: lightgrey;
+}
+.btn-profile2:hover {
+  background-color: blue;
   color: white;
+}
+.btn-profileRed:hover {
+  background-color: red !important;
+  color: white !important;
+  border:1px solid red !important;
 }
 .but-profile-div {
   display: flex;
@@ -128,4 +138,10 @@ ant-btn-primary:hover {
 
   flex: 2;
   justify-content: flex-start;
+}
+
+@media (min-width: 450px) {
+  .profile-container {
+    margin-bottom: 0;
+  }
 }
