@@ -30,6 +30,7 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/routes/route/:_id' element={<PrivateZone><RouteDetail /></PrivateZone>} />
           <Route path='/routeRecommended' element={<PrivateZone><GetRecommended/></PrivateZone>}/>
+          <Route path='/aboutUs' element={<PrivateZone><AboutUs /></PrivateZone>} />
         </Routes>
         <Footer />
       </BrowserRouter>
