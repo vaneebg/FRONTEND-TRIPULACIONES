@@ -71,9 +71,7 @@ describe("Test para testear confirmación y Login", () => {
 describe("Test para comprobar estados y actualización de usuario", () => {
   it("Actualización de perfil", () => {
     cy.get('[data-icon = "user"]').click({ force: true });
-    cy.get(
-      ".profile-card > .profile-info > .but-profile-div > .ant-btn > span"
-    ).click();
+    cy.get('.profile-card > .profile-info > .but-profile-div > .ant-btn-primary > span').click()
     cy.get('[name="name"]').should("have.value", "Radec");
     cy.get('[name="name"]').click().clear().type("Caro");
     cy.get('[name="genre"]').select("women");
@@ -93,7 +91,8 @@ describe("Test para comprobar el envío del formulario", () => {
     cy.get(
       "div > .ant-notification-notice > .ant-notification-notice-content > .ant-notification-notice-with-icon > .ant-notification-notice-message"
     ).should("have.text", "Genial!");
-    cy.get('.App > .containerRecommended > .recommendedRoute > .recommended > a').click()
+    cy.wait(3000)
+    cy.get('.card > .card-header > .dropdown > .simbol-right > a').click()
   });
 });
 
@@ -135,25 +134,18 @@ describe("Test para editar comentario y borrar puntuacion y comentario", () => {
     cy.get(
       ".ant-modal > .ant-modal-content > .ant-modal-body > form > .ant-input"
     ).click().clear().type('NO TENGO NADA QUE HACER');
-    // cy.get("input[name=imageComment]").attachFile("radec.jpg");
-    cy.get(
-      ".ant-modal > .ant-modal-content > .ant-modal-body > form > .loginBt"
-    ).click();
+   
+    cy.get('.ant-modal-content > .ant-modal-body > .formContainer > .buttonContainer > .loginBt').click()
     cy.wait(3000);
     cy.get('[data-icon = "delete"]').click()
-    // cy.get('.ant-popover-inner > .ant-popover-inner-content > .ant-popover-buttons > .ant-btn-primary > span').click()
   });
 });
 describe("Test para eliminar usuario", () => {
   it(" borrado", () => {
     cy.get('[data-icon = "user"]').click({ force: true });
-    cy.get(
-      ".profile-container > .profile-card > .profile-info > .but-profile-div > .btn-profile"
-    ).click();
-    
-    cy.get(
-      ".ant-popover-inner > .ant-popover-inner-content > .ant-popover-buttons > .ant-btn-primary > span"
-    ).click();
+    cy.get('.profile-card > .profile-info > .but-profile-div > .ant-btn-default > span').click()
+ 
+    cy.get('.ant-popover-inner > .ant-popover-inner-content > .ant-popover-buttons > .ant-btn-primary > span').click()
    
   });
 });
