@@ -49,10 +49,10 @@ const Routes = () => {
             spy={true}
             smooth={true}
             duration={800}
-            to='h2'
+            to='h1'
             title='Sube al menú'
           >
-            {' '}
+           
             <CaretUpOutlined />
             <CaretUpOutlined />
             <CaretUpOutlined />
