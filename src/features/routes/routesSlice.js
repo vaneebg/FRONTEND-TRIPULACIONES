@@ -4,6 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   routes:[],
+  routesCompleted:[],
   route: {},
   routeLiked:{},
   routeDisliked:{},
@@ -17,6 +18,13 @@ const initialState = {
 export const getAll = createAsyncThunk("routes/getAll", async (page) => {
     try {
       return await routesService.getAll(page);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+  export const getAllNotPage = createAsyncThunk("routes/getAllNotPage", async () => {
+    try {
+      return await routesService.getAllNotPage();
     } catch (error) {
       console.error(error);
     }
@@ -78,6 +86,10 @@ export const getByTransport = createAsyncThunk("routes/getByTransport", async (d
         state.isSuccess = true;
         state.routes = action.payload.routes;
         state.isLoading = false
+      })
+      .addCase(getAllNotPage.fulfilled, (state, action) => {
+        state.isSuccess = true;
+        state.routes = action.payload;
       })
         .addCase(getAll.pending, (state) => {
           state.isLoading = true;

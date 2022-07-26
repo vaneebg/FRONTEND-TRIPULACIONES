@@ -12,6 +12,15 @@ const getAll = async (page)=> {
     });
     return res.data
 };
+const getAllNotPage = async ()=> {
+  const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.get(URL+"/routes/", {
+      headers: {
+        authorization: user?.user.tokens[0]
+      }
+    });
+    return res.data
+};
 
 const getById = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -70,7 +79,8 @@ const getByTransport = async(data) => {
     like,
     dislike,
     getByTransport,
-    searchByType
+    searchByType,
+    getAllNotPage
   };
   
   export default routesService
