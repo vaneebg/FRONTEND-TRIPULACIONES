@@ -20,8 +20,6 @@
     - [API](#1-api)
 
 
-
-
 - [Retos presentados](#dart-retos-presentados-dart)
 
 
@@ -89,3 +87,68 @@ Ambos repositorios están desplegados, el backend en Heroku y el frontend en Ama
 - Cypress-localstorage-commands
 - Dotenv
 - Trello
+
+
+
+
+------
+
+## :dart: Origen 
+
+
+
+
+
+----
+
+## :pushpin: Objetivos 
+
+
+
+
+-----
+
+
+## :cinema: Inspiración 
+
+
+
+
+
+
+
+----------
+
+----------
+# :green_book: Descripción del proyecto :green_book:
+
+
+## 1. API
+
+Documentación en Swagger:
+````
+http://localhost:8080/api-docs/
+````
+
+
+--------
+# :dart: Retos presentados :dart:
+
+
+
+
+
+
+--------
+# :purple_heart: Agradecimientos :purple_heart:
+
+
+
+
+-----------
+# :raised_hands: Autores :raised_hands:
+
+- [Germán Molero](https://github.com/Molerog)
+- [Vanesa Beltrán](https://github.com/vaneebg)
+- [Vicente Barberá](https://github.com/Vincecoorp21)
+- [Rebeca Alonso](https://github.com/RebecaASuesta)
