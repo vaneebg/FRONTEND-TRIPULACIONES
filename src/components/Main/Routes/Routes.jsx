@@ -30,7 +30,9 @@ const Routes = () => {
   }
   return (
     <div className='main'>
-      <h1 id='h2'>Rutas</h1>
+      <h1 id='h2' className='register-title'>
+        Rutas
+      </h1>
       <div className='filters'>
         <h3>Filtros búsqueda:</h3>
         <Filter />

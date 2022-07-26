@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Roboto:wght@300;400;500;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100,200,300,400&family=Balthazar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100&family=Balthazar&family=Libre+Barcode+39&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Overpass+Mono:wght@300&display=swap');
 
 h1 {
   font-family: 'Playfair';
@@ -45,10 +48,13 @@ h1 {
 }
 .register-title {
   font-size: 2rem;
-  font-family: 'Pacifico';
+  font-family: 'Dosis';
   opacity: 0.5;
   margin-top: 0;
-  text-shadow: 4px 4px 7px red;
+  color: black;
+  font-weight: 800;
+  margin-top: 1em;
+  // text-shadow: 4px 4px 7px red;
 }
 
 @media (min-width: 450px) {
