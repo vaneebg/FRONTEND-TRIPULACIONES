@@ -35,7 +35,7 @@ const RouteDetail = () => {
     return (
       <div key={point._id} className='poiDesc'>
         <Timeline>
-          <Timeline.Item color='red'>{point?.name}</Timeline.Item>
+          <Timeline.Item color='red'><b>{point?.name}</b></Timeline.Item>
           <Timeline.Item color='green'>{point?.description_es}</Timeline.Item>
         </Timeline>
       </div>
