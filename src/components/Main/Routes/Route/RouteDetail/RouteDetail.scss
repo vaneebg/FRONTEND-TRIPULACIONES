@@ -109,8 +109,8 @@
 }
 .ant-comment-content-detail {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: red;
 }
 
 .comment-img {
