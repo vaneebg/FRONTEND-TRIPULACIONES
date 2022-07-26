@@ -28,6 +28,9 @@ const Quiz = () => {
     }
     if (isSuccess) {
       notification.success({placement:'top', message: 'Genial!',description: 'Redirigiendo a tu ruta recomendada' });
+      setTimeout(() => {
+        navigate('/routeRecommended')
+      },2000);
     }
     dispatch(reset());
   }, [isError, isSuccess, message]);
@@ -44,9 +47,7 @@ const Quiz = () => {
   const onSubmit = e => {
     e.preventDefault();
     dispatch(createQuizData(formData));
-    setTimeout(() => {
-      navigate('/routeRecommended')
-    },2000);
+   
   };
 
   return (
