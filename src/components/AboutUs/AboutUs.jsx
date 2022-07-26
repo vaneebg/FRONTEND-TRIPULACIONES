@@ -1,7 +1,7 @@
 
 import imgVane from '../../assets/vane.jpg'
 import imgRebeca from '../../assets/Oriol.jpg'
-import imgGerman from '../../assets/Marisa.webp'
+import imgGerman from '../../assets/German.png'
 import imgVincent from '../../assets/Vicenta.webp'
 import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons"
 import './AboutUs.scss'
