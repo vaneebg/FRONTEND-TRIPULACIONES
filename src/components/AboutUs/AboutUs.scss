@@ -6,7 +6,8 @@
    
 
     .generalContainerAboutUs {
-      
+      display:flex;
+      flex-direction: column;
    
       .text {
         margin-bottom:5em;
@@ -19,9 +20,7 @@
         justify-content: center;
         align-items: center;
         background-size: cover;
-        .groupCardContainer {
-          display:flex;
-          gap:15em;
+        .groupCardContainer {        
           .target {
             display: flex;
             flex-direction: row;
@@ -105,6 +104,10 @@
         padding: 10em;
         padding-top: 0;
       }
+    }
+    .groupCardContainer{
+       display:flex;
+          gap:15em;
     }
   }
 }
