@@ -3,6 +3,15 @@
     width:170px !important;
 }
 
+.deleteAndEditContainer{
+  display:flex;
+  justify-content: center;
+  padding-top: 1em;
+  padding-bottom:2em;
+  gap:1em;
+}
+
+
 @media (min-width: 450px) {
   .comment-img{
     width:18em !important;
@@ -11,6 +20,8 @@
   .animate__animated{
     display:flex;
     justify-content: center;
+    flex-direction:column;
+    align-items: center;
   }
   .comment-detail-route-prof{
   width:60%;
@@ -39,5 +50,10 @@
     flex:1;
   }
  
+  .deleteAndEditContainer{
+    display:flex;
+    padding-top: 1em;
+    padding-bottom:2em;
+    gap:1em;
   }
-
+  }

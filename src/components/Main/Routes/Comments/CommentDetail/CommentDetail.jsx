@@ -108,8 +108,9 @@ const CommentDetail = () => {
                 />
               </div>
               {element?.userId?._id === user?._id ? (
-                <>
+                <div className='deleteAndEditContainer'>
                   {/* <div className="comment-btn"> */}
+                  
                   <Popconfirm
                     placement="rightTop"
                     title="Seguro que quieres borrar este comentario?"
@@ -117,13 +118,14 @@ const CommentDetail = () => {
                     okText="Yes"
                     cancelText="No"
                   >
+                    
                     <Button type="danger">
                       <DeleteOutlined />
                     </Button>
-                  </Popconfirm>{" "}
+                  </Popconfirm>
                   {/* </div> */}
                   <ModalEditComment commentId={element?._id} />
-                </>
+                </div>
               ) : (
                 ""
               )}
