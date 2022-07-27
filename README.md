@@ -95,15 +95,23 @@ Ambos repositorios están desplegados, el backend en Heroku y el frontend en Ama
 
 ## :dart: Origen 
 
+EL origen del proyecto es la creación de un MVP Webb de una Aplicación de Rutas para el área metropolitana de Valencia
 
-
-
+Para ello se procedido a validar una necesidad a cubrir que hemos detectado en el mercado, con un Plan de Acción claro: La creación de una web intuitiva, cercana
 
 ----
 
 ## :pushpin: Objetivos 
 
-
+* Aplicación privada
+* Registro de usuarios
+* Login de usuarios
+* Vista Rutas
+* Detalle de las rutas: puntos de interés, comentarios sobre las rutas y puntuación de rutas
+* Guardar ruta en favoritos
+* Vosta perfil(datos personales y rutas favoritas)
+* Vista cuestionario
+* Logout de usuarios
 
 
 -----
