@@ -31,7 +31,7 @@ const Routes = () => {
   return (
     <div className='main'>
       <h1 id='h1' className='register-title'>
-        Rutopic
+        Routopic
       </h1>
       <div className='filters'>
         <h3>Filtros</h3>
