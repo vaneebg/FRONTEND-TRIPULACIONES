@@ -103,6 +103,23 @@ Para ello se procedido a validar una necesidad a cubrir que hemos detectado en e
 
 ## :pushpin: Objetivos 
 
+Objetivos de marketing:
+* Detección de la necesidad
+* Aglutinar en una App las rutas más emblemáticas de Valencia
+* Plan de acción: crear una web responsive, intuitiva, amigable y escalable
+* Ámbito de actuación global: al ser una web destinada al turismo queremos que tenga la máxima repercusión y alcance
+* Fácilmente escalable: 
+<br>
+    - 1. Traducir la web en varios idiomas(valenciano,inglés,francés,italiano,etc)
+    - 2. Que el usuario pueda crear sus propias rutas
+    - 3. Añadir ciudades de otras poblaciones
+
+<br>
+Tras la validación de la idea y del público objetivo se procederá a la creación del MVP para consolidar la idea inicial
+
+<br>
+
+Objetivos a nivel funcional:
 * Aplicación privada
 * Registro de usuarios
 * Login de usuarios
@@ -119,16 +136,16 @@ Para ello se procedido a validar una necesidad a cubrir que hemos detectado en e
 
 ## :cinema: Inspiración 
 
-
-
-
-
+Para la creación de la App nos hemos basado en otros modelos de redes sociales tales como: Facebook, Instagram, Tweeter, etc
 
 
 ----------
 
 ----------
-# :green_book: Descripción del proyecto :green_book:
+
+# :framed_picture:  Imagen de ejemplo
+
+![Home screenshot](./src/assets/RutaMain.jpg)
 
 
 ## 1. API
@@ -142,7 +159,9 @@ http://localhost:8080/api-docs/
 --------
 # :dart: Retos presentados :dart:
 
-
+Crear un ranking de rutas más valoradas
+La creación de la App en varios componentes
+Efectuar un correcto deployment
 
 
 
@@ -150,8 +169,7 @@ http://localhost:8080/api-docs/
 --------
 # :purple_heart: Agradecimientos :purple_heart:
 
-
-
+Agradecimientos a mis compañeros de equipo por el trabajo tan intenso a la par que gratificante teniendo en cuenta que hemos desarrollado una aplicación completamente funcional en 9 días.
 
 -----------
 # :raised_hands: Autores :raised_hands:
