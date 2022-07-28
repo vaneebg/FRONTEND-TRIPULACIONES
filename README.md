@@ -61,7 +61,10 @@ npm start
 
 Automáticamente se te abrirá una nueva ventana del navegador con la página web.
 
-Ambos repositorios están desplegados, el backend en Heroku y el frontend en Amazon Web Service. En caso de querer acceder al proyecto desplegado, la página web es la siguiente:
+Ambos repositorios están desplegados, el backend en Heroku y el frontend en Amazon Web Service. En caso de querer acceder al proyecto desplegado, la página web es la siguiente: https://main.d3kb3i2flsi28n.amplifyapp.com/
+
+También se puede acceder a ella mediante el escaneo de este código QR:
+![foto](./src/assets/QR.png)
 
 
 
