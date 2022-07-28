@@ -31,7 +31,11 @@
     object-fit: cover;
     width: 100%;
     padding: 3em;
-    max-width: 70%;
+    max-width: 100%;
+  }
+  p{
+    padding:0 2em;
+    text-align: justify;
   }
 }
 
