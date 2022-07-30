@@ -32,10 +32,13 @@
 
 # :bookmark_tabs: Sobre el proyecto :bookmark_tabs:
 Vistas previas:
-- Escritorio
+- Escritorio:
+
 ![foto](./src/assets/escritorio.png)
 
-- Móvil
+
+- Móvil:
+
 ![foto](./src/assets/movil.png)
 
 
