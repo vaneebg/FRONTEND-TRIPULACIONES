@@ -31,7 +31,15 @@
 ------------------
 
 # :bookmark_tabs: Sobre el proyecto :bookmark_tabs:
+Vistas previas:
+- Escritorio
+![foto](./src/assets/escritorio.png)
 
+- Móvil
+![foto](./src/assets/movil.png)
+
+
+------------ 
 
 ## :nut_and_bolt: Instalación y despliegue 
 
@@ -63,7 +71,9 @@ Automáticamente se te abrirá una nueva ventana del navegador con la página we
 Ambos repositorios están desplegados, el backend en Heroku y el frontend en Amazon Web Service. En caso de querer acceder al proyecto desplegado, la página web es la siguiente: https://main.d3kb3i2flsi28n.amplifyapp.com/
 
 También se puede acceder a ella mediante el escaneo de este código QR:
+
 ![foto](./src/assets/QR.png)
+
 
 
 
@@ -102,23 +112,26 @@ EL origen del proyecto es la creación de un MVP Webb de una Aplicación de Ruta
 Para ello se procedido a validar una necesidad a cubrir que hemos detectado en el mercado, con un Plan de Acción claro: La creación de una web intuitiva, cercana.
 
 Esta app cuenta con un registro de usuarios con la posibilidad de elegir foto de perfil. Tiene una vista general donde puedes ver todas las rutas paginadas de 10 en 10 y unos filtros que te ayudan en caso de que busques algo más concreto.
+
 ![foto](./src/assets/rutas.gif)
 
 
 
 Además tiene una vista detalle de cada ruta, compuesta por su imagen, descripción, y un mapa interactivo sobre el que podemos desplazarnos además de hacer zoom y hacer click sobre cada uno de los puntos de interés para ver su nombre. Por otra parte, debajo hay una descripción de estos puntos, además de la posibilidad de poder votar la ruta y escribir un comentario(solo texto o texto e imagen). 
+
 ![foto](./src/assets/rutadetail.gif)
 
-Por otro lado, el usuario puede guardarse las rutas que considere más interesantes en su perfil. Puede cambiar su foto de perfil e incluso su nombre o su contraseña. Por último, puede hacer logout así como borrar su cuenta. Vista en el video de las interacciones con loss filtros también.
+Por otro lado, el usuario puede guardarse las rutas que considere más interesantes en su perfil. Puede cambiar su foto de perfil e incluso su nombre o su contraseña. Por último, puede hacer logout así como borrar su cuenta. Vista en el video de las interacciones con los filtros también.
+
 ![foto](./src/assets/perfil.gif)
 
 En lo referente al trabajo conjunto con Data Science, el usuario puede rellenar un cuestionario con diversas preferencias que le llevará automáticamente a una ruta recomendada gracias al Machine Learning hecho por nuestros compañeros.
+
 ![foto](./src/assets/cuestionario.gif)
 
 
 Completamente responsive, tanto si la quieres visualizar en modo móvil o escritorio:
-![foto](./src/assets/escritorio.png)
-![foto](./src/assets/movil.png)
+
 ![foto](./src/assets/responsive.gif)
 
 
@@ -135,16 +148,17 @@ Objetivos de marketing:
 * Ámbito de actuación global: al ser una web destinada al turismo queremos que tenga la máxima repercusión y alcance
 * Fácilmente escalable: 
 <br>
-    - 1. Traducir la web en varios idiomas(valenciano,inglés,francés,italiano,etc)
+
+- 1. Traducir la web en varios idiomas(valenciano,inglés,francés,italiano,etc)
 
 
-    - 2. Que el usuario pueda crear sus propias rutas
+- 2. Que el usuario pueda crear sus propias rutas
 
 
-    - 3. Añadir ciudades de otras poblaciones
+- 3. Añadir ciudades de otras poblaciones
 
 <br>
-Tras la validación de la idea y del público objetivo se procederá a la creación del MVP para consolidar la idea inicial
+Tras la validación de la idea y del público objetivo se procederá a la creación del MVP para consolidar la idea inicial.
 
 <br>
 
@@ -174,9 +188,17 @@ http://localhost:8080/api-docs/
 # :dart: Retos presentados :dart:
 
 Crear un ranking de rutas más valoradas con nota media.
+
+
 La creación de la App en varios componentes.
+
+
 Control del ciclo de vida de cada componente y de los estados.
+
+
 Trabajo conjunto con API de Data Science integrando sus datos en nuestra API.
+
+
 Efectuar un correcto deployment.
 
 
